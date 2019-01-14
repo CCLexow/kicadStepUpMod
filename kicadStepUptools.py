@@ -80,7 +80,7 @@
 # better arc and line import
 # remove test button
 # enable confirm on exit
-# replace FreeCAD.Console.Message -> say 
+# replace FreeCAD.Console.Message -> say
 ##todo list
 # collision and proximity as microelly
 ## kicad StepUp
@@ -115,7 +115,7 @@
 # cutting hole by hole instead of hole compound
 # added holes_solid var
 # to have holes as solid to garantee cutting
-# handled single circle 
+# handled single circle
 # used OpenSCAD2Dgeom instead of wire + face (best option)
 # http://www.freecadweb.org/wiki/index.php?title=Macro_Creating_faces_from_a_DXF_file
 # fixed unicode text parsing
@@ -125,7 +125,7 @@
 # try to optimize cutting changing creation/type of holes
 # manage bklist and volume
 # accept with or without /\ at the end of 3Dpath
-# search models in KIPRJMOD and in KISYS3DMOD 
+# search models in KIPRJMOD and in KISYS3DMOD
 # removed unicode chars in .kicad_pcb
 # exported wrl, step from python
 # reload & display ini cfg file
@@ -160,7 +160,7 @@
 # implemented caching for 3D models
 # optimized for fusion w/ colors
 # added support for alias i.e. :Kicad3D: as for environment variables
-# added crease angle for wrl export 
+# added crease angle for wrl export
 # added support for ${KISYS3DMOD}/ in new 3d viewer path resolver
 # accepting .wrl .step .stp .iges .igs as 3d models directly in kicad_pcb
 # added fixedPosition for aligning part to footprint in assembly2
@@ -280,8 +280,8 @@
 # improve help and add sketch functionality
 # auto constraint coincident points and vertical/horizontal
 # edge_width from kicad_pcb
-# managed not supported geometry BSplines & Ellipses with optimized deviation   # loop in App.ActiveDocument.PCB_Sketch.Geometry searching for coincident vertex 
-# aligned Sketch to center of A4 in pcbnew if first time 
+# managed not supported geometry BSplines & Ellipses with optimized deviation   # loop in App.ActiveDocument.PCB_Sketch.Geometry searching for coincident vertex
+# aligned Sketch to center of A4 in pcbnew if first time
 # removing sketches from export 3d to step button
 # removing sketches in FC0.16 and when exporting automatically
 # added use grid_origin as reference point for placing the board and for sketch!!!
@@ -289,7 +289,7 @@
 # managed write permissions error message
 # fixed App::Part list inverted after FC 12090 https://github.com/FreeCAD/FreeCAD/pull/916
 # fixed case of pcb with one drill only
-# minor fix when exporting wrl from multi objects 
+# minor fix when exporting wrl from multi objects
 # fixed tabify
 # added better support for Body (hidden Parts)
 # fixed a regression in Sketch
@@ -333,7 +333,7 @@
 # assigned combobox to defined colors
 # improved generation of complex footprint with arcs
 # partially implemented Circle Geometry primitive
-# improved writing fp data 
+# improved writing fp data
 # push Moved 3D model(s) to kicad PCB
 # sync Reference in case of lost correct Label (import export STEP file with Links)
 # improved precision on board data using "{:.3f}".format for pushpcb & Pushfootprint and angles
@@ -357,7 +357,7 @@
 ## remove print say etc, remove shape show, remove extra import, remove extra functions FC_016
 ## App -> FreeCAD
 
-# done: allow bspline on fp generator 
+# done: allow bspline on fp generator
 # done: completing py3 compatibility
 
 ## started to implement isInside using bboxes to check if drills are nested, and then
@@ -365,7 +365,7 @@
 ##    or use a python feature as in pcb for having the board updated live
 ## approximate arcs from segments https://www.freecadweb.org/wiki/Macro_EdgesToArc
 
-## add AP214-203 settings read,set,restore both on step-step(h) 
+## add AP214-203 settings read,set,restore both on step-step(h)
 ##    when exporting step and step+wrl
 ## ... there is a mess in Tool variables after jm pr910
 ## use float in all data from semantic parser  !!!!!
@@ -373,7 +373,7 @@
 
 ## evaluate to add comment line and behavior for font_size = 0 for default size
 ## evaluate makeCompound as comment line and option beside fuseAll (not useful)
-## check basepoint 
+## check basepoint
 ## simplify pdf manual and update internal help
 ## assign shininess and specular color for faces? available?
 ## adding top bottom lights
@@ -458,7 +458,7 @@ ___ver___ = "8.2.0.5"
 __title__ = "kicad_StepUp"
 __author__ = "maurice & mg"
 __Comment__ = 'Kicad STEPUP(TM) (3D kicad board and models exported to STEP) for FreeCAD'
-___ver_ksu___ = "4.1.3.0  April 2017" 
+___ver_ksu___ = "4.1.3.0  April 2017"
 ___ver_GUI___ = "ksu-docked-v3.2"
 IDF_ImporterVersion="3.9.2"
 __Icon__ = "stepup.png"
@@ -487,7 +487,7 @@ use_pypro = False #False #enable/disable timestamp as python property; False=dis
 conv_offs = 1.0 #conversion offset from decimils to mm pcb version >= 20171114
 original_filename=""
 edge_width = None
-load_sketch=True 
+load_sketch=True
 dvm = 3.0 # obsolete: discretizer multiplier factor
 dqd = 0.02 #discretize(QuasiDeflection=d) => gives a list of points with a maximum deflection 'd' to the edge (faster)
 precision = 0.1 # precision in spline or bezier conversion
@@ -577,7 +577,7 @@ exporting_mode = hierarchy
 ;exporting_mode = hierarchy
 ;exporting_mode = flat
 ;exporting_mode = onelevel
-;;step exporting mode 
+;;step exporting mode
 """
 
 font_section=u"""
@@ -720,16 +720,16 @@ class SexpValueDict(OrderedDict):
 
     def add(self,sexp, action=3):
         '''Add an S-Expression value
-            
+
             Args:
                 sexp (`Sexp`): S-Expression value to be added
                 action (int): action to take when an storing an S-Expression
                               Acceptable values are,
-                              
+
                     * 0: overwrite if there one with the same key
                     * 1: throw exception if there one with the same key
                     * 2: always use `SexpList`
-                    * 3: dynamic change to `SexpList` if there is more than 
+                    * 3: dynamic change to `SexpList` if there is more than
                          one with the same key
 
             If ``sexp._key`` is None, than an internal index will be assigned
@@ -790,7 +790,7 @@ class Sexp(object):
     def __init__(self,key,value=None,line=-1):
         self._line = line
         self._key = key
-        self._value = SexpValueDict() if value is None else value 
+        self._value = SexpValueDict() if value is None else value
 
     def __len__(self):
         try:
@@ -828,13 +828,13 @@ class Sexp(object):
 
     def __getattr__(self,name):
         try:
-            if not name.startswith('_'): 
+            if not name.startswith('_'):
                 return self.__getitem__(name)
         except KeyError: pass
         raise AttributeError('{}: key "{}" not found'.format(self._line,name))
 
     def __delattr__(self,name):
-        if name.startswith('_'): 
+        if name.startswith('_'):
             delattr(self,name)
             return
         try:
@@ -857,9 +857,9 @@ class Sexp(object):
 
     def _export(self, out, prefix='', indent='  '):
         '''Export self to an S-epression and write to output stream
-            Args: 
+            Args:
                 out: output stream, only needs to implement ``out.write(string)``
-                prefix(string): prefixing spaces for output formating 
+                prefix(string): prefixing spaces for output formating
                 indent(string): incremental prefix for sub levels
         '''
 
@@ -883,7 +883,7 @@ class Sexp(object):
                 for v in (self._value if isinstance(self._value,list) \
                         else self._value.values()):
                     self._exportValue(out,v,prefix,indent)
-                        
+
         except Exception as e:
             logger.error((len(prefix)/len(indent),self.__class__.__name__,self._key,str(e)))
             if logger.isEnabledFor(logging.ERROR):
@@ -906,7 +906,7 @@ class Sexp(object):
 
     def _addDefaults(self,defs):
         '''Add default values
-            
+
             Arg:
                 defs (string|Sexp|tuple)
 
@@ -940,7 +940,7 @@ class Sexp(object):
             raise TypeError('expects type basestring|Sexp')
         try:
             v = self._value[defs._key]
-        except: 
+        except:
             self._value[defs._key] = defs
             return defs
 
@@ -1007,7 +1007,7 @@ class SexpList(Sexp):
         # recursive expansion of any SexpList inside sexp
         for v in sexp:
             self._append(v)
-        
+
 
 class SexpParser(Sexp):
     """Basic parser class
@@ -1019,7 +1019,7 @@ class SexpParser(Sexp):
 
         where it can have zero or more ``<value>`` of either signleton type or
         another ``list`` of the same format.
-        
+
         The parser uses the constructor to dispatch lower level parsers.
     """
 
@@ -1028,14 +1028,14 @@ class SexpParser(Sexp):
     def __init__(self,data):
         '''Constructor that dispatches parsing to lower level parsers
 
-            Args: 
+            Args:
                 data (string|list): if data is a list, it holds the S-Expression
                                     to be parsed with the following form ::
 
                     [ <line number>, <key>, <value>...]
 
-                where each ``<value`` may be another list of the same form. 
-                
+                where each ``<value`` may be another list of the same form.
+
             If `data` is a string, then it is a value without key.
             ``self._key`` will be set ``None``, and will be assigned an integer
             index after being added to parent's value dictionary of type
@@ -1160,7 +1160,7 @@ class SexpParser(Sexp):
 class SexpBool(Sexp):
     '''Parser for parsing boolean type value
 
-        The constructor treat the following string value as ``True`` :: 
+        The constructor treat the following string value as ``True`` ::
             'yes', 'Yes', 'true', 'True'
 
         and ``False`` ::
@@ -1171,7 +1171,7 @@ class SexpBool(Sexp):
     '''
 
     __slots__ = ()
-    
+
     _yes_values = ['yes','Yes','True','true']
     _no_values = ['no','No','False','false']
 
@@ -1225,12 +1225,12 @@ class SexpBool(Sexp):
 
 class SexpDefaultTrue(Sexp):
     '''Converts an un-named value to a named value of boolean value ``True``
-        
+
         For an expression such as ``drill(oval 1 2)``, `oval` is normally
         treated as an un-named string value. However, some semantics may
         interpret it as a boolean value of ``True`` with key 'oval'. And
-        missing such value will indicate as ``False``. 
-        
+        missing such value will indicate as ``False``.
+
         This class can be used to implement such semantics. Simply add a
         keyword into a class variable called `_default_bool` of your subclass
         of `SexpParser`. Any value with the keyword will behavior as described
@@ -1311,7 +1311,7 @@ def parseDefault(obj,sexp):
                 value.append(int(v))
                 continue
             except: pass
-            try: 
+            try:
                 value.append(float(v))
                 continue
             except: pass
@@ -1321,7 +1321,7 @@ def parseDefault(obj,sexp):
     elif len(value)==1:
         value = value[0]
     return Sexp(sexp[1],value)
-            
+
 
 def parseNone(obj,sexp):
     """Discards the value"""
@@ -1347,7 +1347,7 @@ def parseCopy(obj,sexp,checkLen,ftype=None):
         raise ValueError('len={}, expects {}'.format(len(sexp),checkLen+2))
     if ftype is None:
         return Sexp(sexp[1],sexp[2:])
-    else:  
+    else:
         return Sexp(sexp[1],[ftype(v) for v in sexp[2:]])
 
 def parseCopy1(obj,sexp):
@@ -1370,7 +1370,7 @@ def parseFloat4(obj,sexp):
 
 def parseSexp(sexp):
     """Parses S-expressions and return a ``list`` represention
-        
+
         Code borrowed from: http://rosettacode.org/wiki/S-Expressions, with
         the following modifications,
 
@@ -1415,7 +1415,7 @@ def parseSexp(sexp):
             tmpout, out = out, stack.pop(-1)
             out.append(tmpout)
         else:
-            if not out: 
+            if not out:
                 # insert line number as the first element
                 out.append(bisect.bisect_right(lines,termtypes.start())+1)
             if term == 'q': # quoted string
@@ -1491,7 +1491,7 @@ class KicadPCB_module(SexpParser):
     _default_bools = 'locked'
     _parse_fp_text = KicadPCB_gr_text
     _parse_pad = KicadPCB_pad
-    
+
 
 class KicadPCB(SexpParser):
 
@@ -1562,7 +1562,7 @@ def getFCversion():
     return FC_majorV,FC_minorV,FC_git_Nbr
 
 FC_majorV,FC_minorV,FC_git_Nbr=getFCversion()
-FreeCAD.Console.PrintWarning('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr)+'\n')    
+FreeCAD.Console.PrintWarning('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr)+'\n')
 if FC_majorV == 0 and FC_minorV == 17:
     if FC_git_Nbr >= int(FC_export_min_version):
         use_AppPart=True
@@ -1578,7 +1578,7 @@ if FC_majorV == 0 and FC_minorV > 17:
 if int(FC_majorV) <= 0:
     if int(FC_minorV) == 15:
         load_sketch=False
-        
+
 global force_oldGroups
 force_oldGroups=False # False
 
@@ -1641,7 +1641,7 @@ metal_grey_pins="""material DEF PIN-01 Material {
         shininess 0.70
         transparency 0.0
         }"""
-        
+
 # http://vrmlstuff.free.fr/materials/
 metal_grey="""material DEF MET-01 Material {
         ambientIntensity 0.249999
@@ -1651,7 +1651,7 @@ metal_grey="""material DEF MET-01 Material {
         shininess 0.056122
         transparency 0.0
         }"""
-    
+
 gold_pins="""material DEF PIN-02 Material {
         ambientIntensity 0.379
         diffuseColor 0.859 0.738 0.496
@@ -1866,7 +1866,7 @@ pcb_green="""material DEF BOARD-GREEN-02 Material {
         emissiveColor 0.0 0.0 0.0
         shininess 0.40
         transparency 0.0
-        }"""  
+        }"""
 
 pcb_blue="""material DEF BOARD-BLUE-01 Material {
         ambientIntensity 1
@@ -1912,7 +1912,7 @@ metal_bronze="""material DEF MET-BRONZE Material {
         shininess 0.2
         transparency 0.0
         }"""
-       
+
 #bronze     0.2125  0.1275  0.054   0.714   0.4284  0.18144     0.393548    0.271906    0.166721    0.2
 #http://devernay.free.fr/cours/opengl/materials.html
 
@@ -1937,7 +1937,7 @@ metal_copper="""material DEF MET-COPPER Material {
 #specularColor 0.780612 0.598604 0.000000
 
 
-       
+
 
 led_grey="""material DEF LED-GREY Material {
         ambientIntensity 0.494
@@ -1947,7 +1947,7 @@ led_grey="""material DEF LED-GREY Material {
         shininess 0.35
         transparency 0.10
         }"""
-     
+
 
 led_black="""material DEF LED-BLACK Material {
         ambientIntensity 0.494
@@ -1976,7 +1976,7 @@ glass_orange="""material DEF GLASS-ORANGE Material {
         transparency 0.39
         }"""
 
-        
+
 material_properties_names=["as is","metal grey pins","metal grey","gold pins",
                            "black body","resistor black body","grey body","dark grey body","brown body",\
                            "light brown body","blue body","green body","orange body","red_body",\
@@ -2024,7 +2024,7 @@ for mat in material_properties[1:]:
         found = m.group(1)
         #say(found)
         material_ids.append(found)
-#say(material_ids)    
+#say(material_ids)
 #say (material_definitions)
 
 def clear_console():
@@ -2037,7 +2037,7 @@ def clear_console():
 
 #if not Mod_ENABLED:
 clear_console()
-    
+
 # points: [Vector, Vector, ...]
 # faces: [(pi, pi, pi), ], pi: point index
 # color: (Red, Green, Blue), values range from 0 to 1.0
@@ -2062,7 +2062,7 @@ if _platform == "darwin":
 ##elif _platform == "win32":
 ##   # Windows
 #sizeXmin=172;sizeYmin=30+34
-sizeXMax=487 #487 
+sizeXMax=487 #487
 btn_sizeX=32;btn_sizeY=32;
 chkb_sizeX=20;chkb_sizeY=20;
 btn_sm_sizeX=20;btn_sm_sizeY=20;
@@ -2108,7 +2108,7 @@ def tabify():
     if KSUWidget and cv:
         dw=t.findChildren(QtGui.QDockWidget)
         try:
-            t.tabifyDockWidget(cv,KSUWidget)                
+            t.tabifyDockWidget(cv,KSUWidget)
         except:
             pass
         k_tab = t.findChild(QtGui.QDockWidget, "kicadStepUp") #"kicad StepUp 3D tools")
@@ -2117,7 +2117,7 @@ def tabify():
         KSUWidget.showMaximized()
         KSUWidget.activateWindow()
         KSUWidget.raise_()
-        say( "Tabified done !")               
+        say( "Tabified done !")
         ksu_tab = t.findChild(QtGui.QDockWidget, "kicadStepUp") #"kicad StepUp 3D tools")
         if ksu_tab:
             #say ("ksu tab ->"+ksu_tab.objectName())
@@ -2125,12 +2125,12 @@ def tabify():
             ksu_tab.activateWindow()
             ksu_tab.raise_()
         #say ("focus on me!")
-    
+
 def dock():
     global expanded_view, mingui
     expanded_view=0; mingui=0
-    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it 
-    #KSUmw.addDockWidget(QtCore.Qt.LeftDockWidgetArea,KSUWidget)  # add the widget to the main window  
+    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it
+    #KSUmw.addDockWidget(QtCore.Qt.LeftDockWidgetArea,KSUWidget)  # add the widget to the main window
     textEdit_dim=textEdit_dim_hide
     KSUWidget.ui.textEdit.setGeometry(textEdit_dim[0],textEdit_dim[1],textEdit_dim[2],textEdit_dim[3])
     KSUWidget.ui.textEdit.Visible=False
@@ -2152,7 +2152,7 @@ def dock():
 def dock_right():
     global expanded_view, mingui
     expanded_view=0;mingui=0
-    KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it 
+    KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it
     t=FreeCADGui.getMainWindow()
     dw=t.findChildren(QtGui.QDockWidget)
     looping=False
@@ -2183,13 +2183,13 @@ def dock_right():
         #t.tabifyDockWidget(cv,RHDockWidget)
         try:
             t.tabifyDockWidget(cv,KSUWidget)
-            say( "Tabified done !")               
+            say( "Tabified done !")
             #stop
         except:
             say('exception raised')
             pass
-    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it 
-    #KSUmw.addDockWidget(QtCore.Qt.RightDockWidgetArea,KSUWidget)  # add the widget to the main window  
+    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it
+    #KSUmw.addDockWidget(QtCore.Qt.RightDockWidgetArea,KSUWidget)  # add the widget to the main window
     textEdit_dim=textEdit_dim_hide
     KSUWidget.ui.textEdit.setGeometry(textEdit_dim[0],textEdit_dim[1],textEdit_dim[2],textEdit_dim[3])
     KSUWidget.ui.textEdit.Visible=False
@@ -2202,7 +2202,7 @@ def dock_right():
     docking_mode='right'
     #cfg_update_all()
     pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
-    dock_mode = pg.SetInt("dockingMode", 2)    
+    dock_mode = pg.SetInt("dockingMode", 2)
     #KSUWidget.setFloating(False)  #dock
     #say ("now!")
 ##
@@ -2244,11 +2244,11 @@ def temporary_undock():
 def minimz():
     #clear_console()
     global mingui
-    
+
     #sayerr(mingui)
     if mingui==0:
         KSUWidget.setFloating(True)  #undock
-        # KSUWidget.hide(); 
+        # KSUWidget.hide();
         # KSUWidget.setWindowState(QtCore.Qt.WindowMinimized)
         #KSUWidget.resize(500, 500)
         KSUWidget.resize(sizeXmin,sizeYmin)
@@ -2269,7 +2269,7 @@ def minimz():
             dock_right()
             KSUWidget.setVisibility=True
         #sayw(mingui)
-    
+
         #sayw("kicad StepUp version "+str(___ver___))
 ##
 def minimz_alt():
@@ -2281,7 +2281,7 @@ def minimz_alt():
 ##
 def onDestroy():
     say ("Do stuff here")
-##    
+##
 #font_size=12
 
 ####################################
@@ -2291,7 +2291,7 @@ import base64
 axis_b64 =\
 """
 PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iNjRweCIKICAgaGVpZ2h0PSI2NHB4IgogICBpZD0ic3ZnODI3NyIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkyLjAgcjE1Mjk5IgogICBzb2RpcG9kaTpkb2NuYW1lPSJBeGlzLnN2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczgyNzkiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJiYXNlIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnpvb209IjcuNzc4MTc0NiIKICAgICBpbmtzY2FwZTpjeD0iOS4wMTQ4ODU4IgogICAgIGlua3NjYXBlOmN5PSIzMy4zNDUxNzgiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0ibGF5ZXIxIgogICAgIHNob3dncmlkPSJ0cnVlIgogICAgIGlua3NjYXBlOmRvY3VtZW50LXVuaXRzPSJweCIKICAgICBpbmtzY2FwZTpncmlkLWJib3g9InRydWUiCiAgICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxNTM2IgogICAgIGlua3NjYXBlOndpbmRvdy1oZWlnaHQ9IjgwMSIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgICAgaW5rc2NhcGU6c25hcC1nbG9iYWw9InRydWUiCiAgICAgaW5rc2NhcGU6c25hcC1iYm94PSJ0cnVlIgogICAgIGlua3NjYXBlOnNuYXAtbm9kZXM9ImZhbHNlIj4KICAgIDxpbmtzY2FwZTpncmlkCiAgICAgICB0eXBlPSJ4eWdyaWQiCiAgICAgICBpZD0iZ3JpZDU2MjUiCiAgICAgICBlbXBzcGFjaW5nPSIyIgogICAgICAgdmlzaWJsZT0idHJ1ZSIKICAgICAgIGVuYWJsZWQ9InRydWUiCiAgICAgICBzbmFwdmlzaWJsZWdyaWRsaW5lc29ubHk9InRydWUiIC8+CiAgPC9zb2RpcG9kaTpuYW1lZHZpZXc+CiAgPG1ldGFkYXRhCiAgICAgaWQ9Im1ldGFkYXRhODI4MiI+CiAgICA8cmRmOlJERj4KICAgICAgPGNjOldvcmsKICAgICAgICAgcmRmOmFib3V0PSIiPgogICAgICAgIDxkYzpmb3JtYXQ+aW1hZ2Uvc3ZnK3htbDwvZGM6Zm9ybWF0PgogICAgICAgIDxkYzp0eXBlCiAgICAgICAgICAgcmRmOnJlc291cmNlPSJodHRwOi8vcHVybC5vcmcvZGMvZGNtaXR5cGUvU3RpbGxJbWFnZSIgLz4KICAgICAgICA8ZGM6dGl0bGU+PC9kYzp0aXRsZT4KICAgICAgICA8ZGM6dGl0bGU+UGF0aC1BeGlzPC9kYzp0aXRsZT4KICAgICAgICA8ZGM6ZGF0ZT4yMDE1LTA3LTA0PC9kYzpkYXRlPgogICAgICAgIDxkYzpyZWxhdGlvbj5odHRwOi8vd3d3LmZyZWVjYWR3ZWIub3JnL3dpa2kvaW5kZXgucGhwP3RpdGxlPUFydHdvcms8L2RjOnJlbGF0aW9uPgogICAgICAgIDxkYzpwdWJsaXNoZXI+CiAgICAgICAgICA8Y2M6QWdlbnQ+CiAgICAgICAgICAgIDxkYzp0aXRsZT5GcmVlQ0FEPC9kYzp0aXRsZT4KICAgICAgICAgIDwvY2M6QWdlbnQ+CiAgICAgICAgPC9kYzpwdWJsaXNoZXI+CiAgICAgICAgPGRjOmlkZW50aWZpZXI+RnJlZUNBRC9zcmMvTW9kL1BhdGgvR3VpL1Jlc291cmNlcy9pY29ucy9QYXRoLUF4aXMuc3ZnPC9kYzppZGVudGlmaWVyPgogICAgICAgIDxkYzpyaWdodHM+CiAgICAgICAgICA8Y2M6QWdlbnQ+CiAgICAgICAgICAgIDxkYzp0aXRsZT5GcmVlQ0FEIExHUEwyKzwvZGM6dGl0bGU+CiAgICAgICAgICA8L2NjOkFnZW50PgogICAgICAgIDwvZGM6cmlnaHRzPgogICAgICAgIDxjYzpsaWNlbnNlPmh0dHBzOi8vd3d3LmdudS5vcmcvY29weWxlZnQvbGVzc2VyLmh0bWw8L2NjOmxpY2Vuc2U+CiAgICAgICAgPGRjOmNvbnRyaWJ1dG9yPgogICAgICAgICAgPGNjOkFnZW50PgogICAgICAgICAgICA8ZGM6dGl0bGU+W2Fncnlzb25dIEFsZXhhbmRlciBHcnlzb248L2RjOnRpdGxlPgogICAgICAgICAgPC9jYzpBZ2VudD4KICAgICAgICA8L2RjOmNvbnRyaWJ1dG9yPgogICAgICA8L2NjOldvcms+CiAgICA8L3JkZjpSREY+CiAgPC9tZXRhZGF0YT4KICA8ZwogICAgIGlkPSJsYXllcjEiCiAgICAgaW5rc2NhcGU6bGFiZWw9IkxheWVyIDEiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciI+CiAgICA8ZwogICAgICAgaWQ9Imc2ODQ2IgogICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMS4wNjE5MTI2LDAsMCwxLjA2MTkxMjYsMy44NzYxNzM1LC0zLjgzNDE4NDMpIj4KICAgICAgPHBhdGgKICAgICAgICAgc29kaXBvZGk6bm9kZXR5cGVzPSJzc3NzcyIKICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgICAgaWQ9InBhdGg2NTE0IgogICAgICAgICBkPSJtIDQ2LDIwLjg0NDgxMSBjIDEuODg2NjU2LDIuODU0OTU4IDEsNy40NTc1MjkgLTEsOC4zODk3MiAtMiwwLjkzMjE5MSAtNC4xMTMzNDQsMC44NzE0ODUgLTYsLTEuOTgzNDc0IC0xLjg4NjY1NSwtMi44NTQ5NTkgLTIuNTU3NDk3LC02LjUxMTExMiAtMSwtOC4yNzA2MjkgMS41NTc0OTcsLTEuNzU5NTE3IDYuMTEzMzQ0LC0wLjk5MDU3NiA4LDEuODY0MzgzIHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiM4YWUyMzQ7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMxNzJhMDQ7c3Ryb2tlLXdpZHRoOjIuMDAwMDAwMjQ7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjMyLjIwMDAwMDc2O3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjQxOSIKICAgICAgICAgZD0ibSAxMCwxOC45ODA0MjkgNCwyMC41MDgyMDUiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiMwYjE1MjE7c3Ryb2tlLXdpZHRoOjg7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjQxOS02IgogICAgICAgICBkPSJtIDEwLDE4Ljk4MDQyOSA0LDIwLjUwODIwNSIKICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzM0NjVhNDtzdHJva2Utd2lkdGg6NDtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPHBhdGgKICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgICAgaWQ9InBhdGg2NDE5LTYtMiIKICAgICAgICAgZD0ibSA5LDE4Ljk4MDQyOSA0LDIwLjUwODIwNSIKICAgICAgICAgc3R5bGU9ImZpbGw6bm9uZTtzdHJva2U6IzcyOWZjZjtzdHJva2Utd2lkdGg6MjtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc29kaXBvZGk6bm9kZXR5cGVzPSJjY2NjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDY0NzUtMy01IgogICAgICAgICBkPSJtIDQ2LDI4LjMwMjMzOSBjIDIsLTIuNzk2NTczIDAsLTEwLjI1NDEwMiAtNiwtMTAuMjU0MTAyIGwgMTIsMWUtNiB6IgogICAgICAgICBzdHlsZT0iZmlsbDojNzNkMjE2O3N0cm9rZTojMTcyYTA0O3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDozMi4yMDAwMDA3NjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDY1NzEiCiAgICAgICAgIGQ9Im0gNDQsMTkuOTEyNjIgNi45NTQ1NDYsLTAuMDIxMTkiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM4YWUyMzQ7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIgLz4KICAgICAgPHBhdGgKICAgICAgICAgc29kaXBvZGk6bm9kZXR5cGVzPSJjY2NjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDY0NzUtMy01LTEiCiAgICAgICAgIGQ9Im0gNDUuOTc3MjczLDI4LjMyMzUyNiBjIDIsLTIuNzk2NTc0IDAsLTEwLjI1NDEwMyAtNiwtMTAuMjU0MTAzIGwgMTIsMWUtNiB6IgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMTcyYTA0O3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDozMi4yMDAwMDA3NjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDYzOTctMyIKICAgICAgICAgZD0iTSAxNCwzOS40ODg2MzQgNDAsMjQuNTczNTc2IgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMTcyYTA0O3N0cm9rZS13aWR0aDo4O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDYzOTctMy03IgogICAgICAgICBkPSJNIDE0LDM5LjQ4ODYzNCA0MCwyNC41NzM1NzYiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3M2QyMTY7c3Ryb2tlLXdpZHRoOjQ7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2MiCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjM5Ny0zLTctNyIKICAgICAgICAgZD0ibSAxMy41OTA5MDksMzguNTk4ODE2IDI2LC0xNC45MTUwNTkiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM4YWUyMzQ7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2MiCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjM5NyIKICAgICAgICAgZD0iTSAxNCwzOS40ODg2MzQgMzIsNTQuNDAzNjkyIgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMjgwMDAwO3N0cm9rZS13aWR0aDo4O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDYzOTctNSIKICAgICAgICAgZD0iTSAxNCwzOS40ODg2MzQgMzIsNTQuNDAzNjkyIgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojY2MwMDAwO3N0cm9rZS13aWR0aDo0O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjIgogICAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgICBpZD0icGF0aDYzOTctNS0wIgogICAgICAgICBkPSJtIDEzLjE2MDcwNiw0MC4wNjEyODQgMTgsMTQuOTE1MDU4IgogICAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojZWYyOTI5O3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2MiCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjQ3NSIKICAgICAgICAgZD0iTSAxNiwxNS4yNTE2NjQgQyAxMy45MzI1NTQsMTkuMDI0NzEyIDYsMTkuOTEyNjIgMywxOC4wNDgyMzggTCA3LDYuODYxOTQzOCBaIgogICAgICAgICBzdHlsZT0iZmlsbDojMzQ2NWE0O3N0cm9rZTojMGIxNTIxO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDozMi4yMDAwMDA3NjtzdHJva2Utb3BhY2l0eToxIiAvPgogICAgICA8cGF0aAogICAgICAgICBzb2RpcG9kaTpub2RldHlwZXM9ImNjY2MiCiAgICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiCiAgICAgICAgIGlkPSJwYXRoNjQ3NS02IgogICAgICAgICBkPSJNIDEzLjMyMTQxMiwxNS4zNzE1MTEgQyAxMS45NjY1OCwxNi42OTI4MjQgOC4wMDc5ODYsMTcuNDc1MTcyIDUuNTAwNzA5NiwxNi45MTAwNDYgTCA3LjgwNzE1MjcsMTAuMjkxMDkxIFoiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3MjlmY2Y7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjMyLjIwMDAwMDc2O3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjYyIKICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgICAgaWQ9InBhdGg2NDc1LTMiCiAgICAgICAgIGQ9Im0gMjYuNzA1NzcxLDU3Ljg1ODE4IGMgLTAuMjMzMjkxLC00LjIzMTE4MiA2LjE2MDI1NCwtOC42OTc0NjIgOS43NTgzMzEsLTguNDgxMTQ3IEwgMzksNjAuOTI5MDMxIFoiCiAgICAgICAgIHN0eWxlPSJmaWxsOiNjYzAwMDA7c3Ryb2tlOiMyODAwMDA7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjMyLjIwMDAwMDc2O3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICAgIDxwYXRoCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjYyIKICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgICAgaWQ9InBhdGg2NDc1LTYtMiIKICAgICAgICAgZD0ibSAyOC45MzYyNDcsNTYuNTA2NDc0IGMgMC40NjI5MzcsLTEuNzc2MTQ5IDMuNDY5MTgsLTQuMzAxMjIyIDUuOTQzMDI0LC00Ljk4MjQ1OSBsIDEuNTU5MTY4LDYuODA1OTM3IHoiCiAgICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiNlZjI5Mjk7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjMyLjIwMDAwMDc2O3N0cm9rZS1vcGFjaXR5OjEiIC8+CiAgICA8L2c+CiAgICA8ZwogICAgICAgdHJhbnNmb3JtPSJtYXRyaXgoLTAuMTM3NDgyNDgsLTAuNDQxODAxMTYsMC40NDE4MDExNiwtMC4xMzc0ODI0OCwzOC4yMTMwNSw1OC43NjkwMjYpIgogICAgICAgaWQ9Imc2ODQ2LTgiIC8+CiAgPC9nPgo8L3N2Zz4K
-""" 
+"""
 exportBoard_b64=\
 """
 PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgd2lkdGg9IjY4LjI2NjY3IgogICBoZWlnaHQ9IjY4LjI2NjY3IgogICBpZD0ic3ZnMjg2MCIKICAgc29kaXBvZGk6dmVyc2lvbj0iMC4zMiIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMC45Mi4wIHIxNTI5OSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iZXhwb3J0UGFydF91cGRhdGUuc3ZnIgogICBpbmtzY2FwZTpvdXRwdXRfZXh0ZW5zaW9uPSJvcmcuaW5rc2NhcGUub3V0cHV0LnN2Zy5pbmtzY2FwZSIKICAgdmVyc2lvbj0iMS4xIgogICB2aWV3Qm94PSIwIDAgNjQgNjQiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnMyODYyIj4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzk0NSI+CiAgICAgIDxzdG9wCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM4YWUyMzQ7c3RvcC1vcGFjaXR5OjEiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgaWQ9InN0b3AzOTQ3IiAvPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNzNkMjE2O3N0b3Atb3BhY2l0eToxIgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIGlkPSJzdG9wMzk0OSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDQzODciPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNzFiMmY4O3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0PSIwIgogICAgICAgICBpZD0ic3RvcDQzODkiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDI3OTU7c3RvcC1vcGFjaXR5OjE7IgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIGlkPSJzdG9wNDM5MSIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8cmFkaWFsR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDMzNzciCiAgICAgICBpZD0icmFkaWFsR3JhZGllbnQzNjkyIgogICAgICAgY3g9IjQ1Ljg4MzMyNyIKICAgICAgIGN5PSIyOC44Njk1NjgiCiAgICAgICBmeD0iNDUuODgzMzI3IgogICAgICAgZnk9IjI4Ljg2OTU2OCIKICAgICAgIHI9IjE5LjQ2NzQzNiIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtMC4yMzQ0MzIyNCwwLjIzNDQzMTk4KSIgLz4KICAgIDxyYWRpYWxHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50NDM4NyIKICAgICAgIGlkPSJyYWRpYWxHcmFkaWVudDM3MDMiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIGN4PSIxMzEuNDgxODciCiAgICAgICBjeT0iOTMuNTU3Mjg5IgogICAgICAgZng9IjEzMS40ODE4NyIKICAgICAgIGZ5PSI5My41NTcyODkiCiAgICAgICByPSIxOS40Njc0MzYiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDAuNTI3MTEwNjQsMS44MTU4ODc0LC0xLjQ1MzQ4NDMsMC40MjE5MTMzMSwyMDMuMjM0MDUsLTE4Ny42NTgzKSIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50MzM3NyI+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzM3OSIKICAgICAgICAgb2Zmc2V0PSIwIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojZmFmZjJiO3N0b3Atb3BhY2l0eToxOyIgLz4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AzMzgxIgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmFhMDA7c3RvcC1vcGFjaXR5OjE7IiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxyYWRpYWxHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50NDM4NyIKICAgICAgIGlkPSJyYWRpYWxHcmFkaWVudDM3MDUiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIGN4PSIxNDcuMDU3MTMiCiAgICAgICBjeT0iODMuOTg5MTQzIgogICAgICAgZng9IjE0Ny4wNTcxMyIKICAgICAgIGZ5PSI4My45ODkxNDMiCiAgICAgICByPSIxOS40Njc0MzYiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMjk2NjAyOCwwLjE3NzExMjMxLC0wLjE0MDkyODYxLDEuMDMxNzA5NCwtMzIuNjg5OTI5LC0yOS4xMDkyNzQpIiAvPgogICAgPGlua3NjYXBlOnBlcnNwZWN0aXZlCiAgICAgICBzb2RpcG9kaTp0eXBlPSJpbmtzY2FwZTpwZXJzcDNkIgogICAgICAgaW5rc2NhcGU6dnBfeD0iMCA6IDMxLjk5OTk5OCA6IDEiCiAgICAgICBpbmtzY2FwZTp2cF95PSIwIDogOTk5Ljk5OTk1IDogMCIKICAgICAgIGlua3NjYXBlOnZwX3o9IjYzLjk5OTk5NyA6IDMxLjk5OTk5OCA6IDEiCiAgICAgICBpbmtzY2FwZTpwZXJzcDNkLW9yaWdpbj0iMzEuOTk5OTk4IDogMjEuMzMzMzMyIDogMSIKICAgICAgIGlkPSJwZXJzcGVjdGl2ZTI4NjgiIC8+CiAgICA8cmFkaWFsR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDMzNzctMyIKICAgICAgIGlkPSJyYWRpYWxHcmFkaWVudDM2OTItNSIKICAgICAgIGN4PSI0NS44ODMzMjciCiAgICAgICBjeT0iMjguODY5NTY4IgogICAgICAgZng9IjQ1Ljg4MzMyNyIKICAgICAgIGZ5PSIyOC44Njk1NjgiCiAgICAgICByPSIxOS40Njc0MzYiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuMjM0NDMyMjQsMC4yMzQ0MzE5OCkiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDMzNzctMyI+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzM3OS04IgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNmYWZmMmI7c3RvcC1vcGFjaXR5OjE7IiAvPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDMzODEtMyIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojZmZhYTAwO3N0b3Atb3BhY2l0eToxOyIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtNCkiCiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzNzY3IgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzc3MyIKICAgICAgIHgxPSIyMi4xMTY1MTYiCiAgICAgICB5MT0iNTUuNzE3NTE4IgogICAgICAgeDI9IjE3LjMyODU0NyIKICAgICAgIHkyPSIyMS4zMTEzNCIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzY3Ij4KICAgICAgPHN0b3AKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzM0NjVhNDtzdG9wLW9wYWNpdHk6MSIKICAgICAgICAgb2Zmc2V0PSIwIgogICAgICAgICBpZD0ic3RvcDM3NjkiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM3MjlmY2Y7c3RvcC1vcGFjaXR5OjEiCiAgICAgICAgIG9mZnNldD0iMSIKICAgICAgICAgaWQ9InN0b3AzNzcxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgwLC00KSIKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDM3NzciCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzgzIgogICAgICAgeDE9IjUzLjg5Njc2MyIKICAgICAgIHkxPSI1MS4xNzk3ODciCiAgICAgICB4Mj0iNDcuNTAyMjM1IgogICAgICAgeTI9IjIxLjgzNzQyIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM3NzciPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMjA0YTg3O3N0b3Atb3BhY2l0eToxIgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIGlkPSJzdG9wMzc3OSIgLz4KICAgICAgPHN0b3AKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzM0NjVhNDtzdG9wLW9wYWNpdHk6MSIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBpZD0ic3RvcDM3ODEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHJhZGlhbEdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQ4NjYyIgogICAgICAgaWQ9InJhZGlhbEdyYWRpZW50Mzc1NyIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxLDAsMCwwLjUzNjcyMywwLDE2Ljg3MzA2KSIKICAgICAgIGN4PSIyNC44MzcxMjYiCiAgICAgICBjeT0iMzYuNDIxMTI3IgogICAgICAgZng9IjI0LjgzNzEyNiIKICAgICAgIGZ5PSIzNi40MjExMjciCiAgICAgICByPSIxNS42NDQ3MzciIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDg2NjIiCiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDg2NjQiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMDtzdG9wLW9wYWNpdHk6MTsiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wODY2NiIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwO3N0b3Atb3BhY2l0eTowOyIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDI4NDciCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzU5IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC02NC4yNDc4MTEsNS41ODI1MTM4KSIKICAgICAgIHgxPSIzMi42NDc5NzIiCiAgICAgICB5MT0iMzAuNzQ4ODQ2IgogICAgICAgeDI9IjM3LjEyNDQ2MiIKICAgICAgIHkyPSIyNC44NDIyNTMiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDI2ODIiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzYxIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKC02NC4yNDc4MTEsNS41ODI1MTM4KSIKICAgICAgIHgxPSIzNi43MTM4MzciCiAgICAgICB5MT0iMzEuNDU1OTUyIgogICAgICAgeDI9IjM3LjEyNDQ2MiIKICAgICAgIHkyPSIyNC44NDIyNTMiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDI2ODIiPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDI2ODQiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzRlOWEwNjtzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyNjg2IgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM4OWFlZGM7c3RvcC1vcGFjaXR5OjA7IiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50MjQwMiIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM3NjctMyIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgeDE9IjE4LjkzNTc2NiIKICAgICAgIHkxPSIyMy42Njc4OTYiCiAgICAgICB4Mj0iNTMuNTg4NjIzIgogICAgICAgeTI9IjI2LjY0OTM2MyIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50MjQwMiI+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMjQwNCIKICAgICAgICAgb2Zmc2V0PSIwIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNzI5ZmNmO3N0b3Atb3BhY2l0eToxOyIgLz4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyNDA2IgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM1MjhhYzU7c3RvcC1vcGFjaXR5OjE7IiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50Mjg3MSIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM3NjkiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIHgxPSI0Ni44MzQ4MTYiCiAgICAgICB5MT0iNDUuMjY0MTIyIgogICAgICAgeDI9IjQ1LjM4MDQzNiIKICAgICAgIHkyPSI1MC45Mzk2NjciIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDI4NzEiCiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDI4NzMiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzM0NjVhNDtzdG9wLW9wYWNpdHk6MTsiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMjg3NSIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMzQ2NWE0O3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50Mzk0NSIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM3NjMiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIHgxPSIxOC45MzU3NjYiCiAgICAgICB5MT0iMjMuNjY3ODk2IgogICAgICAgeDI9IjUzLjU4ODYyMyIKICAgICAgIHkyPSIyNi42NDkzNjMiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDMxNDkiPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDMxNTEiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6IzcyOWZjZjtzdG9wLW9wYWNpdHk6MTsiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzE1MyIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNTI4YWM1O3N0b3Atb3BhY2l0eToxOyIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDI3OTciCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzcxIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICB4MT0iNS45NjQ5MTc3IgogICAgICAgeTE9IjI2LjA0ODE2NCIKICAgICAgIHgyPSI1Mi44NTQwOTUiCiAgICAgICB5Mj0iMjYuMDQ4MTY0IiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQyNzk3IgogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIj4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyNzk5IgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNmZmZmZmY7c3RvcC1vcGFjaXR5OjE7IiAvPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDI4MDEiCiAgICAgICAgIG9mZnNldD0iMSIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2ZmZmZmZjtzdG9wLW9wYWNpdHk6MDsiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQyODQ3IgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzc0NSIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgtNjMuNzgyMzk4LDUuMzA0OTIwOCkiCiAgICAgICB4MT0iMTMuNDc4NTU0IgogICAgICAgeTE9IjEwLjYxMjIwNiIKICAgICAgIHgyPSIxNS40MTk0MTciCiAgICAgICB5Mj0iMTkuMTE1MTIyIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQyODMxIj4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyODMzIgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiMzNDY1YTQ7c3RvcC1vcGFjaXR5OjE7IiAvPgogICAgICA8c3RvcAogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNWI4NmJlO3N0b3Atb3BhY2l0eToxOyIKICAgICAgICAgb2Zmc2V0PSIwLjMzMzMzMzM0IgogICAgICAgICBpZD0ic3RvcDI4NTUiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMjgzNSIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojODNhOGQ4O3N0b3Atb3BhY2l0eTowOyIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDI4NDciCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzQ3IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0icm90YXRlKDE4MCwtOC4zNTk5NTA1LDI1LjcxNDk2MikiCiAgICAgICB4MT0iMzcuMTI4MDUyIgogICAgICAgeTE9IjI5LjcyOTYwNSIKICAgICAgIHgyPSIzNy4wNjU0MTQiCiAgICAgICB5Mj0iMjYuMTk0MDcxIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQyODQ3IgogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIj4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyODQ5IgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM0ZTlhMDY7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMjg1MSIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojMzQ2NWE0O3N0b3Atb3BhY2l0eTowOyIgLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDIzODAiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzNzUzIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICB4MT0iNjIuNTEzODM2IgogICAgICAgeTE9IjM2LjA2MTIzNyIKICAgICAgIHgyPSIxNS45ODQ4NjMiCiAgICAgICB5Mj0iMjAuNjA4NTgiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDIzODAiPgogICAgICA8c3RvcAogICAgICAgICBpZD0ic3RvcDIzODIiCiAgICAgICAgIG9mZnNldD0iMCIKICAgICAgICAgc3R5bGU9InN0b3AtY29sb3I6I2I5Y2ZlNztzdG9wLW9wYWNpdHk6MSIgLz4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AyMzg0IgogICAgICAgICBvZmZzZXQ9IjEiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM3MjlmY2Y7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzOTQ1IgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzc0OSIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgeDE9IjYyLjUxMzgzNiIKICAgICAgIHkxPSIzNi4wNjEyMzciCiAgICAgICB4Mj0iMTUuOTg0ODYzIgogICAgICAgeTI9IjIwLjYwODU4IiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzMTgwIj4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AzMTgyIgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiNiOWNmZTc7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzE4NCIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNzI5ZmNmO3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50Mjc5NyIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM3NTUiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIHgxPSI1Ljk2NDkxNzciCiAgICAgICB5MT0iMjYuMDQ4MTY0IgogICAgICAgeDI9IjUyLjg1NDA5NSIKICAgICAgIHkyPSIyNi4wNDgxNjQiIC8+CiAgICA8cmFkaWFsR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDg2NjIiCiAgICAgICBpZD0icmFkaWFsR3JhZGllbnQzOTY4IgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEuMTMxNDQ2NSwwLDAsMS40NzAxNDI1LDExLjkxMjI4NywtNjkuNzYzNTYpIgogICAgICAgY3g9IjI0LjgzNzEyNiIKICAgICAgIGN5PSIzNi40MjExMjciCiAgICAgICBmeD0iMjQuODM3MTI2IgogICAgICAgZnk9IjM2LjQyMTEyNyIKICAgICAgIHI9IjE1LjY0NDczNyIgLz4KICAgIDxsaW5lYXJHcmFkaWVudAogICAgICAgaW5rc2NhcGU6Y29sbGVjdD0iYWx3YXlzIgogICAgICAgeGxpbms6aHJlZj0iI2xpbmVhckdyYWRpZW50Mjg0NyIKICAgICAgIGlkPSJsaW5lYXJHcmFkaWVudDM5NzAiCiAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMC43NTk0OTQ2MSwwLDAsMC43NTk0OTQ2MSwtNTguMzk5OTI2LC0wLjE3NjMwODg2KSIKICAgICAgIHgxPSIzMi42NDc5NzIiCiAgICAgICB5MT0iMzAuNzQ4ODQ2IgogICAgICAgeDI9IjM3LjEyNDQ2MiIKICAgICAgIHkyPSIyNC44NDIyNTMiIC8+CiAgICA8bGluZWFyR3JhZGllbnQKICAgICAgIGlua3NjYXBlOmNvbGxlY3Q9ImFsd2F5cyIKICAgICAgIHhsaW5rOmhyZWY9IiNsaW5lYXJHcmFkaWVudDI2ODIiCiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzOTcyIgogICAgICAgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiCiAgICAgICBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDAuNzU5NDk0NjEsMCwwLDAuNzU5NDk0NjEsLTU4LjM5OTkyNiwtMC4xNzYzMDg4NikiCiAgICAgICB4MT0iMzYuNzEzODM3IgogICAgICAgeTE9IjMxLjQ1NTk1MiIKICAgICAgIHgyPSIzNy4xMjQ0NjIiCiAgICAgICB5Mj0iMjQuODQyMjUzIiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpbmtzY2FwZTpjb2xsZWN0PSJhbHdheXMiCiAgICAgICB4bGluazpocmVmPSIjbGluZWFyR3JhZGllbnQzOTE2IgogICAgICAgaWQ9ImxpbmVhckdyYWRpZW50Mzk2MyIKICAgICAgIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIgogICAgICAgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgwLjgwMDAwMDA3LDAsMCwwLjc4NDMxMzY4LDAuMjAwMDAwODIsLTMwLjA5ODAzOCkiCiAgICAgICB4MT0iMzcuMjQ5OTk2IgogICAgICAgeTE9IjI1LjA5MjM0MiIKICAgICAgIHgyPSIzOS43NDk5OTYiCiAgICAgICB5Mj0iNDAuOTI0OTk5IiAvPgogICAgPGxpbmVhckdyYWRpZW50CiAgICAgICBpZD0ibGluZWFyR3JhZGllbnQzOTE2Ij4KICAgICAgPHN0b3AKICAgICAgICAgaWQ9InN0b3AzOTE4IgogICAgICAgICBvZmZzZXQ9IjAiCiAgICAgICAgIHN0eWxlPSJzdG9wLWNvbG9yOiM4YWUyMzQ7c3RvcC1vcGFjaXR5OjEiIC8+CiAgICAgIDxzdG9wCiAgICAgICAgIGlkPSJzdG9wMzkyMCIKICAgICAgICAgb2Zmc2V0PSIxIgogICAgICAgICBzdHlsZT0ic3RvcC1jb2xvcjojNGU5YTA2O3N0b3Atb3BhY2l0eToxIiAvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJiYXNlIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgICBpbmtzY2FwZTpwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnpvb209IjkuMDgyMDMwOCIKICAgICBpbmtzY2FwZTpjeD0iMzQuMTMzMzM1IgogICAgIGlua3NjYXBlOmN5PSIzNC4xMzMzMzUiCiAgICAgaW5rc2NhcGU6Y3VycmVudC1sYXllcj0iZzM5NTEiCiAgICAgc2hvd2dyaWQ9InRydWUiCiAgICAgaW5rc2NhcGU6ZG9jdW1lbnQtdW5pdHM9InB4IgogICAgIGlua3NjYXBlOmdyaWQtYmJveD0idHJ1ZSIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjE1MzYiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iODAxIgogICAgIGlua3NjYXBlOndpbmRvdy14PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3cteT0iLTgiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMSI+CiAgICA8aW5rc2NhcGU6Z3JpZAogICAgICAgdHlwZT0ieHlncmlkIgogICAgICAgaWQ9ImdyaWQzMDAxIgogICAgICAgZW1wc3BhY2luZz0iMiIKICAgICAgIHZpc2libGU9InRydWUiCiAgICAgICBlbmFibGVkPSJ0cnVlIgogICAgICAgc25hcHZpc2libGVncmlkbGluZXNvbmx5PSJ0cnVlIgogICAgICAgb3JpZ2lueD0iMCIKICAgICAgIG9yaWdpbnk9IjAiCiAgICAgICBzcGFjaW5neD0iMSIKICAgICAgIHNwYWNpbmd5PSIxIiAvPgogIDwvc29kaXBvZGk6bmFtZWR2aWV3PgogIDxtZXRhZGF0YQogICAgIGlkPSJtZXRhZGF0YTI4NjUiPgogICAgPHJkZjpSREY+CiAgICAgIDxjYzpXb3JrCiAgICAgICAgIHJkZjphYm91dD0iIj4KICAgICAgICA8ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD4KICAgICAgICA8ZGM6dHlwZQogICAgICAgICAgIHJkZjpyZXNvdXJjZT0iaHR0cDovL3B1cmwub3JnL2RjL2RjbWl0eXBlL1N0aWxsSW1hZ2UiIC8+CiAgICAgICAgPGRjOnRpdGxlPjwvZGM6dGl0bGU+CiAgICAgICAgPGRjOmNyZWF0b3I+CiAgICAgICAgICA8Y2M6QWdlbnQ+CiAgICAgICAgICAgIDxkYzp0aXRsZT5bU3RlZmFuIFRyw7ZnZXJdPC9kYzp0aXRsZT4KICAgICAgICAgIDwvY2M6QWdlbnQ+CiAgICAgICAgPC9kYzpjcmVhdG9yPgogICAgICAgIDxkYzp0aXRsZT5mZW0tYm94PC9kYzp0aXRsZT4KICAgICAgICA8ZGM6ZGF0ZT4yMDE1LTExLTE1PC9kYzpkYXRlPgogICAgICAgIDxkYzpyZWxhdGlvbj5odHRwOi8vd3d3LmZyZWVjYWR3ZWIub3JnL3dpa2kvaW5kZXgucGhwP3RpdGxlPUFydHdvcms8L2RjOnJlbGF0aW9uPgogICAgICAgIDxkYzpwdWJsaXNoZXI+CiAgICAgICAgICA8Y2M6QWdlbnQ+CiAgICAgICAgICAgIDxkYzp0aXRsZT5GcmVlQ0FEPC9kYzp0aXRsZT4KICAgICAgICAgIDwvY2M6QWdlbnQ+CiAgICAgICAgPC9kYzpwdWJsaXNoZXI+CiAgICAgICAgPGRjOmlkZW50aWZpZXI+RnJlZUNBRC9zcmMvTW9kLzwvZGM6aWRlbnRpZmllcj4KICAgICAgICA8ZGM6cmlnaHRzPgogICAgICAgICAgPGNjOkFnZW50PgogICAgICAgICAgICA8ZGM6dGl0bGU+RnJlZUNBRCBMR1BMMis8L2RjOnRpdGxlPgogICAgICAgICAgPC9jYzpBZ2VudD4KICAgICAgICA8L2RjOnJpZ2h0cz4KICAgICAgICA8Y2M6bGljZW5zZT5odHRwczovL3d3dy5nbnUub3JnL2NvcHlsZWZ0L2xlc3Nlci5odG1sPC9jYzpsaWNlbnNlPgogICAgICAgIDxkYzpjb250cmlidXRvcj4KICAgICAgICAgIDxjYzpBZ2VudD4KICAgICAgICAgICAgPGRjOnRpdGxlPlthZ3J5c29uXSBBbGV4YW5kZXIgR3J5c29uPC9kYzp0aXRsZT4KICAgICAgICAgIDwvY2M6QWdlbnQ+CiAgICAgICAgPC9kYzpjb250cmlidXRvcj4KICAgICAgPC9jYzpXb3JrPgogICAgPC9yZGY6UkRGPgogIDwvbWV0YWRhdGE+CiAgPGcKICAgICBpZD0ibGF5ZXIxIgogICAgIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIgogICAgIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOiM3MjlmY2Y7c3Ryb2tlOiMwYjE1MjE7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Ik0gMywxMyAzNywxOSA2MSwxMSAzMSw3IFoiCiAgICAgICBpZD0icGF0aDI5OTMiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc29kaXBvZGk6bm9kZXR5cGVzPSJjY2NjYyIgLz4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDp1cmwoI2xpbmVhckdyYWRpZW50Mzc4Myk7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMwYjE1MjE7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Ik0gNjEsMTEgViA0NyBMIDM3LDU3IFYgMTkgWiIKICAgICAgIGlkPSJwYXRoMjk5NSIKICAgICAgIGlua3NjYXBlOmNvbm5lY3Rvci1jdXJ2YXR1cmU9IjAiIC8+CiAgICA8cGF0aAogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjY2MiCiAgICAgICBpZD0icGF0aDM4MjUiCiAgICAgICBkPSJtIDMsMTMgMzQsNiBWIDU3IEwgMyw1MSBaIgogICAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO292ZXJmbG93OnZpc2libGU7dmlzaWJpbGl0eTp2aXNpYmxlO2ZpbGw6dXJsKCNsaW5lYXJHcmFkaWVudDM3NzMpO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTojMGIxNTIxO3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1kYXNob2Zmc2V0OjA7c3Ryb2tlLW9wYWNpdHk6MTttYXJrZXI6bm9uZTtlbmFibGUtYmFja2dyb3VuZDphY2N1bXVsYXRlIiAvPgogICAgPHBhdGgKICAgICAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOiM3MjlmY2Y7c3Ryb2tlLXdpZHRoOjI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGQ9Im0gNSwxNS40Mjc3MiAwLjAwODY3LDMzLjkxOTExNiAzMC4wMDg2NzEsNS4yNjg3OTkgLTAuMDA4NywtMzMuOTMzNjE0IHoiCiAgICAgICBpZD0icGF0aDM3NjUiCiAgICAgICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIgogICAgICAgc29kaXBvZGk6bm9kZXR5cGVzPSJjY2NjYyIgLz4KICAgIDxwYXRoCiAgICAgICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTojMzQ2NWE0O3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1vcGFjaXR5OjEiCiAgICAgICBkPSJtIDM5LjAxMjQzLDIwLjQzMzgzMyAtMC4wMTIyNiwzMy41MzUzMDEgMjAuMDAxMTA1LC04LjMwMDk5MyAzLjZlLTQsLTMxLjg2NzM2MyB6IgogICAgICAgaWQ9InBhdGgzNzc1IgogICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIKICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjY2MiIC8+CiAgICA8ZwogICAgICAgaWQ9ImczOTUxIgogICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzMuMjQ0MTQ5LDEyLjI4MDcxNykiPgogICAgICA8ZWxsaXBzZQogICAgICAgICByeT0iMjMuMDAwMDAyIgogICAgICAgICByeD0iMTcuNzAxMTgzIgogICAgICAgICBjeT0iLTE2LjIxOTI4NCIKICAgICAgICAgY3g9IjQwLjAxNDE2OCIKICAgICAgICAgaW5rc2NhcGU6cl9jeT0idHJ1ZSIKICAgICAgICAgaW5rc2NhcGU6cl9jeD0idHJ1ZSIKICAgICAgICAgc3R5bGU9ImNvbG9yOiMwMDAwMDA7ZGlzcGxheTppbmxpbmU7b3ZlcmZsb3c6dmlzaWJsZTt2aXNpYmlsaXR5OnZpc2libGU7b3BhY2l0eTowLjM4MzMzMzMzO2ZpbGw6dXJsKCNyYWRpYWxHcmFkaWVudDM5NjgpO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpldmVub2RkO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDoxLjkxNTc3MTAxO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLWRhc2hhcnJheTpub25lO21hcmtlcjpub25lIgogICAgICAgICBpZD0icGF0aDg2NjAiCiAgICAgICAgIHRyYW5zZm9ybT0ic2NhbGUoLTEpIiAvPgogICAgICA8cGF0aAogICAgICAgICBzdHlsZT0iY29sb3I6IzAwMDAwMDtkaXNwbGF5OmJsb2NrO292ZXJmbG93OnZpc2libGU7dmlzaWJpbGl0eTp2aXNpYmxlO2ZpbGw6dXJsKCNsaW5lYXJHcmFkaWVudDM5NzApO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTp1cmwoI2xpbmVhckdyYWRpZW50Mzk3Mik7c3Ryb2tlLXdpZHRoOjAuNzU4MDAwMDI7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLWRhc2hvZmZzZXQ6MDtzdHJva2Utb3BhY2l0eToxO21hcmtlcjpub25lIgogICAgICAgICBkPSJtIC0zNi44NDkyNjcsMjUuMjE5MjkyIGMgMCwwIDYuNzg3OTgzLDAuNDc0Njg0IDQuNjk5MzczLC03LjUwMDAwOSBoIDUuOTA1NzQ1IGMgMCwxLjE0MTIxOCAtMC40NDY4NzcsOS4wMTg5OTkgLTEwLjYwNTExOCw3LjUwMDAwOSB6IgogICAgICAgICBpZD0icGF0aDI4MzkiCiAgICAgICAgIGlua3NjYXBlOnJfY3g9InRydWUiCiAgICAgICAgIGlua3NjYXBlOnJfY3k9InRydWUiCiAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjYyIKICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KICAgICAgPGcKICAgICAgICAgaWQ9ImcxNjk2IgogICAgICAgICB0cmFuc2Zvcm09Im1hdHJpeCgxLjE0Mzg0ODgsMCwwLDEuMTQzODQ4OCwxLjUyMDAzNTQsLTQuMzk0NjExNykiPgogICAgICAgIDxnCiAgICAgICAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO3N0cm9rZS13aWR0aDoxLjMyOTA3MTQ7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmUiCiAgICAgICAgICAgaWQ9ImczOTU5IgogICAgICAgICAgIHRyYW5zZm9ybT0ibWF0cml4KDAuOTM3NDk5OTQsMCwwLDAuOTM3NDk5OTQsLTU2LjUwNDM5MywyNS44NjI3MTMpIj4KICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICBpbmtzY2FwZTpleHBvcnQteWRwaT0iNC4xNjgzODk4IgogICAgICAgICAgICAgaW5rc2NhcGU6ZXhwb3J0LXhkcGk9IjQuMTY4Mzg5OCIKICAgICAgICAgICAgIGlua3NjYXBlOmV4cG9ydC1maWxlbmFtZT0iL2hvbWUveW9yaWsvRG9jdW1lbnRzL0xhYi9EcmFmdC9pY29ucy9jaGFuZ2Vwcm9wLnBuZyIKICAgICAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjY2NjY2MiCiAgICAgICAgICAgICBpZD0icGF0aDMzNDMtMCIKICAgICAgICAgICAgIGQ9Im0gMzUsLTEzIHYgNCBjIC0xMCwwIC0xNywyIC0yMyw3IGwgNSw3IGMgNS41MzMxMDcsLTMuMjk2OTI0MyAxMS4zMDQ3MDMsLTUuOTMxMzgxMzcgMTgsLTYgdiA0IGwgMTQsLTggeiIKICAgICAgICAgICAgIHN0eWxlPSJkaXNwbGF5OmlubGluZTtmaWxsOnVybCgjbGluZWFyR3JhZGllbnQzOTYzKTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzE3MmEwNDtzdHJva2Utd2lkdGg6MjtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KICAgICAgICAgIDxwYXRoCiAgICAgICAgICAgICBpbmtzY2FwZTpleHBvcnQteWRwaT0iNC4xNjgzODk4IgogICAgICAgICAgICAgaW5rc2NhcGU6ZXhwb3J0LXhkcGk9IjQuMTY4Mzg5OCIKICAgICAgICAgICAgIGlua3NjYXBlOmV4cG9ydC1maWxlbmFtZT0iL2hvbWUveW9yaWsvRG9jdW1lbnRzL0xhYi9EcmFmdC9pY29ucy9jaGFuZ2Vwcm9wLnBuZyIKICAgICAgICAgICAgIHNvZGlwb2RpOm5vZGV0eXBlcz0iY2NjY2NjY2MiCiAgICAgICAgICAgICBpZD0icGF0aDMzNDMtMi05IgogICAgICAgICAgICAgZD0ibSAzNywtOS41ODIyMzA0IC0wLjAzNDUzLDIuNDk1OTEzNyBDIDI0LC03IDIwLC01IDE0Ljc0MjMyNCwtMS42MjE0ODA1IGwgMi44MjM4OTcsMy45NzQ2MTY5IEMgMjAuMjI0NDI0LDAuOTEzNjgzMjUgMjYsLTMgMzcsLTMgdiAyLjU4MjIzMDQgTCA0NSwtNSBaIgogICAgICAgICAgICAgc3R5bGU9ImRpc3BsYXk6aW5saW5lO2ZpbGw6bm9uZTtzdHJva2U6IzhhZTIzNDtzdHJva2Utd2lkdGg6MS45OTk5OTk4ODtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1kYXNoYXJyYXk6bm9uZTtzdHJva2Utb3BhY2l0eToxIgogICAgICAgICAgICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KICAgICAgICA8L2c+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=
@@ -2503,7 +2503,7 @@ def say(msg):
 def sayw(msg):
     FreeCAD.Console.PrintWarning(msg)
     FreeCAD.Console.PrintWarning('\n')
-    
+
 def sayerr(msg):
     FreeCAD.Console.PrintError(msg)
     FreeCAD.Console.PrintWarning('\n')
@@ -2541,7 +2541,7 @@ def PLine(prm1,prm2):
         return Part.LineSegment(prm1, prm2)
     else:
         return Part.Line(prm1, prm2)
-        
+
 def light1(x,y,z):
   light = SoDirectionalLight()
   light.on = True
@@ -2579,7 +2579,7 @@ def simple_cpy_plc(obj,proot): #simple copy with incremental placement
     FreeCAD.ActiveDocument.ActiveObject.Label=new_label
 
 def get_node_plc(o,obj):  # get node placement in App::Part
-    
+
     child = FreeCAD.ActiveDocument.addObject("Part::Box","BoxC")
     node = FreeCAD.ActiveDocument.addObject("Part::Box","BoxN")
     child.Placement=o.Placement
@@ -2589,7 +2589,7 @@ def get_node_plc(o,obj):  # get node placement in App::Part
     FreeCAD.ActiveDocument.removeObject("BoxN")
     FreeCAD.ActiveDocument.recompute()
     return new_Placement
-    
+
 def recurse_node(obj,plcm,scl):  # recursive function to make a simple copy of App::Part hierarchy
     if "App::Part" in obj.TypeId or 'Body' in obj.TypeId:
         for o in obj.Group:
@@ -2668,15 +2668,15 @@ def isWritable(path):
     except:
     #except OSError as e:
         #sayw('ko')
-        sayw('folder not writable!') 
-        pass        
+        sayw('folder not writable!')
+        pass
         return False
         #if e.errno == errno.EACCES:  # 13
         #    return False
         #e.filename = path
-        #return False        
+        #return False
         #raise
-    sayw('folder not writable!')    
+    sayw('folder not writable!')
     return False
 ###
 def comboBox_Changed(text_combo):
@@ -2695,11 +2695,11 @@ def comboBox_Changed(text_combo):
         ## pal.setColor(QtGui.QPalette.Base, bgc)
         ## ui.plainTextEdit_2.viewport().setPalette(pal)
         #say(material_index)
-        ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(float(color_rgb[9])*255)+","+str(float(color_rgb[10])*255)+","+str(float(color_rgb[11])*255)+");}") 
+        ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(float(color_rgb[9])*255)+","+str(float(color_rgb[10])*255)+","+str(float(color_rgb[11])*255)+");}")
     else:
         #say(str(material_index)+" here")
-        #ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(0*255)+","+str(1*255)+","+str(0*255)+");}") 
-        ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}") 
+        #ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(0*255)+","+str(1*255)+","+str(0*255)+");}")
+        ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}")
 
 ###
 
@@ -2777,8 +2777,8 @@ def exportVRMLmaterials(objects, filepath):
                 ## bgc = QtGui.QColor(shape_col[0]*255,shape_col[1]*255, shape_col[2]*255)
                 ## pal.setColor(QtGui.QPalette.Base, bgc)
                 ## ui.plainTextEdit.viewport().setPalette(pal)
-                ui.plainTextEdit.setStyleSheet("#plainTextEdit {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}") 
-                ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}") 
+                ui.plainTextEdit.setStyleSheet("#plainTextEdit {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}")
+                ui.plainTextEdit_2.setStyleSheet("#plainTextEdit_2 {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}")
                 ui.comboBox.setCurrentIndex(material_index)
                 #ui.comboBox.clear()
                 color_list.append(shape_col)
@@ -2800,7 +2800,7 @@ def exportVRMLmaterials(objects, filepath):
             #else:
             #    sayw(shape_col);say('Found!')
             #    col_index=color_list.index(shape_col)
-            #    ui.plainTextEdit.setStyleSheet("#plainTextEdit {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}") 
+            #    ui.plainTextEdit.setStyleSheet("#plainTextEdit {background-color:rgb("+str(shape_col[0]*255)+","+str(shape_col[1]*255)+","+str(shape_col[2]*255)+");}")
             #    ui.comboBox.setCurrentIndex(col_index)
             #say("searching")
             col_index=color_list.index(shape_col)
@@ -2872,11 +2872,11 @@ def export(componentObjs, fullfilePathName, scale=None):
 
     `componentObjs` : a ComponentObjs list
     `fullfilePathName` : name of the FC file, extension is important
-    
+
     """
-    
+
     global exportV, applymaterials, ui, creaseAngle
-    
+
     exp_name=componentObjs[0].Label
     #removing not allowed chars
     translation_table = dict.fromkeys(map(ord, '<>:"/\|?*,;:\\'), None)
@@ -2994,7 +2994,7 @@ def check_AP():
         #sel[0].Visibility=False
         for obj in FreeCADGui.Selection.getSelection():
             recurse_node(obj,obj.Placement, sc_list)
-        
+
         FreeCAD.activeDocument().addObject("Part::Compound",FreeCADGui.Selection.getSelection()[0].Label+"_cp")
         FreeCAD.activeDocument().ActiveObject.Links = sc_list #[FreeCAD.activeDocument().Part__Feature,FreeCAD.activeDocument().Shape,]
         mycompound=FreeCAD.activeDocument().ActiveObject
@@ -3036,7 +3036,7 @@ def group_part():
             pOriginal=FreeCADGui.Selection.getSelection()[0].Placement
             FreeCADGui.Selection.getSelection()[0].Placement=p0
             for obj in FreeCADGui.Selection.getSelection():
-                recurse_node(obj,obj.Placement, sc_list)       
+                recurse_node(obj,obj.Placement, sc_list)
             #print sc_list
             #stop
             if len (sc_list) == 1:
@@ -3058,8 +3058,8 @@ def group_part():
                 FreeCADGui.Selection.addSelection(FreeCAD.activeDocument().ActiveObject)
                 simple_copy(FreeCAD.activeDocument().getObject(mycompound.Name))
                 FreeCADGui.ActiveDocument.getObject(mycompound.Name).Visibility=False
-                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
-                FreeCAD.ActiveDocument.recompute()            
+                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
+                FreeCAD.ActiveDocument.recompute()
                 found=1
         if 'Part::Compound' in sel[0].TypeId:
             sayw("doing single copy")
@@ -3109,12 +3109,12 @@ def group_part():
 
             simple_copy(FreeCAD.activeDocument().getObject(mycompound.Name))
             FreeCADGui.ActiveDocument.getObject(mycompound.Name).Visibility=False
-            FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
+            FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
             FreeCAD.ActiveDocument.recompute()
         else:
             say_select_obj()
 
-        
+
 def group_part_union():
     #say("gp union")
     sel = FreeCADGui.Selection.getSelection()
@@ -3135,7 +3135,7 @@ def group_part_union():
             pOriginal=FreeCADGui.Selection.getSelection()[0].Placement
             FreeCADGui.Selection.getSelection()[0].Placement=p0
             for obj in FreeCADGui.Selection.getSelection():
-                recurse_node(obj,obj.Placement, sc_list)       
+                recurse_node(obj,obj.Placement, sc_list)
             FreeCADGui.Selection.getSelection()[0].Placement=pOriginal
             #print sc_list
             #stop
@@ -3175,12 +3175,12 @@ def group_part_union():
                     #FreeCAD.activeDocument().recompute()
                     simple_copy(FreeCAD.activeDocument().getObject(mycompound.Name))
                     FreeCADGui.ActiveDocument.getObject(mycompound.Name).Visibility=False
-                    FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
+                    FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
                     FreeCAD.ActiveDocument.recompute()
                 else:
                     simple_copy(FreeCAD.activeDocument().getObject(FusionName))
                     FreeCADGui.ActiveDocument.getObject(FusionName).Visibility=False
-                    FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
+                    FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
                     FreeCAD.ActiveDocument.recompute()
             found=1
         if 'Part::Compound' in sel[0].TypeId:
@@ -3246,7 +3246,7 @@ def group_part_union():
                 FreeCAD.activeDocument().recompute()
                 simple_copy(FreeCAD.activeDocument().getObject(mycompound.Name))
                 FreeCADGui.ActiveDocument.getObject(mycompound.Name).Visibility=False
-                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
+                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
                 FreeCAD.ActiveDocument.recompute()
             #mw=Gui.getMainWindow()
             ##c=mw.findChild(QtGui.QPlainTextEdit, "Python console")
@@ -3261,11 +3261,11 @@ def group_part_union():
             else:
                 simple_copy(FreeCAD.activeDocument().getObject(FusionName))
                 FreeCADGui.ActiveDocument.getObject(FusionName).Visibility=False
-                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"      
+                FreeCAD.ActiveDocument.ActiveObject.Label=original_label+"_sp"
                 FreeCAD.ActiveDocument.recompute()
         else:
             say_select_obj()
-        
+
 def go_export(fPathName):
     global exportV, exportS
     sel = FreeCADGui.Selection.getSelection()
@@ -3323,10 +3323,10 @@ def exportStep(objs, ffPathName):
     #Export fused object
     global exportS, applymaterials, enable_materials
     global color_list, color_list_mat
-    
+
     #if applymaterials==1:
     #    sayw(color_list); sayw(color_list_mat)
-    
+
     exp_name=objs[0].Label
     #removing not allower chars
     translation_table = dict.fromkeys(map(ord, '<>:"/\|?*,;:\\'), None)
@@ -3352,7 +3352,7 @@ def exportStep(objs, ffPathName):
         ## resetting placement
         newobj=reset_prop_shapes(FreeCAD.ActiveDocument.getObject(objs[0].Name),FreeCAD.ActiveDocument, FreeCAD,FreeCADGui)
         new_name=FreeCAD.ActiveDocument.ActiveObject.Name
-        
+
         #newobj.Label="TEST"
         newobj_list=[FreeCAD.ActiveDocument.getObject(new_name)]
         #test aligning colors
@@ -3415,7 +3415,7 @@ def exportStep(objs, ffPathName):
                         #say(color_vector)
                         FreeCADGui.ActiveDocument.getObject(obj.Name).ShapeColor=color_vector[0]
         # end test aligning colors
-        
+
         # reducing STEP file size
         #NB WriteSurfaceCurveMode parameter get after FC close-reopen
         # paramGet = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Part/General")
@@ -3446,7 +3446,7 @@ def exportStep(objs, ffPathName):
         #    paramGetVS2.SetBool("Scheme_214",1)
         ##  not to be used paramGet.SetString("Product", "Open CASCADE STEP processor 7.0")
         ImportGui.export(newobj_list,fullFilePathNameStep)
-        #del __objs__ 
+        #del __objs__
         say(fullFilePathNameStep+' written')
         ##ImportGui.export(objs,fullFilePathNameStep)
         #restoring old Author
@@ -3539,7 +3539,7 @@ virt = addVirtual
 ;exportFusing = nofuse  #default
 exportFusing = nofuse  #default
 [minimum_drill_size]
-;; minimum drill size to be handled 
+;; minimum drill size to be handled
 ;; set 0.0 to handle all sizes
 min_drill_size = 0.0
 [last_pcb_path]
@@ -3550,7 +3550,7 @@ last_pcb_path =
 last_fp_path =
 [export]
 export_to_STEP = yes
-;; export to STEP 
+;; export to STEP
 ;export_to_STEP = yes
 ;export_to_STEP = no
 [Materials]
@@ -3609,10 +3609,10 @@ def cfg_read_all():
     global font_section, ini_vars, num_min_lines, animate_result, allow_compound, font_size, grid_orig
     global constraints_section, addConstraints, exporting_mode_section, stp_exp_mode
     global links_importing_mode_section, links_imp_mode, generate_sketch, edge_tolerance
-    
+
     import os, sys, re
     from sys import platform as _platform
-    
+
     # window GUI dimensions parameters
     pt_lnx = False;pt_osx = False;pt_win = False;
     if _platform == "linux" or _platform == "linux2":
@@ -3623,7 +3623,7 @@ def cfg_read_all():
     elif _platform == "darwin":
         #osx
         pt_osx = True
-        default_prefix3d = '/Library/Application Support/kicad/packages3d' 
+        default_prefix3d = '/Library/Application Support/kicad/packages3d'
         #/Library/Application Support/kicad/modules/packages3d/' wrong location
     else:
         # Windows
@@ -3640,7 +3640,7 @@ def cfg_read_all():
     #else:
     #    for i,p in enumerate (prefs.GetContents()):
     #        print (p)
-            
+
     models3D_prefix = prefs.GetString('prefix3d_1')
     if len (models3D_prefix) == 0:
         prefs.SetString('prefix3d_1',make_string(default_prefix3d))
@@ -3697,7 +3697,7 @@ def cfg_read_all():
         aux_orig = 1
     else:
         base_orig = 1
-    step_exp_mode = prefs.GetInt('step_exp_mode')    
+    step_exp_mode = prefs.GetInt('step_exp_mode')
     if step_exp_mode == 0:
         stp_exp_mode = 'hierarchy'
     elif step_exp_mode == 1:
@@ -3730,7 +3730,7 @@ def cfg_read_all():
         whitelisted_model_elements=bbox_opt.strip('\r\n')
         #whitelisted_models=whitelisted_model_elements.split(",")
     #elif len(bbox_opt) > 0:
-        
+
     bbox=0;blacklisted_model_elements=''
     volume_minimum=0 #0.8  ##1 #mm^3, 0 skipped #global var default
     height_minimum=0 #0.8  ##1 #mm, 0 skipped   #global var default
@@ -3764,9 +3764,9 @@ def cfg_read_all():
     pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
     last_pcb_path = pg.GetString("last_pcb_path")
     last_fp_path = pg.GetString("last_fp_path")
-            
+
     #stop
-    
+
 ##
 def cfg_read_all_old():
     global ksu_config_fname, default_ksu_config_ini, applymaterials
@@ -3799,7 +3799,7 @@ def cfg_read_all_old():
                     #ini_content.append(make_unicode(line))
                     ini_content.append(line)
             #ini_content.append(" ")
-                
+
             if any("Materials" in s for s in cfg_content):
                 say ("materials section present")
             else:
@@ -3829,7 +3829,7 @@ def cfg_read_all_old():
             if not any('[turntable]' in s for s in cfg_content):
             #if 'docking' not in cfg_content:
                 say ("missing turntable section, adding default one")
-                #cfg_content.append(make_unicode(turntable_section)) 
+                #cfg_content.append(make_unicode(turntable_section))
                 cfg_content.append(turntable_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -3909,7 +3909,7 @@ def cfg_read_all_old():
             #if 'docking' not in cfg_content:
                 say ("missing docking section, adding default one")
                 #cfg_content.append(u'[docking]\ndkmode = float\n;;docking mode\n;dkmode = left\n;dkmode = right\n;dkmode = float\n')
-                cfg_content.append(dock_section) 
+                cfg_content.append(dock_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
                 with codecs.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -3932,7 +3932,7 @@ def cfg_read_all_old():
             if not any('[sketch_constraints]' in s for s in cfg_content):
             #if 'docking' not in cfg_content:
                 sayerr ("missing Constraints section, adding default one")
-                cfg_content.append(constraints_section) 
+                cfg_content.append(constraints_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
                 with codecs.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -3955,7 +3955,7 @@ def cfg_read_all_old():
             if not any('[step_exporting_mode]' in s for s in cfg_content):
             #if 'docking' not in cfg_content:
                 sayerr ("missing Exporting Mode section, adding default one")
-                cfg_content.append(exporting_mode_section) 
+                cfg_content.append(exporting_mode_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
                 with codecs.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -3978,7 +3978,7 @@ def cfg_read_all_old():
             if not any('[links_importing_mode]' in s for s in cfg_content):
             #if 'docking' not in cfg_content:
                 sayerr ("missing Importing Mode section, adding default one")
-                cfg_content.append(links_importing_mode_section) 
+                cfg_content.append(links_importing_mode_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
                 with codecs.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -4002,7 +4002,7 @@ def cfg_read_all_old():
             #if 'docking' not in cfg_content:
                 say ("missing fonts section, adding default one")
                 #cfg_content.append(u'[docking]\ndkmode = float\n;;docking mode\n;dkmode = left\n;dkmode = right\n;dkmode = float\n')
-                cfg_content.append(font_section) 
+                cfg_content.append(font_section)
                 out_file=ksu_config_fname
                 #with io.open(out_file,'a', encoding='utf-8') as cfg_file_out:
                 with codecs.open(out_file,'a', encoding='utf-8') as cfg_file_out:
@@ -4218,9 +4218,9 @@ def cfg_read_all_old():
     exportFusing = ini_vars[8] #configParser.get('ExportFuse', 'exportFusing')
     min_drill_size = float(ini_vars[9]) #configParser.get('minimum_drill_size', 'min_drill_size'))
     last_pcb_path = ini_vars[10] #configParser.get('last_pcb_path', 'last_pcb_path')
-    last_fp_path = ini_vars[11] #configParser.get('last_footprint_path', 'last_fp_path') 
-    export2S = ini_vars[12] #configParser.get('export', 'export_to_STEP') 
-    enablematerials = ini_vars[13] #configParser.get('Materials', 'mat')    
+    last_fp_path = ini_vars[11] #configParser.get('last_footprint_path', 'last_fp_path')
+    export2S = ini_vars[12] #configParser.get('export', 'export_to_STEP')
+    enablematerials = ini_vars[13] #configParser.get('Materials', 'mat')
     if 'enabled' in ini_vars[14]:
         animate_result = True
     else:
@@ -4228,16 +4228,16 @@ def cfg_read_all_old():
     if 'disallowed' in ini_vars[15]:
         allow_compound = 'False'
     elif 'simplified' in ini_vars[15]:
-        allow_compound = 'Simplified'   
+        allow_compound = 'Simplified'
     else:
         allow_compound = 'True'
     docking_mode = ini_vars[16]
     font_size = int(ini_vars[17])
     stp_exp_mode = ini_vars[18]
     links_imp_mode = ini_vars[19]
-    
+
     add_constraints_val = ini_vars[0]  # find_name default value
-    
+
     #sayerr(links_imp_mode)
     #print add_constraints_val
     #stop
@@ -4280,7 +4280,7 @@ def cfg_read_all_old():
         if bbox_opt.upper().find('LIST') !=-1:
             bbox_list=1
             whitelisted_model_elements=bbox_opt.strip('\r\n')
-            #whitelisted_models=whitelisted_model_elements.split(",")        
+            #whitelisted_models=whitelisted_model_elements.split(",")
     if plcmnt.lower().find('auxorigin') !=-1:
         aux_orig=1
         #whitelisted_model_elements=''
@@ -4349,11 +4349,11 @@ def cfg_read_all_old():
     colr=float(col[0]);colg=float(col[1]);colb=float(col[2])
     ##cfg_parameters = (models3D_prefix,blacklisted_model_elements,col,bbox,volume_minimum,height_minimum
     #cfg_parameters.append(colr);cfg_parameters.append(colg);cfg_parameters.append(colb)
-    #return cfg_parameters    
-    
+    #return cfg_parameters
+
     sayw("kicad StepUp version "+str(___ver___))
     #FC_majorV,FC_minorV,FC_git_Nbr=getFCversion()
-    #sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))  
+    #sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))
     ###
     return data_ini_content
 #
@@ -4427,8 +4427,8 @@ ini_content=cfg_read_all()
 # stop
 
 #time.sleep(0.5)
-# configParser = ConfigParser.RawConfigParser()  
-# configParser = ConfigParser.ConfigParser(allow_no_value = True) 
+# configParser = ConfigParser.RawConfigParser()
+# configParser = ConfigParser.ConfigParser(allow_no_value = True)
 # configFilePath = ksu_config_fname
 # cfgParsRead(configFilePath)
 
@@ -4436,7 +4436,7 @@ ini_content=cfg_read_all()
 
 def say_time():
     global running_time
-    
+
     end_milli_time = current_milli_time()
     running_time=(end_milli_time-start_time)/1000
     msg="running time: "+str(round(running_time,3))+"sec"
@@ -4445,7 +4445,7 @@ def say_time():
 
 def get_time():
     global running_time
-    
+
     end_milli_time = current_milli_time()
     running_time=(end_milli_time-start_time)/1000
     #msg="running time: "+str(running_time)+"sec"
@@ -4563,7 +4563,7 @@ def copy_objs(obj,doc):
 
     FreeCAD.ActiveDocument.addObject('Part::Feature',obj.Label).Shape=obj.Shape
     #App.ActiveDocument.ActiveObject.Label=obj.Label
-    
+
     FreeCADGui.ActiveDocument.ActiveObject.ShapeColor=FreeCADGui.ActiveDocument.getObject(obj.Name).ShapeColor
     FreeCADGui.ActiveDocument.ActiveObject.LineColor=FreeCADGui.ActiveDocument.getObject(obj.Name).LineColor
     FreeCADGui.ActiveDocument.ActiveObject.PointColor=FreeCADGui.ActiveDocument.getObject(obj.Name).PointColor
@@ -4571,7 +4571,7 @@ def copy_objs(obj,doc):
     #FreeCADGui.ActiveDocument.ActiveObject.Transparency=FreeCADGui.ActiveDocument.getObject(obj.Name).Transparency
     FreeCAD.ActiveDocument.recompute()
     #App.ActiveDocument.ActiveObject.ViewObject.Visibility = False
-    
+
     return FreeCAD.ActiveDocument.ActiveObject
 ###
 
@@ -4583,14 +4583,14 @@ def copy_objs_BAD(obj,doc,App,Gui):
     #App.ActiveDocument.addObject('Part::Feature',obj.Label+"cp_").Shape=obj.Shape
     App.ActiveDocument.addObject('Part::Feature',obj.Label).Shape=obj.Shape
     #App.ActiveDocument.ActiveObject.Label=obj.Label
-    
+
     Gui.ActiveDocument.ActiveObject.ShapeColor=Gui.ActiveDocument.getObject(obj.Name).ShapeColor
     Gui.ActiveDocument.ActiveObject.LineColor=Gui.ActiveDocument.getObject(obj.Name).LineColor
     Gui.ActiveDocument.ActiveObject.PointColor=Gui.ActiveDocument.getObject(obj.Name).PointColor
     Gui.ActiveDocument.ActiveObject.DiffuseColor=Gui.ActiveDocument.getObject(obj.Name).DiffuseColor
     App.ActiveDocument.recompute()
     #App.ActiveDocument.ActiveObject.ViewObject.Visibility = False
-    
+
     return App.ActiveDocument.ActiveObject
 ###
 def createSolidBBox3(objIn):
@@ -4631,7 +4631,7 @@ def createSolidBBox3(objIn):
 ###
 ###
 def createScaledBBox(name,scale):
-    # type: box, cylV, cylH 
+    # type: box, cylV, cylH
     say(name)
     if name == "box_mcad":
         type = "cube"
@@ -4653,7 +4653,7 @@ def createScaledBBox(name,scale):
     #makeBox(length,width,height,[pnt,dir]) – Make a box located in pnt with the dimensions (length,width,height) By default pnt=Vector(0,0,0) and dir=Vector(0,0,1)
         obj.Shape=Part.makeBox(boundBoxLX, boundBoxLY, boundBoxLZ, FreeCAD.Vector(-boundBoxLX/2,-boundBoxLY/2,0))
         bbox_col=bbox_r_col
-# makeCylinder(radius,height,[pnt,dir,angle]) 
+# makeCylinder(radius,height,[pnt,dir,angle])
 # Make a cylinder with a given radius and height By default pnt=Vector(0,0,0),dir=Vector(0,0,1) and angle=360
     if type == "cylinder_vert":
         obj.Shape=Part.makeCylinder(boundBoxLX/2, boundBoxLZ) #, FreeCAD.Vector(-boundBoxLX/2,-boundBoxLY/2,0))
@@ -4676,8 +4676,8 @@ def Display_info(blacklisted_models):
         if (show_messages==True):
             QtGui.QApplication.restoreOverrideCursor()
             reply = QtGui.QMessageBox.information(None,"Info ...","... black-listed module(s)\r\n"+ ''.join(map(str, blacklisted_models)).replace(',','\n'))
-        #FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))    
-    
+        #FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))
+
     msg="""<b>kicad StepUp</b> ver. """
     msg+=___ver___
     #if len(msgpath)>15:
@@ -4698,7 +4698,7 @@ def Display_info(blacklisted_models):
     if (volume_minimum!=0):
         msg+="<br><b><font color=blue>modules with volume less than "+str(volume_minimum)+"mm^3 not included</font></b>"
     if (height_minimum!=0):
-        msg+="<br><b><font color=blue>modules with height less than "+str(height_minimum)+"mm not included</font></b>"    
+        msg+="<br><b><font color=blue>modules with height less than "+str(height_minimum)+"mm not included</font></b>"
     if (min_drill_size!=0):
         msg+="<br><b><font color=blue>drills with size less than "+str(min_drill_size)+"mm not included</font></b>"
     if (compound_found):
@@ -4711,7 +4711,7 @@ def Display_info(blacklisted_models):
         say("Board Placed @ "+"{0:.2f}".format(board_base_point_x)+";"+"{0:.2f}".format(board_base_point_y)+";0.0")
     else:
         say("Board Placed @ "+"{0:.2f}".format(new_pos_x)+";"+"{0:.2f}".format(new_pos_y)+";0.0")
-    say("kicad pcb pos: ("+"{0:.2f}".format(real_board_pos_x)+";"+"{0:.2f}".format(real_board_pos_y)+";"+"{0:.2f}".format(0)+")")      
+    say("kicad pcb pos: ("+"{0:.2f}".format(real_board_pos_x)+";"+"{0:.2f}".format(real_board_pos_y)+";"+"{0:.2f}".format(0)+")")
     if (show_messages==True):
         QtGui.QApplication.restoreOverrideCursor()
         #RotateXYZGuiClass().setGeometry(25, 250, 500, 500)
@@ -4797,10 +4797,10 @@ def Display_info(blacklisted_models):
         FreeCADGui.ActiveDocument.ActiveView.startAnimating(0,1,0,0.2)
 ###
 def checkFCbug(fcv):
-    """ step hierarchy export bug """     
+    """ step hierarchy export bug """
     if ((fcv[0] == 0) and (fcv[1] == 17) and (fcv[2] >= 13509) and (fcv[2] < 13515))\
        or ((fcv[0] == 0) and (fcv[1] == 18) and (fcv[2] >= 13509) and (fcv[2] < 13548)):
-        #if int(fcv[2]) >= 13509 and int(fcv[2]) < 13548: # or fcv[2] == 13516:     
+        #if int(fcv[2]) >= 13509 and int(fcv[2]) < 13548: # or fcv[2] == 13516:
             import Part
             if hasattr(Part, "OCC_VERSION"):
                 if (Part.OCC_VERSION=='7.2.0'):
@@ -4824,7 +4824,7 @@ def find_skt_in_Doc():
                             #return MObject2.Name, MObject1.Name
     #print 'loop closed'
     return sk_list
-    
+
 ###
 
 def Export2MCAD(blacklisted_model_elements):
@@ -4880,7 +4880,7 @@ def Export2MCAD(blacklisted_model_elements):
     # old_Prod = paramGet.GetString("Product")
     paramGet.SetString("Author", "kicad StepUp")
     paramGet.SetString("Company", "ksu MCAD")
-    
+
     if use_AppPart and not force_oldGroups: # and not fusion:
         #sayw("exporting STEP with Hierarchy")
         #stop
@@ -4894,7 +4894,7 @@ def Export2MCAD(blacklisted_model_elements):
             #print sk
             FreeCAD.ActiveDocument.getObject(sk[1]).removeObject(FreeCAD.ActiveDocument.getObject(sk[0]))
                 #FreeCAD.ActiveDocument.getObject(selN).removeObject(FreeCAD.ActiveDocument.getObject(sk_name))
-        
+
     #sayerr(__ob__[0].Name)
     if (fusion==True):
         ## be careful ... fusion can be heavy or generate FC crash with a lot of objects
@@ -4996,7 +4996,7 @@ def Export2MCAD(blacklisted_model_elements):
             sayerr('exported a simplified STEP hierarchy because of '+str(fcv)+' FC bug')
             msg="""<font color='red'><b>exported a simplified STEP hierarchy<br>because of """+str(fcv)+""" FC bug</b></font>"""
             say_warning(msg)
-                            
+
             for sk in skl:
                 say('including sketch in grp')
                 FreeCAD.ActiveDocument.getObject(sk[1]).addObject(FreeCAD.ActiveDocument.getObject(sk[0]))
@@ -5013,7 +5013,7 @@ def Export2MCAD(blacklisted_model_elements):
                 # if 'Part::Feature' in o.TypeId:
                 if hasattr(o, 'Shape'):
                     # print o.Label
-                    # say ('adding ') 
+                    # say ('adding ')
                     # FreeCADGui.Selection.addSelection(o)
                     __objs__.append(o)
             ImportGui.export(__objs__,fpath)
@@ -5051,7 +5051,7 @@ def Export2MCAD(blacklisted_model_elements):
         # Remove the fusion object
         doc.removeObject("ksuCompound_")
         doc.recompute()
-        
+
         stop
     for obj in doc.Objects:
         # do what you want to automate
@@ -5061,7 +5061,7 @@ def Export2MCAD(blacklisted_model_elements):
         if (show_messages==True):
             QtGui.QApplication.restoreOverrideCursor()
             reply = QtGui.QMessageBox.information(None,"Info ...","... black-listed module(s)\r\n"+ ''.join(map(str, blacklisted_models)).replace(',','\n'))
-        #FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))    
+        #FreeCAD.Console.PrintMessage("black-listed module "+ '\r\n'.join(map(str, blacklisted_models)))
     del __objs__
     ## Save to disk in native format
     FreeCAD.ActiveDocument=None
@@ -5085,7 +5085,7 @@ def Export2MCAD(blacklisted_model_elements):
     #FreeCAD.getDocument(doc.Name).saveAs(fcfilenametest) #utf-8 test
     #FreeCAD.getDocument(doc.Name).saveAs(freeCADFileName) #utf-8 test
     #stop
-    
+
     try:
         FreeCAD.getDocument(doc.Name).saveAs((fpath+".FCStd").encode('utf-8'))  #bug in FC need to encode utf-8
         FreeCAD.ActiveDocument.recompute()
@@ -5104,7 +5104,7 @@ def Export2MCAD(blacklisted_model_elements):
     #    insert_return(msgpath, 15)
     if (fusion==True):
         msgpath=msgpath+"_union"
-        msg+="<br>fused file exported<br><b>"+msgpath+'.step</b>'    
+        msg+="<br>fused file exported<br><b>"+msgpath+'.step</b>'
     if (idf_to_origin==True):
         new_pos_x=board_base_point_x+real_board_pos_x
         new_pos_y=board_base_point_y+real_board_pos_y
@@ -5121,7 +5121,7 @@ def Export2MCAD(blacklisted_model_elements):
     if (volume_minimum!=0):
         msg+="<br><b><font color=blue>modules with volume less than "+str(volume_minimum)+"mm^3 not included</font></b>"
     if (height_minimum!=0):
-        msg+="<br><b><font color=blue>modules with height less than "+str(height_minimum)+"mm not included</font></b>"    
+        msg+="<br><b><font color=blue>modules with height less than "+str(height_minimum)+"mm not included</font></b>"
     if (min_drill_size!=0):
         msg+="<br><b><font color=blue>drills with size less than "+str(min_drill_size)+"mm not included</font></b>"
     if (compound_found):
@@ -5134,7 +5134,7 @@ def Export2MCAD(blacklisted_model_elements):
         say("Board Placed @ "+"{0:.2f}".format(board_base_point_x)+";"+"{0:.2f}".format(board_base_point_y)+";0.0")
     else:
         say("Board Placed @ "+"{0:.2f}".format(new_pos_x)+";"+"{0:.2f}".format(new_pos_y)+";0.0")
-    say("kicad pcb pos: ("+"{0:.2f}".format(real_board_pos_x)+";"+"{0:.2f}".format(real_board_pos_y)+";"+"{0:.2f}".format(0)+")")    
+    say("kicad pcb pos: ("+"{0:.2f}".format(real_board_pos_x)+";"+"{0:.2f}".format(real_board_pos_y)+";"+"{0:.2f}".format(0)+")")
     say_time()
     if (show_messages==True):
         QtGui.QApplication.restoreOverrideCursor()
@@ -5169,9 +5169,9 @@ def removesubtree(objs):
 
 ###
 def create_compound(count,modelnm):  #create compound function when a multipart is loaded
-    
+
     global allow_compound, compound_found, use_Links
-    
+
     counter=0
     for ObJ in FreeCAD.activeDocument().Objects:
         counter+=1
@@ -5250,13 +5250,13 @@ def create_compound(count,modelnm):  #create compound function when a multipart 
             FreeCADGui.Selection.addSelection(FreeCAD.activeDocument().ActiveObject)
             FreeCAD.ActiveDocument.recompute()
             #simple_copy(FreeCAD.activeDocument().ActiveObject)
-        else:    
+        else:
         #if nbr_cmpd > 1 or nbr_cmpd == 0:
         #if 'App::Part' not in sel[0].TypeId:
         #if nbr_cmpd > 1 or nbr_cmpd == 0: #new release will load already a compound
             if nbr_cmpd>=1:
                 sayw('multi Compound part ...')
-            sayw('... doing compound')    
+            sayw('... doing compound')
             sc_list_compound=[]
             for o in sel:
                 if 'Compound2' in o.TypeId or 'App::LinkGroup' in o.TypeId:
@@ -5299,7 +5299,7 @@ def Load_models(pcbThickness,modules):
     global whitelisted_model_elements, models3D_prefix, models3D_prefix2, last_pcb_path, full_placement
     global allow_compound, compound_found, bklist, force_transparency, warning_nbr, use_AppPart
     global conv_offs, use_Links, links_imp_mode, use_pypro
-    
+
     #say (modules)
     missing_models = ''
     compound_found=False
@@ -5383,7 +5383,7 @@ def Load_models(pcbThickness,modules):
             step_module=step_module.replace(u'"', u'')  # name with spaces
             encoded=1
             say('adjusting 2nd Local Path')
-            say('step-module-replaced '+step_module)      
+            say('step-module-replaced '+step_module)
         if step_module != 'no3Dmodel':
             #model_type = step_module.split('.')[1]
             pos=step_module.rfind('.')
@@ -5633,7 +5633,7 @@ def Load_models(pcbThickness,modules):
                         #module_path_n = re.sub("/", "\\\\", module_path)
                         #sayerr(module_path_n)
                         #ImportGui.insert(module_path_n,FreeCAD.ActiveDocument.Name)
-                        try: #if 1: #try: 
+                        try: #if 1: #try:
                             ImportGui.insert(module_path,FreeCAD.ActiveDocument.Name)
                             counterTmp=0
                             for ObJ in doc1.Objects:
@@ -5642,7 +5642,7 @@ def Load_models(pcbThickness,modules):
                                 #multipart loaded
                                 #print (allow_compound)
                                 if allow_compound != 'False' :
-                                    create_compound(counterObj,model_name)                        
+                                    create_compound(counterObj,model_name)
                             myStep = FreeCAD.ActiveDocument.ActiveObject
                             #print(myStep.Label)
                             #impLabel = myStep.Label
@@ -5699,14 +5699,14 @@ def Load_models(pcbThickness,modules):
                             # Part.show(s)
                             #Part.Shape.read(module_path)
                             #Part.insert(module_path,FreeCAD.ActiveDocument.Name)
-                        except: #else: # except:    
+                        except: #else: # except:
                             sayerr('3D STEP model '+model_name+' is WRONG')
                             msg="""3D STEP model <b><font color=red>"""
                             msg+=model_name+"</font> is WRONG</b><br>or are not allowed Multi Part objects...<br>"
                             msg+="@ "+module_path+" <br>...stopping execution! <br>Please <b>fix</b> the model or change your settings."
                             QtGui.QApplication.restoreOverrideCursor()
                             reply = QtGui.QMessageBox.information(None,"Info ...",msg)
-                            stop   
+                            stop
                         if allow_compound != 'False' :
                             create_compound(counterObj,model_name)
                         ##addProperty mod
@@ -5778,7 +5778,7 @@ def Load_models(pcbThickness,modules):
                     #wrl_pos=pos_vrml.split(" ")
                     #say(rotz_vrml_norm)
                     #sayw("wrl rot ");sayw(wrl_rot)
-                    #say("wrl pos ");sayw(wrl_pos)                   
+                    #say("wrl pos ");sayw(wrl_pos)
                     #say (str(rot))
                     for j in range(len(loaded_models)):
                         if loaded_models[j]==model_name:
@@ -5863,7 +5863,7 @@ def Load_models(pcbThickness,modules):
                         say("module "+step_module)
                         #say("selection 3D model "+ impPart.Label)
                         #to verify!!!! next row
-                        ##impPart=reset_prop_shapes(impPart,FreeCAD.ActiveDocument, FreeCAD,FreeCADGui)                        
+                        ##impPart=reset_prop_shapes(impPart,FreeCAD.ActiveDocument, FreeCAD,FreeCADGui)
                         model3D=impPart.Name
                         #say("impPart "+ impPart.Name)
                         obj = FreeCAD.ActiveDocument.getObject(model3D)
@@ -5879,7 +5879,7 @@ def Load_models(pcbThickness,modules):
                             if full_placement:
                                 ## new placement wip
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0]),pos_y+float(wrl_pos[1]),0+float(wrl_pos[2])),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),rot))
-                                #                                                                                                                                                         (yaw z, pitch y, roll x) 
+                                #                                                                                                                                                         (yaw z, pitch y, roll x)
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0])*25.4,pos_y+float(wrl_pos[1])*25.4,0+float(wrl_pos[2])*25.4),FreeCAD.Rotation(-float(wrl_rot[2]),-float(wrl_rot[1]),-float(wrl_rot[0])))
                                 ##impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0])*25.4,pos_y+float(wrl_pos[1])*25.4,0+float(wrl_pos[2])*25.4),FreeCAD.Rotation(rot,-float(wrl_rot[1]),-float(wrl_rot[0]))) #rot is already rot fp -rot wrl
                                 #say("rot z top ");sayw(wrl_rot);sayw(rot)
@@ -5904,13 +5904,13 @@ def Load_models(pcbThickness,modules):
                             # Gui.activeView().setActiveObject('part', App.activeDocument().Part)
                             # App.ActiveDocument.recompute()
                             if isVirtual == 0:
-                                if use_AppPart: #layer Top                                  
+                                if use_AppPart: #layer Top
                                     FreeCAD.ActiveDocument.getObject("Top").addObject(impPart)
                                     modelTop_nbr+=1
                                 else:
                                     FreeCAD.ActiveDocument.getObject("Step_Models").addObject(impPart)
                             else:  #virtual
-                                if use_AppPart: #layer Top                                  
+                                if use_AppPart: #layer Top
                                     FreeCAD.ActiveDocument.getObject("TopV").addObject(impPart)
                                     virtualTop_nbr+=1
                                 else:
@@ -5961,7 +5961,7 @@ def Load_models(pcbThickness,modules):
                             FreeCADGui.Selection.addSelection(impPart)
                             FreeCAD.ActiveDocument.getObject(impPart.Name)
                             if isVirtual == 0:
-                                if use_AppPart: #layer Top                                  
+                                if use_AppPart: #layer Top
                                     FreeCAD.ActiveDocument.getObject("Bot").addObject(impPart)
                                     modelBot_nbr+=1
                                 else:
@@ -6017,7 +6017,7 @@ def Load_models(pcbThickness,modules):
                             if full_placement:
                                 ## new placement wip
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0]),pos_y+float(wrl_pos[1]),0+float(wrl_pos[2])),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),rot))
-                                #                                                                                                                                                         (yaw z, pitch y, roll x) 
+                                #                                                                                                                                                         (yaw z, pitch y, roll x)
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0])*25.4,pos_y+float(wrl_pos[1])*25.4,0+float(wrl_pos[2])*25.4),FreeCAD.Rotation(-float(wrl_rot[2]),-float(wrl_rot[1]),-float(wrl_rot[0])))
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0])*25.4,pos_y+float(wrl_pos[1])*25.4,0+float(wrl_pos[2])*25.4),FreeCAD.Rotation(rot,-float(wrl_rot[1]),-float(wrl_rot[0]))) #rot is already rot fp -rot wrl
                                 #impPart.Placement = FreeCAD.Placement(FreeCAD.Vector(pos_x+float(wrl_pos[0])*25.4,pos_y+float(wrl_pos[1])*25.4,0+float(wrl_pos[2])*25.4),FreeCAD.Rotation(rot,-float(wrl_rot[1]),-float(wrl_rot[0]))) #rot is already rot fp -rot wrl
@@ -6084,13 +6084,13 @@ def Load_models(pcbThickness,modules):
                                 modelBot_nbr+=1
                             else:
                                 FreeCAD.ActiveDocument.getObject("Step_Models").addObject(impPart)
-                    else:                        
+                    else:
                         FreeCAD.ActiveDocument.removeObject(impPart.Name)
                 else:
                     say("error missing "+ make_string(models3D_prefix)+make_string(step_module))
                     test = missing_models.find(make_string(step_module))
                     if test is -1:
-                        missing_models += make_string(models3D_prefix)+make_string(step_module)+'\r\n' #matched        
+                        missing_models += make_string(models3D_prefix)+make_string(step_module)+'\r\n' #matched
             ###
         gui_refresh=20
         if int(PySide.QtCore.qVersion().split('.')[0]) > 4 or use_Links:  # Qt5 or Links refresh
@@ -6110,18 +6110,18 @@ def Load_models(pcbThickness,modules):
         if use_AppPart:
             if virtualTop_nbr==0:
                 FreeCAD.ActiveDocument.getObject("TopV").removeObjectsFromDocument()
-                FreeCAD.ActiveDocument.removeObject("TopV")    
+                FreeCAD.ActiveDocument.removeObject("TopV")
             if virtualBot_nbr==0:
                 FreeCAD.ActiveDocument.getObject("BotV").removeObjectsFromDocument()
-                FreeCAD.ActiveDocument.removeObject("BotV")    
+                FreeCAD.ActiveDocument.removeObject("BotV")
     if use_AppPart:
         if modelTop_nbr==0:
             FreeCAD.ActiveDocument.getObject("Top").removeObjectsFromDocument()
-            FreeCAD.ActiveDocument.removeObject("Top")    
+            FreeCAD.ActiveDocument.removeObject("Top")
         if modelBot_nbr==0:
             FreeCAD.ActiveDocument.getObject("Bot").removeObjectsFromDocument()
-            FreeCAD.ActiveDocument.removeObject("Bot")    
-    
+            FreeCAD.ActiveDocument.removeObject("Bot")
+
     FreeCAD.ActiveDocument.recompute()
     say_time()
     if missing_models != '':
@@ -6165,14 +6165,14 @@ def LoadKicadBoard (board_fname):
     #except:
     #    FC_git_Nbr=0
     #FC_git_Nbr=(FreeCAD.Version()[2].strip(" (Git)"))
-    sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))   
+    sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))
     msg1="use ONLY FreeCAD STABLE version 0.15 or later\r\n"
     #msg1+="to generate your STEP and VRML models\r\nFC 016 dev version results are still unpredictable"
     msg1+="to generate your STEP and VRML models\r\n"
     if int(FC_majorV) <= 0:
         if int(FC_minorV) < 15:
             QtGui.QApplication.restoreOverrideCursor()
-            reply = QtGui.QMessageBox.information(None,"Warning! ...",msg1)    
+            reply = QtGui.QMessageBox.information(None,"Warning! ...",msg1)
     msg=''
     if FC_majorV == 0 and FC_minorV == 17:
         if FC_git_Nbr >= int(FC_export_min_version):
@@ -6186,7 +6186,7 @@ def LoadKicadBoard (board_fname):
         sayw("creating hierarchy")
     if (fusion==True):
         msg+="you have chosen: fuse modules to board\r\nbe careful ... fusion can be heavy or generate FC crash"
-        msg+="when fusing a lot of objects\r\nplease consider to use bbox or blacklist small objects\r\n\r\n"    
+        msg+="when fusing a lot of objects\r\nplease consider to use bbox or blacklist small objects\r\n\r\n"
     ##start_time=current_milli_time()
     xMax=0; xmin=0; yMax=0; ymin=0
     Levels = {}
@@ -6280,7 +6280,7 @@ def getPads(board_elab,pcbThickness):
                     if rot!=0:
                         rotateObj(obj, [xs, ys, rot])
                     rotateObj(obj, [X1, Y1, ROT])
-                    HoleList.append(obj)    
+                    HoleList.append(obj)
             ### cmt- #todo: pad type trapez
     return HoleList
 ###
@@ -6391,7 +6391,7 @@ def Elaborate_Kicad_Board(filename):
         # f = builtin.open(t1_name,'wb') #py2
         f = builtin.open(t1_name,'w')  #py3
         f.write(Kicad_Board_elaborated) # python will convert \n to os.linesep
-        f.close() # you can omit in most cases as the destructor will call it        
+        f.close() # you can omit in most cases as the destructor will call it
     #say(len(Kicad_Board_elaborated))
     #stop
     version=getPCBVersion(Kicad_Board_elaborated)
@@ -6452,10 +6452,10 @@ def Elaborate_Kicad_Board(filename):
 ### end Elaborate_Kicad_Board
 
 def get3DParams (mdl_name,params,rot, virtual):
-    ''' list of single 3D model with parameters 
+    ''' list of single 3D model with parameters
     '''
     global addVirtual
-    
+
     rotz_vrml_m = re.findall(r'\(rotate.*$', params)  #bug on multiple model per footprint wrl, step sequence !!!
     #sayw(rotz_vrml_m);sayw("here")
     rotz=''
@@ -6505,7 +6505,7 @@ def get3DParams (mdl_name,params,rot, virtual):
         scale_vrml_vals=scale_vrml.split(" ")
         xsc_vrml_val=scale_vrml_vals[0]
         ysc_vrml_val=scale_vrml_vals[1]
-        zsc_vrml_val=scale_vrml_vals[2]        
+        zsc_vrml_val=scale_vrml_vals[2]
         # if scale_vrml!='1 1 1':
         if float(xsc_vrml_val)!=1 or float(ysc_vrml_val)!=1 or float(zsc_vrml_val)!=1:
             if "box_mcad" not in params and "cylV_mcad" not in params and "cylH_mcad" not in params:
@@ -6563,7 +6563,7 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
             rot = 0.0
         else:
             rot = float(rot)
-        #rot=rot-rotz  not here #adding vrml module z-rotation  
+        #rot=rot-rotz  not here #adding vrml module z-rotation
         #say (str(Levels[layer])+"-"+str(Top_lvl))
         #sayerr(i+str(rot))
         rotF = rot
@@ -6616,12 +6616,12 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
             virtual=1
 
         m_list= re.findall(r'\(model\s(.+?)\)\)\s+\)', i, re.MULTILINE|re.DOTALL)
-            ## m_list is a list of single 3D model with parameters 
+            ## m_list is a list of single 3D model with parameters
         #if show_debug:
         #    sayw(i)  #model description
         #    sayerr (m_list) # 3d model parameters
             #stop
-        
+
         model_list=[]
         for params in m_list:
             #warn=''
@@ -6660,7 +6660,7 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
                     line.append(pos_vrml)
                     line.append(rotz_vrml)
                     #sayerr(rotz_vrml)
-                    line.append(scale_vrml)              
+                    line.append(scale_vrml)
                     line.append(virtual)
                     PCB_Models.append(line)
             mdl_name=re.findall(r'(.+?)\.stp',params, re.IGNORECASE)
@@ -6677,7 +6677,7 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
                     line.append(pos_vrml)
                     line.append(rotz_vrml)
                     #sayerr(rotz_vrml)
-                    line.append(scale_vrml)              
+                    line.append(scale_vrml)
                     line.append(virtual)
                     PCB_Models.append(line)
             mdl_name=re.findall(r'(.+?)\.iges',params, re.IGNORECASE)
@@ -6694,7 +6694,7 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
                     line.append(pos_vrml)
                     line.append(rotz_vrml)
                     #sayerr(rotz_vrml)
-                    line.append(scale_vrml)              
+                    line.append(scale_vrml)
                     line.append(virtual)
                     PCB_Models.append(line)
             mdl_name=re.findall(r'(.+?)\.igs',params, re.IGNORECASE)
@@ -6711,7 +6711,7 @@ def getParts(PCB_Models,Top_lvl,Kicad_Board_elaborated,Levels,edges_on_footprint
                     line.append(pos_vrml)
                     line.append(rotz_vrml)
                     #sayerr(rotz_vrml)
-                    line.append(scale_vrml)              
+                    line.append(scale_vrml)
                     line.append(virtual)
                     PCB_Models.append(line)
         ##virtual = re.search(r'\(attr\s+(.+?)virtual\)',i)
@@ -6770,7 +6770,7 @@ def createSolidBBox(model3D):
     #say("bbox name "+name)
     return name
     del objs
-### end createSolidBBox  
+### end createSolidBBox
 
 def findPcbCenter(pcbName):
     pcb = FreeCAD.ActiveDocument.getObject(pcbName)
@@ -6970,7 +6970,7 @@ def Per_point(prev_vertex,vertex):
     #perpoint=Base.Vector(prev_vertex.x+shift*cos(basic_angle),prev_vertex.y+shift*sin(basic_angle),0)
     perpoint=Base.Vector(2*prev_vertex.x-vertex.x,2*prev_vertex.y-vertex.y,0)
     return perpoint
-###    
+###
 
 #os.system("ps -C 'kicad-SteUp-tool' -o pid=|xargs kill -9")
 
@@ -6983,7 +6983,7 @@ def Per_point(prev_vertex,vertex):
 ##   # Windows
 
 #####################################
-# Function infoDialog 
+# Function infoDialog
 #####################################
 def infoDialog(msg):
     #QtGui.qFreeCAD.setOverrideCursor(QtCore.Qt.WaitCursor)
@@ -7064,7 +7064,7 @@ def onLoadFootprint(file_name=None):
         last_fp_path=os.path.dirname(txtFile.name)
         txtFile.close()
         last_fp_path = re.sub("\\\\", "/", last_fp_path)
-            #stop        
+            #stop
         ini_vars[11] = last_fp_path
         ##with __builtin__.open(configFilePath, 'wb') as configfile:
         #    configParser.write(configfile)
@@ -7081,13 +7081,13 @@ def onLoadFootprint(file_name=None):
         else:
             content=data
         #print content; stop
-        
+
         #content=data
         #FreeCAD.Console.PrintMessage(content)
         #FreeCAD.Console.PrintMessage(data)
         FC_majorV=FreeCAD.Version()[0]
         FC_minorV=FreeCAD.Version()[1]
-        say('FC Version '+FC_majorV+FC_minorV)    
+        say('FC Version '+FC_majorV+FC_minorV)
         if int(FC_majorV) <= 0 and int(FC_minorV) < 16:
             routineDrawFootPrint_old(content,name)
         else:
@@ -7138,14 +7138,14 @@ def check_requirements():
     #except:
     #    FC_git_Nbr=0
     #FC_git_Nbr=(FreeCAD.Version()[2].strip(" (Git)"))
-    sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))   
+    sayw('FC Version '+str(FC_majorV)+str(FC_minorV)+"-"+str(FC_git_Nbr))
     msg1="use ONLY FreeCAD STABLE version 0.15 or later\r\n"
     #msg1+="to generate your STEP and VRML models\r\nFC 016 dev version results are still unpredictable"
     msg1+="to generate your STEP and VRML models\r\n"
     if int(FC_majorV) <= 0:
         if int(FC_minorV) < 15:
             QtGui.QApplication.restoreOverrideCursor()
-            reply = QtGui.QMessageBox.information(None,"Warning! ...",msg1)    
+            reply = QtGui.QMessageBox.information(None,"Warning! ...",msg1)
     msg=''
     if FC_majorV == 0 and FC_minorV == 17:
         if FC_git_Nbr >= int(FC_export_min_version):
@@ -7159,13 +7159,13 @@ def check_requirements():
         sayw("creating hierarchy")
     if (fusion==True):
         msg+="you have chosen: fuse modules to board\r\nbe careful ... fusion can be heavy or generate FC crash"
-        msg+="when fusing a lot of objects\r\nplease consider to use bbox or blacklist small objects\r\n\r\n"    
+        msg+="when fusing a lot of objects\r\nplease consider to use bbox or blacklist small objects\r\n\r\n"
     ##start_time=current_milli_time()
 ###
 def sanitizeSketch(s_name):
     ''' simplifying & sanitizing sketches '''
     global edge_tolerance
-    
+
     s=FreeCAD.ActiveDocument.getObject(s_name)
     sayw('check to sanitize')
     if 'Sketcher' in s.TypeId:
@@ -7191,9 +7191,9 @@ def sanitizeSketch(s_name):
 def add_constraints(s_name):
     """ adding coincident points constaints """
     global addConstraints, edge_tolerance
-    
+
     s=FreeCAD.ActiveDocument.getObject(s_name)
-    
+
     if hasattr(Part,"LineSegment"):
         g_geom_points = {
             Base.Vector: [1],
@@ -7216,7 +7216,7 @@ def add_constraints(s_name):
         point_indexes = g_geom_points[type(s.Geometry[geom_index])]
         #sayerr(point_indexes), say (geom_index)
         #if 'Line' in type(PCB_Sketch.Geometry[geom_index]).__name__:
-        
+
         if 'ArcOfCircle' in type(s.Geometry[geom_index]).__name__\
          or 'Line' in type(s.Geometry[geom_index]).__name__:
             point1 = s.getPoint(geom_index, point_indexes[0])
@@ -7261,7 +7261,7 @@ def add_constraints(s_name):
                 #rint p_g0_0, p_g0_1
                 #rint p_g1_0, p_g1_1
                 if distance(p_g0_0,p_g1_0)< edge_tolerance:
-                ##App.ActiveDocument.PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,3,1)) 
+                ##App.ActiveDocument.PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,3,1))
                     #s.addConstraint(Sketcher.Constraint('Coincident',i,1,j,1))
                     sk_constraints.append(Sketcher.Constraint('Coincident',i,1,j,1))
                     #print i,1,i+1,1
@@ -7275,7 +7275,7 @@ def add_constraints(s_name):
                     #print i,2,i+1,1
                 elif distance(p_g0_1,p_g1_1)< edge_tolerance:
                     #s.addConstraint(Sketcher.Constraint('Coincident',i,2,j,2))
-                    sk_constraints.append(Sketcher.Constraint('Coincident',i,2,j,2))                   
+                    sk_constraints.append(Sketcher.Constraint('Coincident',i,2,j,2))
                     #print i,2,i+1,2
                 j=j+1
                 cnt=cnt+1
@@ -7311,7 +7311,7 @@ def add_constraints(s_name):
                     #rint p_g0_0, p_g0_1
                     #rint p_g1_0, p_g1_1
                     if distance(p_g0_0,p_g1_0)< edge_tolerance:
-                    ##App.ActiveDocument.PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,3,1)) 
+                    ##App.ActiveDocument.PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,3,1))
                         #s.addConstraint(Sketcher.Constraint('Coincident',i,1,j,1))
                         sk_constraints.append(Sketcher.Constraint('Coincident',i,1,j,1))
                         #print i,1,i+1,1
@@ -7321,7 +7321,7 @@ def add_constraints(s_name):
                         #print i,1,i+1,2
                     elif distance(p_g0_1,p_g1_0)< edge_tolerance:
                         #s.addConstraint(Sketcher.Constraint('Coincident',i,2,j,1))
-                        sk_constraints.append(Sketcher.Constraint('Coincident',i,2,j,1))                    
+                        sk_constraints.append(Sketcher.Constraint('Coincident',i,2,j,1))
                         #print i,2,i+1,1
                     elif distance(p_g0_1,p_g1_1)< edge_tolerance:
                         #s.addConstraint(Sketcher.Constraint('Coincident',i,2,j,2))
@@ -7333,13 +7333,13 @@ def add_constraints(s_name):
         s.addConstraint(sk_constraints)
         #print 'counter ',cnt
             #print geo2
-            
-###        
+
+###
 def add_missing_geo(s_name):
     """ adding missing geo on near but non coincident points"""
-    
+
     s=FreeCAD.ActiveDocument.getObject(s_name)
-    
+
     if hasattr(Part,"LineSegment"):
         g_geom_points = {
             Base.Vector: [1],
@@ -7362,7 +7362,7 @@ def add_missing_geo(s_name):
         point_indexes = g_geom_points[type(s.Geometry[geom_index])]
         #sayerr(point_indexes), say (geom_index)
         #if 'Line' in type(PCB_Sketch.Geometry[geom_index]).__name__:
-        
+
         if 'ArcOfCircle' in type(s.Geometry[geom_index]).__name__\
          or 'Line' in type(s.Geometry[geom_index]).__name__:
             point1 = s.getPoint(geom_index, point_indexes[0])
@@ -7404,17 +7404,17 @@ def add_missing_geo(s_name):
                 #s.addConstraint(Sketcher.Constraint('Coincident',i,2,j,2))
                 sk_add_geo.append(PLine(Base.Vector(p_g0_1[0],p_g0_1[1],0), Base.Vector(p_g2_0_1[0],p_g2_0_1[1],0)))
                 #print i,2,i+1,2
-            j=j+1    
+            j=j+1
     sayerr('added Geometry')
     sayerr(sk_add_geo)
     if len(sk_add_geo) > 0:
         s.addGeometry(sk_add_geo)
-            
-###        
+
+###
 
 def cpy_sketch(sname,nname=None):
     """ copy Sketch NB Geometry sequence is not conserved!!! """
-    
+
     s=FreeCAD.ActiveDocument.getObject(sname)
     #geoL=len(App.ActiveDocument.getObject(sname).Geometry)
     if nname is None:
@@ -7427,11 +7427,11 @@ def cpy_sketch(sname,nname=None):
     FreeCAD.ActiveDocument.recompute()
     #stop
     return FreeCAD.ActiveDocument.ActiveObject.Name
-## 
+##
 
 def shift_sketch(sname, ofs, nname):
     """ shift Sketch Geometry (Geom sequence is not conserved!!!) """
-    
+
     s1n=cpy_sketch(sname,nname)
     FreeCAD.ActiveDocument.recompute()
     s1=FreeCAD.ActiveDocument.getObject(s1n)
@@ -7448,7 +7448,7 @@ def shift_sketch(sname, ofs, nname):
     FreeCAD.ActiveDocument.recompute()
     #print len (s1.Geometry)
     #stop
-    #print (s1.Geometry) 
+    #print (s1.Geometry)
     nlg=len (s1.Geometry)
     idx_to_del=[]
     idx_to_del_str=[]
@@ -7468,13 +7468,13 @@ def shift_sketch(sname, ofs, nname):
             FreeCAD.ActiveDocument.getObject(s1.Name).delGeometry(i)
     FreeCAD.ActiveDocument.recompute()
     #FreeCAD.ActiveDocument.getObject(s1.Name).Placement = FreeCAD.Placement(FreeCAD.Vector(2*ofs[0],2*ofs[1],0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
-        
+
     #geoL=len(App.ActiveDocument.getObject(sname).Geometry)
     #Temp_Sketch_Sft= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','Temp_Sketch_Sft')
     #geo=[]
     #for k in range(len (s.Geometry)):
     #    App.ActiveDocument.Temp_Sketch_Sft.addCopy([k],App.Vector(100,100,0),False)
-    #    
+    #
     #    #if 'LineSegment' in type(s.Geometry[k]).__name__:
     #    ##if 'Line' in type(s.Geometry[k]).__name__:
     #    #    #ls='<Line segment ({0},{1}) ({2},{3}) >'.format(s.Geometry[k].StartPoint.x+ofs[0],s.Geometry[k].StartPoint.y+ofs[1], s.Geometry[k].EndPoint.x+ofs[0],s.Geometry[k].EndPoint.y+ofs[1])
@@ -7485,17 +7485,17 @@ def shift_sketch(sname, ofs, nname):
     #    #    spy=s.Geometry[k].StartPoint.y+ofs[1]
     #    #    epx=s.Geometry[k].EndPoint.x+ofs[0]
     #    #    epy=s.Geometry[k].EndPoint.y+ofs[1]
-    #    #    
+    #    #
     #    #    FreeCAD.ActiveDocument.Temp_Sketch_Sft.addGeometry(PLine(Base.Vector(spx,spy,0), Base.Vector(epx,epy,0)))
-    #        
+    #
     #Temp_Sketch_Sft.Placement.Base[0]=FreeCAD.ActiveDocument.getObject(sname).Placement.Base[0]+ofs[0]
     #Temp_Sketch_Sft.Placement.Base[1]=FreeCAD.ActiveDocument.getObject(sname).Placement.Base[1]+ofs[1]
-    
+
     #print Temp_Sketch.Geometry
     #FreeCAD.ActiveDocument.recompute()
     return FreeCAD.ActiveDocument.ActiveObject.Name
-## 
-    
+##
+
 ###
 def onLoadBoard(file_name=None):
     #name=QtGui.QFileDialog.getOpenFileName(this,tr("Open Image"), "/home/jana", tr("Image Files (*.png *.jpg *.bmp)"))[0]
@@ -7511,7 +7511,7 @@ def onLoadBoard(file_name=None):
     global ignore_utf8, ignore_utf8_incfg, pcb_path, disable_VBO, use_AppPart, force_oldGroups, use_Links
     global original_filename, edge_width, load_sketch, grid_orig, warning_nbr, running_time, addConstraints
     global conv_offs
-    
+
     default_value='/'
     clear_console()
     #lastPcb_dir='C:/Cad/Progetti_K/ksu-test'
@@ -7580,7 +7580,7 @@ def onLoadBoard(file_name=None):
                 if hasattr(mypcb.setup, 'grid_origin'):
                     #say('aux_axis_origin' + str(mypcb.setup.aux_axis_origin))
                     xp=-mypcb.setup.grid_origin[0]; yp=mypcb.setup.grid_origin[1]
-                    sayw('grid origin found @ ('+str(xp)+', '+str(yp)+')') 
+                    sayw('grid origin found @ ('+str(xp)+', '+str(yp)+')')
                 else:
                     say('grid origin not found\nplacing at center of an A4')
                     xp=-148.5;yp=98.5
@@ -7591,10 +7591,10 @@ def onLoadBoard(file_name=None):
                 #xp=getAuxAxisOrigin()[0]; yp=-getAuxAxisOrigin()[1]  #offset of the board & modules
                 if hasattr(mypcb.setup, 'aux_axis_origin'):
                     #say('aux_axis_origin' + str(mypcb.setup.aux_axis_origin))
-                    sayw('aux origin used: '+str(mypcb.setup.aux_axis_origin)) 
+                    sayw('aux origin used: '+str(mypcb.setup.aux_axis_origin))
                     xp=-mypcb.setup.aux_axis_origin[0]; yp=mypcb.setup.aux_axis_origin[1]
                 else:
-                    say('aux origin not used') 
+                    say('aux origin not used')
                     xp=-148.5;yp=98.5
                 ##off_x=-xp+xmin+(xMax-xmin)/2; off_y=-yp-(ymin+(yMax-ymin)/2)  #offset of the board & modules
                 #off_x=-xp+center_x;off_y=-yp+center_y
@@ -7605,7 +7605,7 @@ def onLoadBoard(file_name=None):
             #        #say('aux_axis_origin' + str(mypcb.setup.aux_axis_origin))
             #        xp=mypcb.setup.aux_axis_origin[0]; yp=-mypcb.setup.aux_axis_origin[1]
             #    else:
-            #        say('aux origin not used') 
+            #        say('aux origin not used')
             #    ##off_x=-xp+xmin+(xMax-xmin)/2; off_y=-yp-(ymin+(yMax-ymin)/2)  #offset of the board & modules
             #    off_x=-xp+center_x;off_y=-yp+center_y
             #    #off_x=-xp;off_y=-yp
@@ -7623,7 +7623,7 @@ def onLoadBoard(file_name=None):
         ##Placing board at configured position
         # pos objs x,-y
         # pos board xm+(xM-xm)/2
-        # pos board -(ym+(yM-ym)/2)        
+        # pos board -(ym+(yM-ym)/2)
         center_x, center_y, bb_x, bb_y = findPcbCenter("Pcb")
         ## using PcbCenter
         xMax=center_x+bb_x/2
@@ -7673,7 +7673,7 @@ def onLoadBoard(file_name=None):
             board_base_point_y=center_y-off_y
         sayw('placing board @ '+str(board_base_point_x)+','+str(board_base_point_y))
         FreeCAD.ActiveDocument.getObject("Pcb").Placement = FreeCAD.Placement(FreeCAD.Vector(board_base_point_x,board_base_point_y,0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
-        
+
         if load_sketch:
             newname="PCB_Sketch"
             say_inline('building up pcb time')
@@ -7693,13 +7693,13 @@ def onLoadBoard(file_name=None):
                 #stop
                 #add_constraints(s_name)
                 FreeCAD.ActiveDocument.getObject(s_name).Placement = FreeCAD.Placement(FreeCAD.Vector(xp,yp,0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
-                #say_time()            
+                #say_time()
             elif (base_orig==1):
                 s_name=shift_sketch("PCB_Sketch_draft", [-center_x,center_y],newname)
                 #stop
                 #add_constraints(s_name)
                 FreeCAD.ActiveDocument.getObject(s_name).Placement = FreeCAD.Placement(FreeCAD.Vector(0,0,0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
-                #say_time()            
+                #say_time()
             else:
                 s_name=shift_sketch("PCB_Sketch_draft", [-center_x,center_y],newname)
                 #stop
@@ -7711,7 +7711,7 @@ def onLoadBoard(file_name=None):
                 #say_time()
             FreeCAD.ActiveDocument.removeObject("PCB_Sketch_draft")
             FreeCADGui.SendMsgToActiveView("ViewFit")
-            if 0: # test_face # addConstraints!='none': 
+            if 0: # test_face # addConstraints!='none':
                 say('start adding constraints to pcb sketch')
                 add_constraints(s_name)
                 get_time()
@@ -7738,7 +7738,7 @@ def onLoadBoard(file_name=None):
             doc.Tip = doc.addObject('App::Part','Bot')
             doc.Bot.Label = 'Bot'
             doc.getObject("Step_Models").addObject(doc.Top)
-            doc.getObject("Step_Models").addObject(doc.Bot)            
+            doc.getObject("Step_Models").addObject(doc.Bot)
             try:
                 doc.Step_Models.License = ''
                 doc.Step_Models.LicenseURL = ''
@@ -7753,7 +7753,7 @@ def onLoadBoard(file_name=None):
             doc.Tip = doc.addObject('App::Part','BotV')
             doc.BotV.Label = 'BotV'
             doc.getObject("Step_Virtual_Models").addObject(doc.TopV)
-            doc.getObject("Step_Virtual_Models").addObject(doc.BotV)            
+            doc.getObject("Step_Virtual_Models").addObject(doc.BotV)
             try:
                 doc.Step_Virtual_Models.License = ''
                 doc.Step_Virtual_Models.LicenseURL = ''
@@ -7783,7 +7783,7 @@ def onLoadBoard(file_name=None):
                 paramGetV.SetBool("UseVBO",False)
                 sayw("disabling VBO")
             #stop
-        #stop   
+        #stop
         if disable_PoM_Observer:
             #paramGetPoM = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/PartOMagic")
             #PoMObs_status=paramGetPoM.GetBool("EnableObserver")
@@ -7811,7 +7811,7 @@ def onLoadBoard(file_name=None):
             paramGetVS.SetBool("ReadShapeCompoundMode",True)
             sayw("enabling ReadShapeCompoundMode -> Simplified Mode")
             enable_ReadShapeCompoundMode=True
-        
+
         if load_sketch:
             FreeCADGui.ActiveDocument.getObject("PCB_Sketch").Visibility=False # hidden Sketch
         ##Load 3D models
@@ -7834,14 +7834,14 @@ def onLoadBoard(file_name=None):
                 Observer.start()
         #    paramGetPoM.SetBool("EnableObserver",True)
                 sayw("enabling PoM Observer")
-        
+
         def find_nth(haystack, needle, n):
             start = haystack.find(needle)
             while start >= 0 and n > 1:
                 start = haystack.find(needle, start+len(needle))
                 n -= 1
             return start
-        
+
         msg=""
         n_rpt=0
         for mod3d in modules:
@@ -7851,7 +7851,7 @@ def onLoadBoard(file_name=None):
             #if mod3d[5] is not None:
             if mod3d[5] is not "":
                 say(mod3d[0]);sayw(" error: reset"+mod3d[5])
-                #stop 
+                #stop
                 #msg+=""+mod3d[0].decode("utf-8")+" error: "+mod3d[5]+"<br>"
                 msg+=""+mod3d[0]+"<br>error: "+mod3d[5]+"<br>"
                 n_rpt=n_rpt+1
@@ -7873,7 +7873,7 @@ def onLoadBoard(file_name=None):
             #say('aliveFalse')
             Display_info(blacklisted_model_elements)
         FreeCADGui.SendMsgToActiveView("ViewFit")
-        msg="running time: "+str(round(running_time,3))+"sec"    
+        msg="running time: "+str(round(running_time,3))+"sec"
         say(msg)
         #say_time()
         #stop
@@ -8090,7 +8090,7 @@ def routineScaleVRML():
         say("Select ONE single part object !")
         say_single_obj()
         #QtGui.QMessageBox.information(None,"Info ...","Select ONE single part object !\r\n"+"\r\n")
-    return 0    
+    return 0
 ###
 
 ###
@@ -8580,7 +8580,7 @@ def routineCollisions():
                         r.append((i,c))
                     acpy=t.replaceShape(r)
                     acpy.Placement=FreeCAD.Placement()
-                    #Part.show(acpy)         
+                    #Part.show(acpy)
                     #stop
                     lrl=len(object_a.InListRecursive)
                     #for o in object_a.InListRecursive:
@@ -8598,7 +8598,7 @@ def routineCollisions():
                             if hasattr(object_a.InListRecursive[i],'Placement'):
                                 acpy.Placement=acpy.Placement.multiply(object_a.InListRecursive[lrl-1-i].Placement)
                     #acpy.Placement=acpy.Placement.multiply(pa_Original)
-                    # Part.show(acpy)         
+                    # Part.show(acpy)
                     # stop
                     pb_Original=shape_b.Placement
                     s=shape_b
@@ -8623,7 +8623,7 @@ def routineCollisions():
                         for i in range (0,lrl):
                             if hasattr(object_b.InListRecursive[i],'Placement'):
                                 bcpy.Placement=bcpy.Placement.multiply(object_b.InListRecursive[lrl-1-i].Placement)
-                    #Part.show(bcpy)         
+                    #Part.show(bcpy)
                     common = acpy.common(bcpy)
                     #FreeCAD.ActiveDocument.removeObject(acpy)
                     #FreeCAD.ActiveDocument.removeObject(bcpy)
@@ -8632,7 +8632,7 @@ def routineCollisions():
             ##try:
             ##    ## find the real position of the Part inside App::Part, then chek collisions
             ##    ## print object_a.InListRecursive
-            ##    ## 
+            ##    ##
             ##    #b=App.ActiveDocument.addObject("Part::Box","Box")
             ##    if use_AppPart:
             ##        acpy= FreeCAD.ActiveDocument.copyObject(object_a,False)
@@ -8689,7 +8689,7 @@ def routineCollisions():
                         ## for o in object_a.InListRecursive:
                         ##     intersection_object.Placement=intersection_object.Placement.multiply(o.Placement)
                         ##     print o.Name
-                        
+
                         ## bg=App.ActiveDocument.getObject('Board')
                         ## intersection_object.Placement=bg.Placement.multiply(common.Placement)
                         intersection_object.ViewObject.ShapeColor = (1.0, 0.0, 0.0, 1.0)
@@ -8862,7 +8862,7 @@ def create_axis():
         if PoMObs_status:
             Observer.start()
             sayw("enabling PoM Observer")
-    
+
 ###
 #############################
 def createSolidBBox2(model3D):
@@ -8963,12 +8963,12 @@ def arcCenter(x1, y1, x2, y2, x3, y3):
 #    # point M - center point between p1 and p2
 #    Mx = (x1 + x2) / 2.
 #    My = (y1 + y2) / 2.
-#    
+#
 #    # p1_M - distance between point p1 and M
 #    p1_M = sqrt((x1 - Mx) ** 2 + (y1 - My) ** 2)
 #    radius = float("%4.9f" % abs(p1_M / sin(radians(angle / 2.))))  # radius of searching circle - line C_p1
 #    CenterDist = float("%4.9f" % abs(radius * cos(radians(angle / 2.))))  # radius of searching circle - line C_p1
-#    
+#
 #    return CenterDist
 
 def arcRadius(x1, y1, x2, y2, angle):
@@ -8979,11 +8979,11 @@ def arcRadius(x1, y1, x2, y2, angle):
     # point M - center point between p1 and p2
     Mx = (x1 + x2) / 2.
     My = (y1 + y2) / 2.
-    
+
     # p1_M - distance between point p1 and M
     p1_M = sqrt((x1 - Mx) ** 2 + (y1 - My) ** 2)
     radius = float("%4.9f" % abs(p1_M / sin(radians(angle / 2.))))  # radius of searching circle - line C_p1
-    
+
     return radius
 
 def arcAngles2 (edge,angle): #(xs, ys, xe, ye, cx, cy, angle):
@@ -9000,7 +9000,7 @@ def arcAngles2 (edge,angle): #(xs, ys, xe, ye, cx, cy, angle):
     #sa = sa - pi/2
     #if ea == sa:
     #    ea = pi/2
-    
+
     if DraftGeomUtils.geomType(edge) == "Circle":
         Radius = edge.Curve.Radius
         placement = FreeCAD.Placement(edge.Placement)
@@ -9018,13 +9018,13 @@ def arcAngles2 (edge,angle): #(xs, ys, xe, ye, cx, cy, angle):
         return [a2, a1]
     else:
         return [a1, a2]
-    
+
 def arcAngles(x1, y1, x2, y2, Cx, Cy, angle):
     if angle > 0:
         startAngle = atan2(y1 - Cy, x1 - Cx)
         if startAngle < 0.:
             startAngle = 6.28 + startAngle
-                
+
         stopAngle = startAngle + radians(angle)  # STOP ANGLE
     else:
         startAngle = atan2(y2 - Cy, x2 - Cx)
@@ -9035,7 +9035,7 @@ def arcAngles(x1, y1, x2, y2, Cx, Cy, angle):
     #
     startAngle = float("%4.2f" % startAngle) - pi/2
     stopAngle = float("%4.2f" % stopAngle) - pi/2
-    
+
     return [startAngle, stopAngle]
 
 def shiftPointOnLine(x1, y1, x2, y2, distance):
@@ -9191,7 +9191,7 @@ def getArc(layer, content, oType):
         else:
             width = 0
 
-        if abs(curve)==360: 
+        if abs(curve)==360:
             [x2, y2] = [xs, ys]
         else:
             [x2, y2] = rotPoint2([x1, y1], [xs, ys], curve)
@@ -9262,7 +9262,7 @@ def getwrlData(source):
         #say(wrl_pos);
         #wrl_pos=(xp_vrml,yp_vrml,zp_vrml)
     #say(wrl_pos);
-    #    
+    #
     if re.search(r'\(offset\s+\(xyz+\s(.+?)\)', model, re.MULTILINE|re.DOTALL) is not None:
         pos_vrml = re.search(r'\(offset\s+\(xyz+\s(.+?)\)', model, re.MULTILINE|re.DOTALL).groups(0)[0]
         #pos_vrml=pos_vrml[5:]
@@ -9281,7 +9281,7 @@ def getwrlData(source):
         scale_vrml=sc_vrml.split(" ")
         xsc_vrml=scale_vrml[0]
         ysc_vrml=scale_vrml[1]
-        zsc_vrml=scale_vrml[2]        
+        zsc_vrml=scale_vrml[2]
         #say(scale_vrml);
     #say(scale_vrml);
     #
@@ -9369,7 +9369,7 @@ def getPadsList(content):
                     pCircleG[2]=pCircleG[2].lstrip(' ')
                     #say(pCircleG);stop
                 else:
-                    pCircleG=None                
+                    pCircleG=None
                 #sayw(pShape)
                 #sayw(pRound)
                 [dx, dy] = re.search(r'\(size\s+([0-9\.-]+?)\s+([0-9\.-]+?)\)', j).groups(0)  #
@@ -9720,7 +9720,7 @@ def createArc(p1, p2, curve, width=0.02, cap='round'):
 
 ###
 def addArc_3(p1, p2, curve, width=0, cap='round'):
-    #print curve, ' arc angle' 
+    #print curve, ' arc angle'
     if abs(curve) == 360:
         #print p1
         #print p2
@@ -9764,7 +9764,7 @@ def createLine(x1, y1, x2, y2, width=0.01):
     edges = []
     edges.append(Part.Edge(PLine(FreeCAD.Base.Vector(0 - r, 0, 0), FreeCAD.Base.Vector(0 - r, length, 0))))
     edges.append(Part.Edge(PLine(FreeCAD.Base.Vector(0 + r, 0, 0), FreeCAD.Base.Vector(0 + r, length, 0))))
-    
+
     # create wire
     #wir = []
     #wir.append(PLine(FreeCAD.Base.Vector(0 - r, 0, 0), FreeCAD.Base.Vector(0 - r, length, 0)))
@@ -9782,7 +9782,7 @@ def createLine(x1, y1, x2, y2, width=0.01):
     edges.append(Part.Edge(Part.Arc(FreeCAD.Base.Vector(p1[0], p1[1], 0), FreeCAD.Base.Vector(p2[0], p2[1], 0), FreeCAD.Base.Vector(p3[0], p3[1], 0))))
     #wir.append(Part.Arc(FreeCAD.Base.Vector(p1[0], p1[1], 0), FreeCAD.Base.Vector(p2[0], p2[1], 0), FreeCAD.Base.Vector(p3[0], p3[1], 0)))
     sortedEdges = Part.__sortEdges__(edges)
-    
+
     #mainObj = Part.Shape(wir)
     ##mainObj = wir.toShape()
     ## sayw(wir)
@@ -9794,14 +9794,14 @@ def createLine(x1, y1, x2, y2, width=0.01):
     wire = Part.Wire(sortedEdges)
     mainObj = Part.Face(wire)
     #Part.show(mainObj)
-    
+
     pos_1 = FreeCAD.Base.Vector(x1, y1, z_silk_offset) #z offset Front Silk 0.1
     center = FreeCAD.Base.Vector(0, 0, 0)
     rot = FreeCAD.Rotation(FreeCAD.Vector(0, 0, 1), iang)
     mainObj.Placement = FreeCAD.Base.Placement(pos_1, rot, center)
     #Part.show(mainObj)
     #stop
-    
+
     return mainObj
 ###
 def addPadLong2(x, y, dx, dy, perc, typ, z_off, type=None, ratio=None):
@@ -10157,8 +10157,8 @@ def createPad3(x,y,sx,sy,dcx,dcy,dx,dy,type,layer, ratio=None):
         if test_flag_pads==True:
             Part.show(myhole)
             FreeCAD.ActiveDocument.ActiveObject.Label="myhole"
-        wire = [mypad,mydrill] 
-        face = Part.Face(wire) 
+        wire = [mypad,mydrill]
+        face = Part.Face(wire)
         extr = face.extrude(FreeCAD.Vector(0,0,thick))
         if test_flag_pads==True:
             Part.show(extr)
@@ -10738,7 +10738,7 @@ def routineDrawFootPrint_old(content,name):  #for FC = 0.15
             #hole_name=FreeCAD.ActiveDocument.ActiveObject.Name
             #cutter = FreeCAD.ActiveDocument.getObject(hole_name).Shape
             cut_base=cut_base.cut(hole)
-        Part.show(cut_base) 
+        Part.show(cut_base)
         pcb_name=FreeCAD.ActiveDocument.ActiveObject.Name
         FreeCAD.ActiveDocument.ActiveObject.Label ="Pcb"
         FreeCADGui.ActiveDocument.ActiveObject.ShapeColor = (0.664,0.664,0.496)
@@ -10750,7 +10750,7 @@ def routineDrawFootPrint_old(content,name):  #for FC = 0.15
         #FreeCAD.activeDocument().recompute()
         FreeCAD.ActiveDocument.removeObject(pcb_solid_name)
         FreeCAD.ActiveDocument.removeObject(Holes_name)
-       
+
     list2=[]
     list2_objs=[]
     for obj in fp_group.Group:
@@ -10792,11 +10792,11 @@ def createGeomC(cx, cy, radius, layer, width):
         thick=0.01
         z_offset=-1.6
     bv = Base.Vector
-    circ = Part.makeCircle(radius+width/2, bv(cx,cy,0))    
+    circ = Part.makeCircle(radius+width/2, bv(cx,cy,0))
     mw = Part.Wire(circ.Edges)
     myp= Part.Face(mw)
     #Part.show(mypad)
-    circ = Part.makeCircle(radius-width/2, bv(cx,cy,0))    
+    circ = Part.makeCircle(radius-width/2, bv(cx,cy,0))
     mw2 = Part.Wire(circ.Edges)
     myp2 = Part.Face(mw2)
     mypad=myp.cut(myp2)
@@ -10813,9 +10813,9 @@ def createGeomC(cx, cy, radius, layer, width):
     #extr = sface.extrude(FreeCAD.Vector(0,0,-.01))
     #Part.show(extr)
     #stop
-    
+
     return extr
-    
+
 
 def createPoly(x, y, sx, sy, dcx,dcy,dx,dy,pShape, layer, poly_points):
     #createPad3(x1, y1, dx, dy, xs,  ys,rx,ry,pShape,'top')
@@ -10831,7 +10831,7 @@ def createPoly(x, y, sx, sy, dcx,dcy,dx,dy,pShape, layer, poly_points):
         thick=0.01
         z_offset=-1.6
     for p in poly_points:
-        pc = p.split(' ')                
+        pc = p.split(' ')
         pts.append(bv(float(pc[1])+x,-1*float(pc[2][0:pc[2].index(')')])+y,z_offset))
         # print (float(pc[1])+x1,-1*float(pc[2][0:pc[2].index(')')])+y1,z_offset)
     # closing poly
@@ -10839,7 +10839,7 @@ def createPoly(x, y, sx, sy, dcx,dcy,dx,dy,pShape, layer, poly_points):
     # print (float(p0[1])+x1,-1*float(p0[2][0:p0[2].index(')')])+y1,z_offset)
     # f = Draft.makeWire(pts,closed=True)
     # obj=f.Shape.copy()
-    lshape_wire = Part.makePolygon(pts) 
+    lshape_wire = Part.makePolygon(pts)
     mypad = Part.Face(lshape_wire)
     Part.show(mypad)
     FreeCAD.ActiveDocument.ActiveObject.Label="mypad"
@@ -10867,9 +10867,9 @@ def createPoly(x, y, sx, sy, dcx,dcy,dx,dy,pShape, layer, poly_points):
         if test_flag_pads==True:
             Part.show(myhole)
             FreeCAD.ActiveDocument.ActiveObject.Label="myhole"
-        #wire = [mypad,mydrill] 
-        wire = [mydrill] 
-        drl = Part.Face(wire) 
+        #wire = [mypad,mydrill]
+        wire = [mydrill]
+        drl = Part.Face(wire)
         #Part.show(drl)
         face = mypad.cut(drl)
         extr = face.extrude(FreeCAD.Vector(0,0,thick))
@@ -10890,9 +10890,9 @@ def createPoly(x, y, sx, sy, dcx,dcy,dx,dy,pShape, layer, poly_points):
     #extr = sface.extrude(FreeCAD.Vector(0,0,-.01))
     #Part.show(extr)
     #stop
-    
+
     return extr
-    
+
 ###
 def routineDrawFootPrint(content,name):
     global rot_wrl
@@ -10909,7 +10909,7 @@ def routineDrawFootPrint(content,name):
     #if scale!=['1', '1', '1']:
     xsc_vrml_val=scale[0]
     ysc_vrml_val=scale[1]
-    zsc_vrml_val=scale[2]        
+    zsc_vrml_val=scale[2]
     # if scale_vrml!='1 1 1':
     #sayw(scale)
     if float(xsc_vrml_val)!=1.0 or float(ysc_vrml_val)!=1.0 or float(zsc_vrml_val)!=1.0:
@@ -11038,7 +11038,7 @@ def routineDrawFootPrint(content,name):
                         #print 'anchor ',anchor[0]
                         mypad2=createPad3(x1, y1, dx, dy, xs,ys,rx,ry,anchor,'top')
                         #Part.show(mypad2)
-                        
+
                     #print TopPadList
                 #stop
                 else:
@@ -11054,7 +11054,7 @@ def routineDrawFootPrint(content,name):
                     TopPadList.append(obj)
                 if mypad2 is not None:
                     TopPadList.append(mypad2)
-                
+
             if bot==True:
                 #mypad=addPadLong(x1, y1, dx, dy, perc, 0, -1.6)
                 mypad2=None; skip = False
@@ -11101,7 +11101,7 @@ def routineDrawFootPrint(content,name):
             if rot!=0:
                 rotateObj(obj2, [xs, ys, rot])
 
-        
+
         #say(pType+"here")
         ### cmt- #da gestire: pad type trapez
 
@@ -11460,7 +11460,7 @@ def routineDrawFootPrint(content,name):
     #objFp=Part.makeCompound(shape)
     objFp=Part.makeCompound(list1)
     Part.show(objFp)
-    
+
     obj = FreeCAD.ActiveDocument.ActiveObject
     #say("h")
     FreeCADGui.Selection.addSelection(obj)            # select the object
@@ -11475,7 +11475,7 @@ def routineDrawFootPrint(content,name):
     FreeCADGui.ActiveDocument.ActiveObject.Transparency = 80
     #obj6 = FreeCAD.ActiveDocument.getObject(bbox.Name)
     fp_group.addObject(bbox)
-    
+
     if len(HoleList)>0:
         cut_base = FreeCAD.ActiveDocument.getObject(pcb_solid_name).Shape
         for drill in HoleList:
@@ -11485,7 +11485,7 @@ def routineDrawFootPrint(content,name):
             #hole_name=FreeCAD.ActiveDocument.ActiveObject.Name
             #cutter = FreeCAD.ActiveDocument.getObject(hole_name).Shape
             cut_base=cut_base.cut(hole)
-        Part.show(cut_base) 
+        Part.show(cut_base)
         pcb_name=FreeCAD.ActiveDocument.ActiveObject.Name
         FreeCAD.ActiveDocument.ActiveObject.Label ="Pcb-base"
         FreeCADGui.ActiveDocument.ActiveObject.ShapeColor = (0.664,0.664,0.496)
@@ -11498,7 +11498,7 @@ def routineDrawFootPrint(content,name):
         FreeCAD.ActiveDocument.removeObject(pcb_solid_name)
         FreeCAD.ActiveDocument.removeObject(Holes_name)
     else:
-        pcb=FreeCAD.ActiveDocument.ActiveObject    
+        pcb=FreeCAD.ActiveDocument.ActiveObject
     # copying pcb to FeaturePython to assign fixedPosition for assembly2
     Pcb_obj = FreeCAD.ActiveDocument.addObject("Part::FeaturePython","newPCB")
     Pcb_obj.Label="Pcb"
@@ -11518,7 +11518,7 @@ def routineDrawFootPrint(content,name):
     FreeCADGui.ActiveDocument.ActiveObject.Transparency = 79
     FreeCADGui.ActiveDocument.ActiveObject.Transparency = 80
     FreeCAD.ActiveDocument.removeObject(pcb.Name)
-    
+
     list2=[]
     list2_objs=[]
     for obj in fp_group.Group:
@@ -11567,7 +11567,7 @@ def routineDrawIDF(doc,filename):
     placement=[] #no placement
     place_item=[] #empty place item
     emnlines=emnfile.readlines()
-    emnfile.close()   
+    emnfile.close()
     passed_sections=[]
     current_section=""
     section_counter=0
@@ -11609,33 +11609,33 @@ def routineDrawIDF(doc,filename):
             place_item.append(float(emnrecords[1])*emn_unit) #Y
             if emn_version==3:
                 place_item.append(float(emnrecords[2])*emn_unit) #Z  maui
-                #say("\nZ="+(str(float(emnrecords[2]))))   
+                #say("\nZ="+(str(float(emnrecords[2]))))
             place_item.append(float(emnrecords[emn_version])) #Rotation
             place_item.append(emnrecords[emn_version+1]) #Side
             place_item.append(emnrecords[emn_version+2]) #Place Status
             say(str(place_item))
             placement.append(place_item)
-        
+
     say("\n".join(passed_sections))
     #say(board_outline)
     say("Proceed "+str(Process_board_outline(doc,board_outline,drills,board_thickness))+" outlines")
     ## place_steps(doc,placement,board_thickness)
-    
+
 ###
 def Process_board_outline(doc,board_outline,drills,board_thickness):
     """Process_board_outline(doc,board_outline,drills,board_thickness)-> number proccesed loops
         adds emn geometry from emn file"""
     global start_time, use_AppPart, force_oldGroups, use_Links
-    
+
     vertex_index=-1; #presume no vertex
     lines=-1 #presume no lines
     out_shape=[]
     out_face=[]
     for point in board_outline:
-        vertex=Base.Vector(point[1],point[2],0) 
+        vertex=Base.Vector(point[1],point[2],0)
         vertex_index+=1
         if vertex_index==0:
-            lines=point[0] 
+            lines=point[0]
         elif lines==point[0]:
             if point[3]!=0 and point[3]!=360:
                 out_shape.append(Part.Arc(prev_vertex,mid_point(prev_vertex,vertex,point[3]),vertex))
@@ -11651,8 +11651,8 @@ def Process_board_outline(doc,board_outline,drills,board_thickness):
             out_shape=Part.Wire(out_shape.Edges)
             out_face.append(Part.Face(out_shape))
             out_shape=[]
-            vertex_index=0 
-            lines=point[0] 
+            vertex_index=0
+            lines=point[0]
         prev_vertex=vertex
     if lines!=-1:
         out_shape=Part.Shape(out_shape)
@@ -11673,7 +11673,7 @@ def Process_board_outline(doc,board_outline,drills,board_thickness):
             out_shape=Part.Wire(out_shape.Edges)
             outline=outline.cut(Part.Face(out_shape))
         doc_outline=doc.addObject("Part::Feature","Pcb")
-        doc_outline.Shape=outline 
+        doc_outline.Shape=outline
         #FreeCADGui.Selection.addSelection(doc_outline)
         #FreeCADGui.runCommand("Draft_Upgrade")
         #outline=FreeCAD.ActiveDocument.getObject("Union").Shape
@@ -11710,7 +11710,7 @@ def Process_board_outline(doc,board_outline,drills,board_thickness):
 ###
 def split_records(line_record):
     """split_records(line_record)-> list of strings(records)
-       
+
        standard separator list separator is space, records containting encapsulated by " """
     split_result=[]
     quote_pos=line_record.find('"')
@@ -11719,13 +11719,13 @@ def split_records(line_record):
             split_result.extend(line_record[ :quote_pos].split())
             line_record=line_record[quote_pos: ]
             quote_pos=line_record.find('"',1)
-        else: 
+        else:
             quote_pos=line_record.find('"',1)
         if quote_pos!=-1:
             split_result.append(line_record[ :quote_pos+1])
             line_record=line_record[quote_pos+1: ]
         else:
-            split_result.append(line_record) 
+            split_result.append(line_record)
             line_record=""
         quote_pos=line_record.find('"')
     split_result.extend(line_record.split())
@@ -11746,13 +11746,13 @@ def findWires(edges):
         for s in shapesIn:
             if len(s.Vertexes) < 2:
                 say( "one vertex, its a circle, just add" )
-            else:                             
+            else:
                 for v in verts(s):
                     twoDot=0
                     for vv in pointTst:
                         if v == vv:
-                            twoDot=twoDot+1                           
-                        if v==vv and twoDot==2 :                   
+                            twoDot=twoDot+1
+                        if v==vv and twoDot==2 :
                             changed = True
                             say( "found matching vert" )
                             break
@@ -11775,7 +11775,7 @@ def findWires(edges):
                         pos=pp+1
                         say( "changement" );say( pos )
                 else:
-                    pos=1   
+                    pos=1
             say(  "points a joindre");say(point[0]);say( point[pos] )
             if point[0]!=point[pos]:
                 Part.show(Part.makePolygon([point[0],point[pos]]))
@@ -11791,7 +11791,7 @@ def findWires(edges):
     working = result[0]
     edgeSet = result[1]
     joint(result[1])
-    return result[1] 
+    return result[1]
 #
 
 def distance(p0, p1):
@@ -11911,7 +11911,7 @@ class OSCD2Dg_Overlappingfaces():
             else:
                 for key, value in isinsidedict.items():
                     if key != parent and child in value and parent not in value:
-                        direct = False            
+                        direct = False
             if direct:
                 dchildren.append(child)
         return dchildren
@@ -11987,7 +11987,7 @@ class OSCD2Dg_Overlappingfaces():
                             newlist=value[:] #we work on a shallow copy of isinsidedict
                             newlist.remove(tfi)
                             isinsidedict[key]=newlist
-               
+
         def hasnoparent(faceindex):
             if (sys.version_info > (3, 0)):  #py3
                 for smalllist in self.isinsidedict.values():
@@ -11996,7 +11996,7 @@ class OSCD2Dg_Overlappingfaces():
             else:  #py2
                 for smalllist in self.isinsidedict.itervalues():
                     if faceindex in smalllist:
-                        return False            
+                        return False
             return True
 
         faces=self.sortedfaces[:]
@@ -12022,7 +12022,7 @@ class OSCD2Dg_Overlappingfaces():
         faces =[face for index,face in enumerate(faces) if index not in finishedwith]
 #        return faces
         return OSCD2Dg_fusefaces(faces)
-#   
+#
 def OSCD2Dg_superWireReverse(debuglist,closed=False):
     '''superWireReverse(debuglist,[closed]): forces a wire between edges
     that don't necessarily have coincident endpoints. If closed=True, wire
@@ -12314,19 +12314,19 @@ def DrawPCB(mypcb):
 
     def simu_distance(p0, p1):
         return max (abs(p0[0] - p1[0]), abs(p0[1] - p1[1]))
-    
+
     import PySide
     from PySide import QtGui, QtCore
-    
+
     say("PCB Loader ")
     ## NB use always float() to guarantee number not string!!!
     max_edges_admitted = 1500 # after this number, no sketcher would be created
-    
+
     #load_sketch=True
     get_time()
     t0=(running_time)
     #say(start_time)
-    
+
     doc=FreeCAD.activeDocument()
     for obj in FreeCAD.ActiveDocument.Objects:
         FreeCADGui.Selection.removeSelection(obj)
@@ -12357,7 +12357,7 @@ def DrawPCB(mypcb):
     conv_offs=1.0
     if version >= 20171114:
         conv_offs=25.4
-    
+
     #load_sketch=False
     # sayerr(len(mypcb.gr_line))
     # say(len(mypcb.gr_arc))
@@ -12390,11 +12390,11 @@ def DrawPCB(mypcb):
     if edg_segms > max_edges_admitted:
         sayerr('too many segments ('+str(edg_segms)+'), skipping sketches & constraints')
         # load_sketch = False
-    
+
     if load_sketch:
         PCB_Sketch_draft= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','PCB_Sketch_draft')
-        FreeCAD.activeDocument().PCB_Sketch_draft.Placement = FreeCAD.Placement(FreeCAD.Vector(0.000000,0.000000,0.000000),FreeCAD.Rotation(0.000000,0.000000,0.000000,1.000000))            
-        
+        FreeCAD.activeDocument().PCB_Sketch_draft.Placement = FreeCAD.Placement(FreeCAD.Vector(0.000000,0.000000,0.000000),FreeCAD.Rotation(0.000000,0.000000,0.000000,1.000000))
+
     #stop
     #sayerr(mypcb.layers['0'])
     for lynbr in mypcb.layers: #getting layers name
@@ -12420,7 +12420,7 @@ def DrawPCB(mypcb):
     #else:
     #    say('aux origin not used')
     ## NB use always float() to guarantee number not string!!!
-       
+
     for l in mypcb.gr_line: #pcb lines
         if l.layer != 'Edge.Cuts':
             continue
@@ -12469,7 +12469,7 @@ def DrawPCB(mypcb):
                         PCB_Geo.append(PLine(Base.Vector(lp.pts.xy[ind-1][0],-lp.pts.xy[ind-1][1],0), Base.Vector(lp.pts.xy[ind][0],-lp.pts.xy[ind][1],0)))
             ind+=1
         #closing edge
-                
+
     ## NB use always float() to guarantee number not string!!!
     for a in mypcb.gr_arc: #pcb arcs
         if a.layer != 'Edge.Cuts':
@@ -12498,7 +12498,7 @@ def DrawPCB(mypcb):
         #[mx,my]=arcMidPoint([xs,ys], [x1,y1], curve)
         #c=arc1.Curve.Center
         #print c
-        
+
         #App.ActiveDocument.PCB_SketchN.addGeometry(Part.Arc(Base.Vector(x2,-y2,0),mid_point(Base.Vector(x2,-y2,0),Base.Vector(x1,-y1,0),curve),Base.Vector(x1,-y1,0)))
         if load_sketch:
             if aux_orig ==1 or grid_orig ==1:
@@ -12516,7 +12516,7 @@ def DrawPCB(mypcb):
         PCB.append(['Arc',x1, -y1, x2, -y2, curve])
         if show_border:
             Part.show(arc1)
-        
+
     ## NB use always float() to guarantee number not string!!!
     for c in mypcb.gr_circle: #pcb circles
         if c.layer != 'Edge.Cuts':
@@ -12555,7 +12555,7 @@ def DrawPCB(mypcb):
         Part.show(s_PCB_Sketch_draft)
         FreeCAD.ActiveDocument.removeObject("Face_PCB_Sketch_draft")
         FreeCAD.ActiveDocument.recompute()
-    
+
     make_face = True #getting PCB from Sketch
     dont_use_constraints = False
     create_pcb_from_edges = False
@@ -12593,7 +12593,7 @@ def DrawPCB(mypcb):
         #get_time()
         #say('adding Geo time ' +str(running_time-t0))
         #FreeCAD.ActiveDocument.addObject("Part::Face", "Face").Sources = (FreeCAD.ActiveDocument.getObject(new_skt.Name), )
-    
+
     if make_face:
         if len(FreeCAD.ActiveDocument.PCB_Sketch_draft.Geometry)>0:
             if addConstraints!='none' and not dont_use_constraints:
@@ -12614,7 +12614,7 @@ def DrawPCB(mypcb):
                 sayw('adding missing geometry')
                 add_missing_geo("PCB_Sketch_draft")
                 #stop
-                
+
             make_face_mode = 1
             FreeCAD.ActiveDocument.recompute()
             if make_face_mode == 1:  ## face creation method
@@ -12634,12 +12634,12 @@ def DrawPCB(mypcb):
                 Face_PCB_Sketch_draft = FreeCAD.ActiveDocument.ActiveObject
                 s_PCB_Sketch_draft = Face_PCB_Sketch_draft.Shape.copy()
                 ## OpenSCAD2Dgeom.edgestofaces(edgs)
-                
+
             else:
                 FreeCAD.ActiveDocument.addObject("Part::Face", "Face_PCB_Sketch_draft").Sources = (FreeCAD.ActiveDocument.PCB_Sketch_draft, )
                 FreeCAD.ActiveDocument.recompute()
                 s_PCB_Sketch_draft = FreeCAD.ActiveDocument.getObject("Face_PCB_Sketch_draft").Shape.copy()
-                
+
             #s_PCB_Sketch_draft = s.copy()
             sayw ('created PCB face w/ edge tolerance -> '+str(edge_tolerance)+' mm')
             if aux_orig ==1 or grid_orig ==1:
@@ -12654,14 +12654,14 @@ def DrawPCB(mypcb):
             else:
                 FreeCAD.ActiveDocument.removeObject("Face_PCB_Sketch_draft")
                 FreeCAD.ActiveDocument.recompute()
-            
+
             #FreeCAD.ActiveDocument.addObject("Part::Face", "Face").Sources = (FreeCAD.ActiveDocument.PCB_Sketch_draft001, )
             FreeCADGui.SendMsgToActiveView("ViewFit")
             cut_base = s_PCB_Sketch_draft
         else:
             sayerr('empty sketch; module edge board: creating PCB from Footprint Edge.Cuts')
             create_pcb_from_edges = True
-    
+
     #FreeCADGui.SendMsgToActiveView("ViewFit")
     #stop
     TopPadList=[]
@@ -12692,7 +12692,7 @@ def DrawPCB(mypcb):
         m_x = float(m.at[0])
         m_y = float(m.at[1]) * (-1)
         m_rot = float(m_angle)
-        
+
         #sayw(m.layer);sayerr(LvlTopName)
         if m.layer == LvlTopName:  # top
             side = "Top"
@@ -12713,7 +12713,7 @@ def DrawPCB(mypcb):
             #error_scale_module=False
             xsc_vrml_val=md.scale.xyz[0]
             ysc_vrml_val=md.scale.xyz[1]
-            zsc_vrml_val=md.scale.xyz[2]        
+            zsc_vrml_val=md.scale.xyz[2]
             # if scale_vrml!='1 1 1':
             if float(xsc_vrml_val)!=1 or float(ysc_vrml_val)!=1 or float(zsc_vrml_val)!=1:
                 if "box_mcad" not in md[0] and "cylV_mcad" not in md[0] and "cylH_mcad" not in md[0]:
@@ -12791,11 +12791,11 @@ def DrawPCB(mypcb):
                     line.append(n_md) #number of models in module
                     PCB_Models.append(line)
                     n_md+=1
-       
+
         pads = []
         for p in m.pad:
             if 'drill' not in p:
-                continue                    
+                continue
             #say('drill present')
             #say (p.at)
             if len(p.at)>2:
@@ -12814,7 +12814,7 @@ def DrawPCB(mypcb):
             #print p.drill.oval
             #if p.drill.oval:
             #    if p.drill[0] < min_drill_size and p.drill[1] < min_drill_size:
-            #        continue   
+            #        continue
             #else:
             #    if p.drill[0] < min_drill_size:
             #        continue
@@ -12867,9 +12867,9 @@ def DrawPCB(mypcb):
                         [x1, y1] = rotPoint2([xs, ys], [m.at[0], -m.at[1]], m_angle)
                         # sayw('holes solid '+str(holes_solid))
                         if holes_solid:
-                            obj=createHole3(x1,y1,rx,ry,"oval",totalHeight) #need to be separated instructions   
+                            obj=createHole3(x1,y1,rx,ry,"oval",totalHeight) #need to be separated instructions
                         else:
-                            obj=createHole4(x1,y1,rx,ry,"oval") #need to be separated instructions   
+                            obj=createHole4(x1,y1,rx,ry,"oval") #need to be separated instructions
                         if p_angle!=0:
                             rotateObj(obj, [x1, y1, p_angle])
                         HoleList.append(obj)
@@ -12890,8 +12890,8 @@ def DrawPCB(mypcb):
                     #if p_angle!=0:
                     #    rotateObj(obj, [x1, y1, p_angle])
                     #rotateObj(obj, [m.at[0], m.at[1], m_angle])
-                    HoleList.append(obj)   
-                ##pads.append({'x': x, 'y': y, 'rot': rot, 'padType': pType, 'padShape': pShape, 'rx': drill_x, 'ry': drill_y, 'dx': dx, 'dy': dy, 'holeType': hType, 'xOF': xOF, 'yOF': yOF, 'layers': layers})        
+                    HoleList.append(obj)
+                ##pads.append({'x': x, 'y': y, 'rot': rot, 'padType': pType, 'padShape': pShape, 'rx': drill_x, 'ry': drill_y, 'dx': dx, 'dy': dy, 'holeType': hType, 'xOF': xOF, 'yOF': yOF, 'layers': layers})
                 #stop
         for ml in m.fp_line:
             if ml.layer != 'Edge.Cuts':
@@ -12900,7 +12900,7 @@ def DrawPCB(mypcb):
             x1=ml.start[0]+m.at[0];y1=-ml.start[1]-m.at[1]
             x2=ml.end[0]+m.at[0];y2=-ml.end[1]-m.at[1]
             [x1, y1] = rotPoint2([x1,y1], [m.at[0], -m.at[1]], m_angle)
-            [x2, y2] = rotPoint2([x2,y2], [m.at[0], -m.at[1]], m_angle)            
+            [x2, y2] = rotPoint2([x2,y2], [m.at[0], -m.at[1]], m_angle)
             if (Base.Vector(x1,y1,0)) != (Base.Vector(x2,y2,0)): #non coincident points
                 line1=Part.Edge(PLine(Base.Vector(x1,y1,0), Base.Vector(x2,y2,0)))
                 edges.append(line1);
@@ -12933,7 +12933,7 @@ def DrawPCB(mypcb):
         for ma in m.fp_arc:
             if ma.layer != 'Edge.Cuts':
                 continue
-            #print ma.start, ma.end, ma.angle           
+            #print ma.start, ma.end, ma.angle
             #xs=ma.start[0]+m.at[0];ys=-ma.start[1]-m.at[1]
             #x1=ma.end[0]+m.at[0];y1=-ma.end[1]-m.at[1]
             xs=ma.start[0];ys=ma.start[1]
@@ -12949,7 +12949,7 @@ def DrawPCB(mypcb):
             EdgeCuts.append(arc1)
             if show_border:
                 Part.show(arc1)
-            PCB.append(['Arc', x1, y1, x2, y2, curve])         
+            PCB.append(['Arc', x1, y1, x2, y2, curve])
 
     if len(EdgeCuts) >0 and not create_pcb_from_edges:
         try:
@@ -12963,7 +12963,7 @@ def DrawPCB(mypcb):
             #Part.show(s_PCB_Cuts)
         except:
             sayerr('error in making PCB from footprint Edge Cuts')
-    
+
     if 0:
         Part.show(s_PCB_Cuts)
         fc_PCB_Cuts = FreeCAD.ActiveDocument.ActiveObject
@@ -12978,12 +12978,12 @@ def DrawPCB(mypcb):
     #sayw(len(HoleList))
     #say (PCB_Models)
     #stop
-    
+
     #g = App.ActiveDocument.PCB_Sketch.Geometry
     #g = App.ActiveDocument.PCB_Sketch
     # For each sketch geometry type, map a list of points to move.
 
-        
+
         # Direct access to sketch.Geometry[index] does not work. This would,
         # however prevent repeated recompute.
         #for point_index in point_indexes:
@@ -12992,7 +12992,7 @@ def DrawPCB(mypcb):
         #    sayw(point[0]);sayw(point[1])
         #    ## ckeck point coincidence for sketch constrains
         #    #sketch.movePoint(geom_index, point_index, point)
-        #    
+        #
         #for i, pidx in enumerate(point_indexes):
         #    for pidx2 in point_indexes[(i + 1):]:
         #        point = PCB_Sketch.getPoint(geom_index, pidx)
@@ -13002,29 +13002,29 @@ def DrawPCB(mypcb):
         #        sayw(point[0]);sayw(point[1]);sayw(point2[0]);sayw(point2[1])
         #        if point[0] == point2[0]:
         #            say('found 00')
-        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,1,idx2,1)) 
+        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,1,idx2,1))
         #        if point[1] == point2[0]:
         #            say('found 10')
-        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,2,idx2,1)) 
+        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,2,idx2,1))
         #        if point[0] == point2[1]:
         #            say('found 01')
-        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,1,idx2,2)) 
+        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,1,idx2,2))
         #        if point[1] == point2[1]:
         #            say('found 11')
-        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,2,idx2,2)) 
-        #        
+        #            PCB_Sketch.addConstraint(Sketcher.Constraint('Coincident',idx,2,idx2,2))
+        #
 
     FreeCAD.ActiveDocument.recompute()
-    
-    #add_constraints(PCB_Sketch_draft.Name)    
+
+    #add_constraints(PCB_Sketch_draft.Name)
     #t_name=cpy_sketch(PCB_Sketch_draft.Name)
     ##s_name=shift_sketch(PCB_Sketch_draft.Name, [-100,-100])
-    ##add_constraints(s_name)   
+    ##add_constraints(s_name)
     ##FreeCADGui.SendMsgToActiveView("ViewFit")
     ##stop
     #stop
-    #Sketch.addConstraint(Sketcher.Constraint('Coincident',LineFixed,PointOfLineFixed,LineMoving,PointOfLineMoving))     
-    
+    #Sketch.addConstraint(Sketcher.Constraint('Coincident',LineFixed,PointOfLineFixed,LineMoving,PointOfLineMoving))
+
     #for geom in PCB_Sketch.Geometry:
     #    #if isinstance(geom, Part.Line):
     #    #    bbox.enlarge_line(geom)
@@ -13032,7 +13032,7 @@ def DrawPCB(mypcb):
     #        say("Circle")
     #    elif isinstance(geom, Part.ArcOfCircle):
     #        say("Arc")
-        
+
     #for i, e1 in enumerate(g):
     #    for e2 in g[(i + 1):]:
     #        sayw(e2.SubObjects[0].Curve)
@@ -13044,7 +13044,7 @@ def DrawPCB(mypcb):
     # for f in PCBs:
     #     Part.show(f)
     # stop
-    if create_pcb_from_edges: 
+    if create_pcb_from_edges:
     #if not test_face:
         #sayerr('doing')
         if (len(edges)==0) and (len(PCBs)==0):
@@ -13072,7 +13072,7 @@ def DrawPCB(mypcb):
                     sayw(e.Vertexes[0].Point);sayw(e.Vertexes[-1].Point)
                 for e in edges:
                     sayw("geomType")
-                    say(DraftGeomUtils.geomType(e)) 
+                    say(DraftGeomUtils.geomType(e))
             #if show_data:
             #    sayw(enumerate(edges));
             while(len(edges)>0 and loopcounter < 2):
@@ -13088,7 +13088,7 @@ def DrawPCB(mypcb):
                         say(distance(edges[j].Vertexes[0].Point, nextCoordinate))
                     #if edges[j].Vertexes[-1].Point == nextCoordinate:
                     # sayw(distance(edges[j].Vertexes[-1].Point, nextCoordinate))
-                    # sayw(distance(edges[j].Vertexes[0].Point, nextCoordinate))             
+                    # sayw(distance(edges[j].Vertexes[0].Point, nextCoordinate))
                     if distance(edges[j].Vertexes[-1].Point, nextCoordinate)<=edge_tolerance:
                         #if edges[j].Vertexes[-1].Point != nextCoordinate:
                         if distance(edges[j].Vertexes[-1].Point, nextCoordinate)>edge_tolerance_warning:
@@ -13135,7 +13135,7 @@ def DrawPCB(mypcb):
                     except Part.OCCError: # Exception: #
                         say("error in creating PCB")
                         stop
-                        
+
             if loopcounter == 2:
                 say("*** omitting PCBs because there was a not closed loop in your edge lines ***")
                 say("*** have a look at position x=" + str(nextCoordinate.x) + "mm, y=" + str(nextCoordinate.y) + "mm ***")
@@ -13159,7 +13159,7 @@ def DrawPCB(mypcb):
             ## for f in PCBs:
             ##     Part.show(f)
             ## PCB_Sketch= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','Sketch')
-            ## FreeCAD.activeDocument().Sketch.Placement = App.Placement(App.Vector(0.000000,0.000000,0.000000),App.Rotation(0.000000,0.000000,0.000000,1.000000))            
+            ## FreeCAD.activeDocument().Sketch.Placement = App.Placement(App.Vector(0.000000,0.000000,0.000000),App.Rotation(0.000000,0.000000,0.000000,1.000000))
             ## for s in doc.Objects:
             ## #for f in PCBs:
             ##     if 'Part' in s.TypeId: #Part.show(s)
@@ -13170,13 +13170,13 @@ def DrawPCB(mypcb):
             ##         for wire in wires[0:1]:
             ##             Draft.makeSketch([wire],addTo=PCB_Sketch)
             ##         for wire in wires:
-            ##             FreeCAD.ActiveDocument.removeObject(wire.Name)             
+            ##             FreeCAD.ActiveDocument.removeObject(wire.Name)
             ## FreeCAD.ActiveDocument.recompute()
             #for f in PCBs:
             #    Part.hide(f)
-            ##FreeCADGui.SendMsgToActiveView("ViewFit")        
+            ##FreeCADGui.SendMsgToActiveView("ViewFit")
             ##stop
-            
+
             maxLenght=0
             idx=0
             external_idx=idx
@@ -13231,7 +13231,7 @@ def DrawPCB(mypcb):
             if show_shapes:
                 FreeCAD.activeDocument().removeObject("Shape")
             ###FreeCAD.ActiveDocument.recompute()
-        
+
         if len(PCBs)==0:
             say('pcb edge not found')
             QtGui.QApplication.restoreOverrideCursor()
@@ -13253,7 +13253,7 @@ def DrawPCB(mypcb):
             sayw("no PCBs found")
             stop
         else:
-            sayw('creating pcb from edges without constraints') 
+            sayw('creating pcb from edges without constraints')
             #N_edges = []
             #for s in edges:
             #    N_edges.extend(s.Edges)
@@ -13270,7 +13270,7 @@ def DrawPCB(mypcb):
             #        if res == QtGui.QMessageBox.Cancel:
             #            FreeCAD.Console.PrintMessage("Aborted\n")
             #            return
-            
+
             if 0:
                 newEdges = OSCD2Dg_edgestofaces(edges,3 , edge_tolerance)
                 Part.show(newEdges)
@@ -13296,7 +13296,7 @@ def DrawPCB(mypcb):
                 for s in shapes:
                     newob = addObject(s)
                     shapes_list.append(newob)
-                
+
                 WireSketch = FreeCAD.activeDocument().addObject('Sketcher::SketchObject','WireSketch')
                 shapes = Draft.makeSketch(shapes,autoconstraints=True,addTo=WireSketch)
                 FreeCAD.ActiveDocument.addObject("Part::Face", "Face_WireSketch").Sources = (FreeCAD.ActiveDocument.WireSketch, )
@@ -13313,21 +13313,21 @@ def DrawPCB(mypcb):
             #    if no > 1:
             #        fusion_wire = fusion_wire.fuse(e)
             # Part.show(fusion_wire)
-            
+
             for e in edges:
                 Part.show(e)
             stop
             #w_pcb = Part.Wire(edges)
             #Part.show(w_pcb)
-            
+
     say_time()
     #stop
-    
+
     #cut_base = cut_base.extrude(Base.Vector(0,0,totalHeight)) # test_face
     #Part.show(cut_base) #test Sketch
     #stop
     #PCB_Sketch= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','PCB_Sketch')
-    #FreeCAD.activeDocument().PCB_Sketch.Placement = App.Placement(App.Vector(0.000000,0.000000,0.000000),App.Rotation(0.000000,0.000000,0.000000,1.000000))            
+    #FreeCAD.activeDocument().PCB_Sketch.Placement = App.Placement(App.Vector(0.000000,0.000000,0.000000),App.Rotation(0.000000,0.000000,0.000000,1.000000))
     doc = FreeCAD.activeDocument()
     #wires,_faces = Draft.downgrade(cut_base,delete=False)
     #edges=[]
@@ -13359,20 +13359,20 @@ def DrawPCB(mypcb):
             PCB_Sketch.touch()
         #stop
         for wire in wires:
-            FreeCAD.ActiveDocument.removeObject(wire.Name)             
-            
+            FreeCAD.ActiveDocument.removeObject(wire.Name)
+
         #Draft.makeSketch(FreeCAD.ActiveDocument.Wire,autoconstraints=False, addTo=PCB_Sketch)
         #FreeCAD.ActiveDocument.recompute()
         #FreeCAD.ActiveDocument.removeObject(FreeCAD.ActiveDocument.Wire.Name)
         FreeCAD.ActiveDocument.recompute()
-    
+
     #s_name=shift_sketch(PCB_Sketch_draft.Name, [-100,-100])
-    #add_constraints(s_name)   
+    #add_constraints(s_name)
     #stop
     #for s in doc.Objects:
     ##for f in PCBs:
-    #    if 'Part' in s.TypeId: 
-    #    #if cut_base.Name in s.Name: 
+    #    if 'Part' in s.TypeId:
+    #    #if cut_base.Name in s.Name:
     #        #Part.show(s)
     #        wires,_faces = Draft.downgrade(s,delete=False)
     #        #wires,_faces = Draft.downgrade(s,delete=True)
@@ -13383,7 +13383,7 @@ def DrawPCB(mypcb):
     #        #    print f.Edges
     #        for f in s.Faces:
     #            print f.Edges
-    #            
+    #
     #        for wire in wires:
     #            #sayw(wire.Label)
     #            Draft.makeSketch([wire], autoconstraints = True, addTo=PCB_Sketch)
@@ -13391,17 +13391,17 @@ def DrawPCB(mypcb):
     #            PCB_Sketch.touch()
     #        stop
     #        for wire in wires:
-    #            FreeCAD.ActiveDocument.removeObject(wire.Name)             
+    #            FreeCAD.ActiveDocument.removeObject(wire.Name)
     # FreeCAD.ActiveDocument.recompute()
     #Part.show(cut_base)
-    #stop #maui      
+    #stop #maui
     ## to check to load models inside loop modules
     #if m.layer == 'F.Cu':  # top
     #    side = "Top"
     #else:
     #    side = "Bottom"
     #    m_angle *= -1 ##bottom 3d model rotation
-    #    say(m_angle)    
+    #    say(m_angle)
     say("start cutting")
     get_time()
     t1=(running_time)
@@ -13431,7 +13431,7 @@ def DrawPCB(mypcb):
         else:
             #face = cut_base
             cut_base = cut_base
-    else:    
+    else:
         sayw('using hierarchy container')
         if len(HoleList)>0:
             if holes_solid:
@@ -13481,7 +13481,7 @@ def DrawPCB(mypcb):
                 diag.exec_()
                 FreeCADGui.activeDocument().activeView().viewTop()
                 FreeCADGui.SendMsgToActiveView("ViewFit")
-                stop #maui                
+                stop #maui
             #Part.show(cut_base)
             #stop
             for s in s_names:
@@ -13498,9 +13498,9 @@ def DrawPCB(mypcb):
     #    ##    cut_base = cut_base.cut(Part.makeCompound(HoleList))   ###VERY fast but failing when overlapping of pads
     get_time()
     say('cutting time ' +str(round(running_time-t1,3)))
-    
+
     doc_outline=doc.addObject("Part::Feature","Pcb")
-    doc_outline.Shape=cut_base 
+    doc_outline.Shape=cut_base
     try:
         doc_outline.Shape=cut_base.extrude(Base.Vector(0,0,-totalHeight))
     except:
@@ -13515,7 +13515,7 @@ def DrawPCB(mypcb):
         diag.exec_()
         FreeCADGui.activeDocument().activeView().viewTop()
         FreeCADGui.SendMsgToActiveView("ViewFit")
-        stop #maui                        
+        stop #maui
     #stop
     try:
         FreeCAD.activeDocument().removeObject('Shape') #removing base shape
@@ -13528,7 +13528,7 @@ def DrawPCB(mypcb):
     if simplifyComSolid:
         faces=[]
         for f in pcb_board.Shape.Faces:
-            faces.append(f) 
+            faces.append(f)
         try:
             _ = Part.Shell(faces)
             _=Part.Solid(_)
@@ -13538,12 +13538,12 @@ def DrawPCB(mypcb):
             pcb_board=FreeCAD.ActiveDocument.ActiveObject
         except:
             sayerr('error in simplifying compsolid')
-    
+
     # simple_pcb=doc.addObject("Part::Feature","simple_Pcb")
     # simple_pcb.Shape=pcb_board.Shape
     # spcb=pcb_board.Shape
     # Part.show(spcb)
-    
+
     #FreeCAD.ActiveDocument.ActiveObject.Label ="Pcb"
     FreeCADGui.ActiveDocument.ActiveObject.ShapeColor = (colr,colg,colb)
     #FreeCADGui.ActiveDocument.ActiveObject.Transparency = 20
@@ -13573,16 +13573,16 @@ def DrawPCB(mypcb):
     grp.addObject(pcb_board)
     #pcb_sk=FreeCAD.ActiveDocument.PCB_Sketch
     #grp.addObject(pcb_sk)
-    #grp.addObject(doc_outline)      
-        
+    #grp.addObject(doc_outline)
+
     say_time()
     FreeCADGui.activeDocument().activeView().viewAxometric()
     FreeCADGui.SendMsgToActiveView("ViewFit")
     #FreeCADGui.SendMsgToActiveView("ViewFit")
     #pads_found=getPadsList(content)
     return PCB_Models
-    
-###    
+
+###
 
 ###
 #cmd open option
@@ -14090,104 +14090,104 @@ class Ui_DockWidget(object):
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(exportPart_b64))
         self.cb_expStep.setIcon(QtGui.QIcon(pm))
-        self.cb_expStep.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))        
+        self.cb_expStep.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(virtual_b64))
         self.cb_virtual.setIcon(QtGui.QIcon(pm))
-        self.cb_virtual.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))        
+        self.cb_virtual.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(materials_b64))
         self.cb_materials.setIcon(QtGui.QIcon(pm))
-        self.cb_materials.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))        
+        self.cb_materials.setIconSize(QtCore.QSize(chkb_sizeX,chkb_sizeY))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(collisions_b64))
         self.checkCollisions.setIcon(QtGui.QIcon(pm))
-        self.checkCollisions.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))        
+        self.checkCollisions.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(importBoard_b64))
-        self.LoadBoard.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.LoadBoard.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.LoadBoard.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(export3DModel_b64))
-        self.ScaleVRML.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.ScaleVRML.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.ScaleVRML.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(importFP_b64))
-        self.LoadFootprint.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.LoadFootprint.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.LoadFootprint.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(compound_b64))
-        self.makeCompound.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.makeCompound.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.makeCompound.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(fusion_b64))
-        self.makeUnion.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.makeUnion.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.makeUnion.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(rotateX_b64))
-        self.RotateX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.RotateX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.RotateX.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(rotateY_b64))
-        self.RotateY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.RotateY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.RotateY.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(rotateZ_b64))
-        self.RotateZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.RotateZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.RotateZ.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(shiftX_b64))
-        self.TranslateX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.TranslateX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.TranslateX.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(shiftY_b64))
-        self.TranslateY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.TranslateY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.TranslateY.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(shiftZ_b64))
-        self.TranslateZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.TranslateZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.TranslateZ.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(centerX_b64))
-        self.CenterX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.CenterX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.CenterX.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(centerY_b64))
-        self.CenterY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.CenterY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.CenterY.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(centerZ_b64))
-        self.CenterZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.CenterZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.CenterZ.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(putX_b64))
-        self.PutOnX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.PutOnX.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.PutOnX.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(putY_b64))
-        self.PutOnY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.PutOnY.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.PutOnY.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(putZ_b64))
-        self.PutOnZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))   
+        self.PutOnZ.setIconSize(QtCore.QSize(btn_sizeX,btn_sizeY))
         self.PutOnZ.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(edit_b64))
-        self.ConfigPB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))   
+        self.ConfigPB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         self.ConfigPB.setIcon(QtGui.QIcon(pm))
-        
+
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(pcb_edge_b64))  #sketch
-        self.pushPCB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))   
+        self.pushPCB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         self.pushPCB.setIcon(QtGui.QIcon(pm))
-        
+
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(help_b64))
-        self.HelpPB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))   
+        self.HelpPB.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         self.HelpPB.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(add_block_b64))
-        self.import3D.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))   
+        self.import3D.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         self.import3D.setIcon(QtGui.QIcon(pm))
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(stop_grey_b64))
@@ -14197,49 +14197,49 @@ class Ui_DockWidget(object):
         #self.checkCollisions.clicked.connect(changePixmap_ok)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(dock_left_b64))
-        self.dock_left.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))   
+        self.dock_left.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))
         self.dock_left.setIcon(QtGui.QIcon(pm))
         self.dock_left.clicked.connect(dock)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(un_dock_b64))
-        self.dock_float.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))   
+        self.dock_float.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))
         self.dock_float.setIcon(QtGui.QIcon(pm))
         self.dock_float.clicked.connect(undock)
         #self.dock_minimize.clicked.connect(minimz_alt)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(minimize_b64))
-        self.dock_minimize.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))   
+        self.dock_minimize.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))
         self.dock_minimize.setIcon(QtGui.QIcon(pm))
         self.dock_minimize.clicked.connect(minimz)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(dock_right_b64))
-        self.dock_right.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))   
+        self.dock_right.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))
         self.dock_right.setIcon(QtGui.QIcon(pm))
         self.dock_right.clicked.connect(dock_right)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(closeW_b64))
-        self.close.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))   
+        self.close.setIconSize(QtCore.QSize(btn_sm_sizeX,btn_sm_sizeY))
         self.close.setIcon(QtGui.QIcon(pm))
         self.close.clicked.connect(close_ksu)
         pm = QtGui.QPixmap()
         pm.loadFromData(base64.b64decode(export3DStep_b64))
-        self.export3DStep.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))   
+        self.export3DStep.setIconSize(QtCore.QSize(btn_md_sizeX,btn_md_sizeY))
         self.export3DStep.setIcon(QtGui.QIcon(pm))
         self.export3DStep.clicked.connect(self.onExport3DStep)
-        self.RotateX.clicked.connect(self.onRotateX) 
+        self.RotateX.clicked.connect(self.onRotateX)
         self.RotateY.clicked.connect(self.onRotateY)
         self.RotateZ.clicked.connect(self.onRotateZ)
-        self.TranslateX.clicked.connect(self.onTranslateX) 
+        self.TranslateX.clicked.connect(self.onTranslateX)
         self.TranslateY.clicked.connect(self.onTranslateY)
         self.TranslateZ.clicked.connect(self.onTranslateZ)
-        self.CenterX.clicked.connect(self.onCenterX) 
+        self.CenterX.clicked.connect(self.onCenterX)
         self.CenterY.clicked.connect(self.onCenterY)
         self.CenterZ.clicked.connect(self.onCenterZ)
-        self.PutOnX.clicked.connect(self.onPutOnX) 
+        self.PutOnX.clicked.connect(self.onPutOnX)
         self.PutOnY.clicked.connect(self.onPutOnY)
         self.PutOnZ.clicked.connect(self.onPutOnZ)
         self.CreateAxis.clicked.connect(self.onCreateAxis)
-        self.LoadFootprint.clicked.connect(self.onLoadFootprint_click)        
+        self.LoadFootprint.clicked.connect(self.onLoadFootprint_click)
         if enable_materials==0:
             #export_board_2step=False
             self.cb_materials.setChecked(False)  # Check by default True or False
@@ -14261,7 +14261,7 @@ class Ui_DockWidget(object):
         ##export_board_2step=True
         self.cb_virtual.clicked.connect(self.on_cb_virtual_clicked)  # connect on def "on_checkBox_1_clicked"
         self.cb_materials.clicked.connect(self.on_cb_materials_clicked)  # connect on def "on_cb_materials_clicked"
-        self.ScaleVRML.clicked.connect(self.onScaleVRML)        
+        self.ScaleVRML.clicked.connect(self.onScaleVRML)
         self.checkCollisions.clicked.connect(self.onCollisions)
         self.import3D.clicked.connect(self.onImport3DModel)
         self.LoadBoard.clicked.connect(self.onLoadBoard_click)
@@ -14271,7 +14271,7 @@ class Ui_DockWidget(object):
         ini_file_full_path=home+os.sep+'ksu-config.ini'
         #self.config_ini_Lbl = QtGui.QLabel(ini_file_full_path, self)
         #self.config_ini_Lbl.setText(ini_file_full_path_bold)
-        self.ConfigPB.clicked.connect(self.onCfg)        
+        self.ConfigPB.clicked.connect(self.onCfg)
         self.pushPCB.clicked.connect(self.onPushPCB)
         self.HelpPB.clicked.connect(self.onHelp)
         self.makeUnion.clicked.connect(group_part_union)
@@ -14287,7 +14287,7 @@ class Ui_DockWidget(object):
         self.textInputX.setAlignment(QtCore.Qt.AlignRight)
         self.textInputY.setAlignment(QtCore.Qt.AlignRight)
         self.textInputZ.setAlignment(QtCore.Qt.AlignRight)
-                
+
 ###############################################################################################################
 
         self.retranslateUi(DockWidget)
@@ -14403,7 +14403,7 @@ class Ui_DockWidget(object):
         self.textInputRX.setText(angle[0])
         routineR_XYZ('x',angle[0])
         position=get_position()
-## 
+##
     def onRotateY(self):
         FreeCAD.Console.PrintMessage("RotateY!")
         alpha=self.textInputRY.text()
@@ -14542,7 +14542,7 @@ class Ui_DockWidget(object):
         #self.pixmap = QtGui.QPixmap(pm)
         #self.repaint() # repaint() will trigger the paintEvent(self, event), this way the new pixmap will be drawn on the label
     ##self.checkCollisions.clicked.connect(changePixmap_ok)
-##    
+##
     def changePixmap_ok(self):
         #print("Do stuff here")
         pm = QtGui.QPixmap()
@@ -14598,14 +14598,14 @@ class Ui_DockWidget(object):
         #self.repaint() # repaint() will trigger the paintEvent(self, event), this way the new pixmap will be drawn on the label
 ##
     def onImport3DModel(self):
-        
+
         Import3DModelF()
 ##
 
     def onExport3DStep(self):
         Export3DStepF()
-        
-##           
+
+##
     def onCollisions(self):
         #self.setGeometry(25, 250, 500, 500)
         collisions=routineCollisions()
@@ -14637,7 +14637,7 @@ class Ui_DockWidget(object):
         cfg_read_all()
         #cfgParsRead(configFilePath)
         onLoadBoard()
-##    
+##
     def on_cb_expStep_clicked(self):
         global export_board_2step
         if self.cb_expStep.isChecked():
@@ -14705,7 +14705,7 @@ class Ui_DockWidget(object):
             #ini_content=read_ini_file()
             expanded_view=1
             #QtCore.QTimer.singleShot(10,self.onCfg)
-            
+
             #cfgParsRead(configFilePath)
         else:
             #sayw(expanded_view)
@@ -14726,7 +14726,7 @@ class Ui_DockWidget(object):
                 dock_right()
                 KSUWidget.setVisibility=True
             sayw("kicad StepUp version "+str(___ver___))
-            
+
 #    def onHide(self):
 #        global expanded_view
 #        global configFilePath, ini_content
@@ -14774,7 +14774,7 @@ class Ui_DockWidget(object):
     #         msg="""<b>Edge editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
     #         say_warning(msg)
     #         msg="Edge editing NOT supported on FC0.15!"
-    #         sayerr(msg)            
+    #         sayerr(msg)
     #     #if 0:
     #     #if FreeCAD.ActiveDocument is None:
     #     #    FreeCAD.newDocument("PCB_Sketch")
@@ -14811,19 +14811,19 @@ class Ui_DockWidget(object):
     #                         say_warning(msg)
     #                         msg="Save to an EXISTING KiCad pcb file to update your Edge!"
     #                         sayerr(msg)
-    #                     
+    #
     #             else:
     #                 msg="""select one Sketch to be pushed to kicad board!"""
     #                 sayerr(msg)
     #                 say_warning(msg)
-    #         
+    #
     #         else:
     #             msg="""select one Sketch to be pushed to kicad board!"""
     #             sayerr(msg)
     #             say_warning(msg)
-        
-        
-        
+
+
+
     def onHelp(self):
         global expanded_view
         global configFilePath, ini_content, pt_osx, pt_lnx
@@ -14873,7 +14873,7 @@ class Ui_DockWidget(object):
                 pdf_name='kicadStepUp-starter-Guide'
                 help_txt+="<b>configuration options:</b><br>Configuration options are located in the preferences system of FreeCAD, which is located in the Edit menu -&gt; Preferences.<br>"
                 help_txt+="starter Guide:<br><u>FC-UserAppData/Mod<br>"+pdf_name+"</u><br>"
-            
+
             #help_txt+="<img src='"+pm+"' style='width:32px;height:32px;'>"
             help_txt+="<b>StepUp</b> can be used <b>to align 3D model to kicad footprint</b>.<br>"
             help_txt+="The artwork can be used for MCAD interchange and collaboration, and for enclosure design.<br>"
@@ -14905,16 +14905,16 @@ class Ui_DockWidget(object):
             help_txt+="or from the parametric 3D lib expressly done to kicad <a href='https://github.com/easyw/kicad-3d-models-in-freecad' target='_blank'>kicadStepUp 3D STEP models generator</a><br>"
             help_txt+="Once you have your 3D MCAD model, <b>you need to have a copy of that in STEP and VRML format.</b> <br>"
             help_txt+="(with the latest kicad release you can only have STEP model, VRML is not needed anymore, but <b>it is possible"
-            help_txt+=" to mix VRML, STEP and IGES format</b>)<br>"        
+            help_txt+=" to mix VRML, STEP and IGES format</b>)<br>"
             help_txt+="Just exporting the model with FreeCAD and put your model in the same folder in which "
-            help_txt+="normally you are used to put vrml models; the script will assembly the MCAD board and models as in 3d-viewer of kicad."       
+            help_txt+="normally you are used to put vrml models; the script will assembly the MCAD board and models as in 3d-viewer of kicad."
             help_txt+="<br><b>NB<br>STEP model has to be fused in single object</b><br>(Part Boolean Union of objects)"
             help_txt+="<br><b>or a Compoud</b> (Part Makecompound of objects)</b>"
             help_txt+="<hr><b>enable 'Report view' Panel to see helping messages</b>"
             help_txt+="</font><br>"
             self.textEdit.setText(help_txt)
             #self.textEdit.setTextColor(QtGui.QColor('black'))
-            #self.textEdit.setStyleSheet("background-color: rgb(255, 255, 255)"); 
+            #self.textEdit.setStyleSheet("background-color: rgb(255, 255, 255)");
             # to reset it to default color ...
             #txtEdit->setStyleSheet("");
             expanded_view=2
@@ -14937,7 +14937,7 @@ class Ui_DockWidget(object):
                 dock_right()
                 KSUWidget.setVisibility=True
             sayw("kicad StepUp version "+str(___ver___))
-            #self.textEdit.setStyleSheet(""); 
+            #self.textEdit.setStyleSheet("");
         #say('onHelp')
         #reply = QtGui.QMessageBox.question(None, "", "step file exists, overwrite?",QtGui.QMessageBox.Yes | QtGui.QMessageBox.No, QtGui.QMessageBox.No)
 ##
@@ -14946,18 +14946,18 @@ class Ui_DockWidget(object):
 
 def Export3DStepF():
     global last_3d_path, last_pcb_path, stp_exp_mode, use_AppPart, use_Links, links_imp_mode
-    
+
     #say("export3DSTEP")
     sel = FreeCADGui.Selection.getSelection()
     if len (sel) > 0:
         #sayw(doc.Name)
         if "App::Part" in sel[0].TypeId and not use_AppPart:
             msg="""<b>App::Part hierarchy</b> cannot be exported ATM<br>use the buttons to <b>make a Union or Compound</b> before exporting it"""
-            say_warning(msg)                
+            say_warning(msg)
         else:
             cfg_read_all()
             pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
-            last_3d_path = pg.GetString("last_3d_path") 
+            last_3d_path = pg.GetString("last_3d_path")
             if len(last_3d_path) is 0:
                 last_3d_path=last_pcb_path
                 sayw(last_pcb_path)
@@ -15061,7 +15061,7 @@ def Export3DStepF():
                             #if 'Part::Feature' in o.TypeId:
                             if hasattr(o, 'Shape'):
                                 # print o.Label
-                                # say ('adding ') 
+                                # say ('adding ')
                                 # FreeCADGui.Selection.addSelection(o)
                                 __objs__.append(o)
                         ImportGui.export(__objs__,name)
@@ -15069,7 +15069,7 @@ def Export3DStepF():
                     else:
                         sayw('exporting selection')
                         ImportGui.export(sel,name)
-                
+
                 #print selN,'-',sk_name
                 #FreeCAD.ActiveDocument.getObject(selN).removeObject(App.ActiveDocument.getObject(sk_name))
                 if use_AppPart:
@@ -15086,16 +15086,16 @@ def Export3DStepF():
         msg="""select something to be exported!"""
         sayerr(msg)
         say_warning(msg)
-    
-##           
+
+##
 
 def Import3DModelF():
-    
+
     global last_3d_path, last_pcb_path
     say("import3DModel")
     #sayw(doc.Name)
     pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
-    last_3d_path = pg.GetString("last_3d_path") 
+    last_3d_path = pg.GetString("last_3d_path")
     cfg_read_all()
     if len(last_3d_path) == 0:
         last_3d_path=last_pcb_path
@@ -15126,23 +15126,23 @@ def Import3DModelF():
                 paramGetVS.SetBool("ReadShapeCompoundMode",False)
                 sayw("disabling ReadShapeCompoundMode")
                 enable_ReadShapeCompoundMode=True
-            
+
             FreeCAD.setActiveDocument(doc.Name)
             FreeCAD.ActiveDocument=FreeCAD.getDocument(doc.Name)
             FreeCADGui.ActiveDocument=FreeCADGui.getDocument(doc.Name)
             ImportGui.insert(name, doc.Name)
-            
+
             #enable_ReadShapeCompoundMode=False
             if enable_ReadShapeCompoundMode:
                 paramGetVS = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Import/hSTEP")
                 paramGetVS.SetBool("ReadShapeCompoundMode",True)
                 sayw("enabling ReadShapeCompoundMode")
-        
+
         FreeCADGui.SendMsgToActiveView("ViewFit")
         last_3d_path=os.path.dirname(name)
         pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
         pg.SetString("last_3d_path",make_string(last_3d_path))
-    
+
 ##
 
 ##
@@ -15154,7 +15154,7 @@ def PushPullPCB():
         msg="""<b>Edge editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
         say_warning(msg)
         msg="Edge editing NOT supported on FC0.15!"
-        sayerr(msg)            
+        sayerr(msg)
     #if 0:
     #if FreeCAD.ActiveDocument is None:
     #    FreeCAD.newDocument("PCB_Sketch")
@@ -15194,16 +15194,76 @@ def PushPullPCB():
                         say_warning(msg)
                         msg="Save to an EXISTING KiCad pcb file to update your Edge!"
                         sayerr(msg)
-                    
+
             else:
                 msg="""select one Sketch to be pushed to kicad board!"""
                 sayerr(msg)
                 say_warning(msg)
-        
+
         else:
             msg="""select one Sketch to be pushed to kicad board!"""
             sayerr(msg)
             say_warning(msg)
+##
+def PushPullPCBKeepOut(strTopBot):
+#def onExport3DStep(self):
+    global last_3d_path, start_time, load_sketch, last_pcb_path
+    #say("export3DSTEP")
+    if load_sketch==False:
+        msg="""<b>Edge editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
+        say_warning(msg)
+        msg="Edge editing NOT supported on FC0.15!"
+        sayerr(msg)
+    #if 0:
+    #if FreeCAD.ActiveDocument is None:
+    #    FreeCAD.newDocument("PCB_Sketch")
+    #    PCB_Sketch= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','PCB_Sketch')
+    #    offset=[0.0,0.0] #offset=[148.5,98.5]
+    #    FreeCAD.activeDocument().PCB_Sketch.Placement = FreeCAD.Placement(FreeCAD.Vector(offset[0],offset[1]),FreeCAD.Rotation(0.000000,0.000000,0.000000,1.000000))
+    #    FreeCAD.getDocument('PCB_Sketch').recompute()
+    #    FreeCADGui.SendMsgToActiveView("ViewFit")
+    else:
+        sel = FreeCADGui.Selection.getSelection()
+        if len (sel) == 1:
+            #sayw(doc.Name)
+            if "Sketch" in sel[0].TypeId:
+                cfg_read_all()
+                if len(last_pcb_path) == 0:
+                    last_pcb_path = ""
+                #    last_3d_path=last_pcb_path
+                #    sayw(last_pcb_path)
+                #getSaveFileName(self,"saveFlle","Result.txt",filter ="txt (*.txt *.)")
+                testing=False
+                if not testing:
+                    Filter=""
+                    name, Filter = PySide.QtGui.QFileDialog.getSaveFileName(None, "Push Sketch PCB Edge to KiCad board ...",
+                        make_unicode(last_pcb_path), "*.kicad_pcb")
+                else:
+                    name='d:/Temp/e2.kicad_pcb'
+                #say(name)
+                if name:
+                    if os.path.exists(name):
+                        last_pcb_path=os.path.dirname(name)
+                        pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
+                        pg.SetString("last_pcb_path",make_string(last_pcb_path))
+                        start_time=current_milli_time()
+                        export_pcb_keepout(name, strTopBot)
+                    else:
+                        msg="""Save to <b>an EXISTING KiCad pcb file</b> to update your Edge!"""
+                        say_warning(msg)
+                        msg="Save to an EXISTING KiCad pcb file to update your Edge!"
+                        sayerr(msg)
+
+            else:
+                msg="""select one Sketch to be pushed to kicad board!"""
+                sayerr(msg)
+                say_warning(msg)
+
+        else:
+            msg="""select one Sketch to be pushed to kicad board!"""
+            sayerr(msg)
+            say_warning(msg)
+
 ##
 def Sync3DModel():
     global last_3d_path, start_time
@@ -15220,7 +15280,7 @@ def Sync3DModel():
         msg="""<b>Board editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
         say_warning(msg)
         msg="Board editing NOT supported on FC0.15!"
-        sayerr(msg)            
+        sayerr(msg)
     else:
         sel = FreeCADGui.Selection.getSelection()
         if len (sel) == 1:
@@ -15326,7 +15386,7 @@ def Sync3DModel():
                                                     else:
                                                         sel[0].Label=Ref+sel[0].Label[sel[0].Label.find('_'):sel[0].Label.rfind('_')+1]+matching_TimeStamp+nbrModel
                                                     msg="Adding & Syncing Ref & TimeStamp"
-                                                    say(msg)                                                    
+                                                    say(msg)
                                                 #sel[0].Label=Ref+sel[0].Label[sel[0].Label.index('_'):sel[0].Label.rindex('_')+1]+matching_TimeStamp
                                                 msg="""<b>3D model Reference & TimeStamp synced<br>with the Reference """+Ref+""" of the kicad board!</b><br><br>"""
                                                 msgr="3D model Reference & TimeStamp synced\nwith the Reference "+Ref+" of the kicad board!"
@@ -15378,13 +15438,13 @@ def PushMoved():
     ## to export to STEP an object and its links with a different placement and label
     ## two options must be set: 1) disable 'Reduce number of objects'; 2) disable 'Ignore instance names'
     ## NB the second one is not good for collaboration with different cads
-    
+
     #say("export3DSTEP")
     if load_sketch==False:
         msg="""<b>Board editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
         say_warning(msg)
         msg="Board editing NOT supported on FC0.15!"
-        sayerr(msg)            
+        sayerr(msg)
     else:
         check_ok=False
         sel = FreeCADGui.Selection.getSelection()
@@ -15523,7 +15583,7 @@ def PushMoved():
                                 found_tracks=True
                         with codecs.open(fpath,'w', encoding='utf-8') as ofile:
                             ofile.write(newcontent)
-                            ofile.close()        
+                            ofile.close()
                         say_time()
                         msg="""<b>3D model new position pushed to kicad board!</b><br><br>"""
                         if found_tracks:
@@ -15564,7 +15624,7 @@ def PushFootprint():
         msg="""<b>Edge editing NOT supported on FC0.15!</b><br>please upgrade your FC release"""
         say_warning(msg)
         msg="Edge editing NOT supported on FC0.15!"
-        sayerr(msg)            
+        sayerr(msg)
     #if 0:
     #if FreeCAD.ActiveDocument is None:
     #    FreeCAD.newDocument("PCB_Sketch")
@@ -15592,7 +15652,7 @@ def PushFootprint():
                                 FreeCADGui.Selection.addSelection(o)
                         ## checking Pads_Poly for ArcOfCircle to be discretized
                         to_discretize=False
-                        if 'Pads_Poly' in o.Label: 
+                        if 'Pads_Poly' in o.Label:
                             for g in o.Geometry:
                                 if 'ArcOfCircle' in str(g):
                                     FreeCAD.Console.PrintWarning('need to discretize Arcs\n')
@@ -15602,7 +15662,7 @@ def PushFootprint():
                                 FreeCADGui.Selection.removeSelection(o)
                 else:
                     to_discretize=False
-                    if 'Pads_Poly' in sel[0].Label: 
+                    if 'Pads_Poly' in sel[0].Label:
                         for g in sel[0].Geometry:
                             if 'ArcOfCircle' in str(g):
                                 FreeCAD.Console.PrintWarning('need to discretize Arcs\n')
@@ -15612,7 +15672,7 @@ def PushFootprint():
                             FreeCADGui.Selection.removeSelection(sel[0])
                 for sk in sk_to_discr:
                     ws=sk.Shape.copy()
-                    #Part.show(ws)    
+                    #Part.show(ws)
                     wn=[]
                     q_deflection = 0.005 #0.02 ##0.005
                     wnc=[]
@@ -15658,7 +15718,7 @@ def PushFootprint():
                     if os.path.isdir("d:/Temp/"):
                         name='d:/Temp/ex2.kicad_mod'
                     elif os.path.isdir("c:/Temp/"):
-                        name='c:/Temp/ex2.kicad_mod'                        
+                        name='c:/Temp/ex2.kicad_mod'
                 #say(name)
                 if name:
                     #if os.path.exists(name):
@@ -15690,7 +15750,7 @@ def PushFootprint():
 def simplify_sketch():
     ''' simplifying & sanitizing sketches '''
     global maxRadius, edge_tolerance
-    
+
     doc = FreeCAD.ActiveDocument
     sel = FreeCADGui.Selection.getSelection()
     if len(sel)==1:
@@ -15749,12 +15809,12 @@ def simplify_sketch():
                 if obj.Name in obj_list_after:
                     if (obj.TypeId=="Part::Part2DObjectPython"):
                         FreeCAD.ActiveDocument.removeObject(obj.Name)
-                        FreeCAD.ActiveDocument.recompute() 
+                        FreeCAD.ActiveDocument.recompute()
                     else:
                        sk_to_conv.append(obj.Name)
             keep_sketch_converted=True #False
             for s in sk_to_conv:
-                #sayerr(s) ## 
+                #sayerr(s) ##
                 ns=Discretize(s)
                 for g in geoBasic:
                     FreeCAD.ActiveDocument.getObject(ns).addGeometry(g)
@@ -15787,20 +15847,20 @@ def export_footprint(fname=None):
     global pcb_path, use_AppPart, force_oldGroups, use_Links
     global original_filename
     global off_x, off_y, maxRadius, pad_nbr
-    
+
     sayw('exporting new footprint')
     doc=FreeCAD.ActiveDocument
     #print fname
     if fname is None:
-        sayerr('missing fp file name') 
+        sayerr('missing fp file name')
         stop
     #    fpath=original_filename
     else:
         fpath=fname
-    
+
     sayerr('saving to '+fpath)
     #stop
-    
+
     if len(fpath) > 0:
         #new_edge_list=getBoardOutline()
         #say (new_edge_list)
@@ -15823,7 +15883,7 @@ def export_footprint(fname=None):
         #sayerr(name+':'+ext)
         new_edge_list, not_supported, to_discretize, construction_geom = getBoardOutline()
         #print new_edge_list, to_discretize
-        
+
         ## support for arcs, lines and bsplines in F_Silks
         sel = FreeCADGui.Selection.getSelection()
         sk_name=None
@@ -15873,12 +15933,12 @@ def export_footprint(fname=None):
                 if obj.Name in obj_list_after:
                     if (obj.TypeId=="Part::Part2DObjectPython"):
                         FreeCAD.ActiveDocument.removeObject(obj.Name)
-                        FreeCAD.ActiveDocument.recompute() 
+                        FreeCAD.ActiveDocument.recompute()
                     else:
                        sk_to_conv.append(obj.Name)
             keep_sketch_converted=False #False
             for s in sk_to_conv:
-                #sayerr(s) ## 
+                #sayerr(s) ##
                 ns=Discretize(s)
                 offset1=[-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[0],-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[1]]
                 elist, to_dis=check_geom(ns,offset1)
@@ -15892,7 +15952,7 @@ def export_footprint(fname=None):
                     FreeCAD.ActiveDocument.removeObject(ns)
                 FreeCAD.ActiveDocument.recompute()
             #############  end discretizing
-  
+
         new_border=u''
         #print new_edge_list
         ## maxRadius # 4000 = 4m max lenght for KiCad
@@ -15940,7 +16000,7 @@ def export_footprint(fname=None):
                     fsize_list = o.Label.split('_')
                     l = len (fsize_list)
                     if l > 1:
-                        fs = (fsize_list[l-1].rstrip('mm')); 
+                        fs = (fsize_list[l-1].rstrip('mm'));
                         ref_fsize=(fs+' '+fs); ref_fthick="{0:.3f}".format((float(fs)*0.15))
                     else:
                         ref_fsize='1.0 1.0'; ref_fthick='0.15'
@@ -15950,7 +16010,7 @@ def export_footprint(fname=None):
                     fsize_list = o.Label.split('_')
                     l = len (fsize_list)
                     if l > 1:
-                        fs = (fsize_list[l-1].rstrip('mm')); 
+                        fs = (fsize_list[l-1].rstrip('mm'));
                         val_fsize=(fs+' '+fs); val_fthick="{0:.3f}".format((float(fs)*0.15))
                     else:
                         val_fsize='1.0 1.0'; val_fthick='0.15'
@@ -15977,7 +16037,7 @@ def export_footprint(fname=None):
         #header=header+"    (effects (font (size 1 1) (thickness 0.15)))"+os.linesep
         header=header+"  )"
         ## import kicadStepUptools; reload(kicadStepUptools)
-        
+
         for border in sanitized_edge_list:
             #print (border)
             lyr=border[(len(border)-1):][0]
@@ -16045,7 +16105,7 @@ def export_footprint(fname=None):
                 #print (pgeom);print(pgeomG)
             #sayw(prrect); sayw(pply)
             #sayw(pth)
-            
+
             #if (lyr != 'Pads_SMD' and lyr != 'Pads_TH' and lyr != 'Drills' and lyr != 'NPTH'\
             if ('Pads_SMD' not in lyr and 'Pads_TH' not in lyr and 'Drills' not in lyr and 'NPTH' not in lyr \
                                  and 'Pads_Poly' not in lyr and 'Pads_Round_Rect' not in lyr and 'PadsAll' not in lyr)\
@@ -16055,7 +16115,7 @@ def export_footprint(fname=None):
                 new_border=new_border+os.linesep+createFp(border,offset, lyr, edge_thick)
             #sayw(createEdge(border))
         #stop
-        
+
         #pth_ordered=collect_pads(psmd) #pads_all)  ## pads normalized with sequence of segments
         ## normalizing TH and SMD pads
         if len(pads_TH_SMD) >0:
@@ -16064,7 +16124,7 @@ def export_footprint(fname=None):
             drl_found=collect_drl(pth_ordered)
             #sayerr (pth_ordered)
             #sayw(drl_found)
-            ## impiling pads 
+            ## impiling pads
             pads_TH_SMD=[]
             for p in pth_ordered:
                 for e in p:
@@ -16072,7 +16132,7 @@ def export_footprint(fname=None):
             # print len(pads_TH_SMD)
             pth=[]
             pth=pads_TH_SMD
-            ## impiling pads 
+            ## impiling pads
             drills=[]
             for p in drl_found:
                 for e in p:
@@ -16080,7 +16140,7 @@ def export_footprint(fname=None):
             # print len(drills)
             #print psmd
             #stop
-        
+
         ## normalizing NPTH pads
         if len(pads_NPTH) >0:
             pth_ordered=collect_pads(pads_NPTH) #pads_all)  ## pads normalized with sequence of segments
@@ -16089,7 +16149,7 @@ def export_footprint(fname=None):
             #sayerr (pth_ordered)
             #sayw(drl_found)
             #stop
-            ## impiling pads 
+            ## impiling pads
             pads_NPTH=[]
             for p in pth_ordered:
                 for e in p:
@@ -16097,7 +16157,7 @@ def export_footprint(fname=None):
             # print len(pads_NPTH)
             npth=[]
             npth=pads_NPTH
-            ## impiling pads 
+            ## impiling pads
             #drills=[]
             for p in drl_found:
                 for e in p:
@@ -16105,7 +16165,7 @@ def export_footprint(fname=None):
             # print len(drills)
             #print psmd
             #stop
-        
+
         ## normalizing Round Rect pads
         if len(prrect) >0:
             pth_ordered=collect_pads(prrect) #pads_all)  ## pads normalized with sequence of segments
@@ -16114,7 +16174,7 @@ def export_footprint(fname=None):
             #sayerr (pth_ordered)
             #sayw(drl_found)
             #stop
-            ## impiling pads 
+            ## impiling pads
             prrect=[]
             for p in pth_ordered:
                 for e in p:
@@ -16125,7 +16185,7 @@ def export_footprint(fname=None):
             #print prrect
             #npth=[]
             #npth=pads_NPTH
-            ## impiling pads 
+            ## impiling pads
             #drills=[]
             for p in drl_found:
                 for e in p:
@@ -16133,14 +16193,14 @@ def export_footprint(fname=None):
             #print len(drills)
             #print psmd
             #stop
-        
+
         ## normalizing Poly pads
         if len(pply) >0:
             pth_ordered=collect_pads(pply) #pads_all)  ## pads normalized with sequence of segments
             #sayerr(pth_ordered)
-            ## impiling pads 
+            ## impiling pads
             #drl_found=collect_drl(pth_ordered)
-            
+
             pply=[]
             for p in pth_ordered:
                 for e in p:
@@ -16148,7 +16208,7 @@ def export_footprint(fname=None):
             #print len(prrect)
             if len (pply)>0:
                 sayw('normalized Poly')
-            # ## impiling pads 
+            # ## impiling pads
             # for p in drl_found:
             #     for e in p:
             #         drills.append (e)
@@ -16163,7 +16223,7 @@ def export_footprint(fname=None):
         if len(pgeomG) >0:
             pth_ordered=collect_pads(pgeomG) #pads_all)  ## pads normalized with sequence of segments
             #sayerr(pth_ordered)
-            ## impiling pads 
+            ## impiling pads
             drl_found=collect_drl(pth_ordered)
             print(drl_found)
             pGm=[]
@@ -16174,7 +16234,7 @@ def export_footprint(fname=None):
             if len (pGm)>0:
                 sayw('normalized Geom')
                 #print(pGm)
-            # ## impiling pads 
+            # ## impiling pads
             # for p in drl_found:
             #     for e in p:
             #         drills.append (e)
@@ -16184,7 +16244,7 @@ def export_footprint(fname=None):
             #print len(drills)
             #print psmd
             #stop
-        
+
         ## writing content
         newcontent=u''+header
         #new_edge=new_border+os.linesep+')'+os.linesep
@@ -16192,7 +16252,7 @@ def export_footprint(fname=None):
         if len (new_border)>0:
             newcontent=newcontent+new_border #+os.linesep
         #print newcontent
-            
+
         #### ----------SMD-------------------------------
         #npad=u''
         #mpad=[]
@@ -16258,16 +16318,16 @@ def export_footprint(fname=None):
         ## drill_pos (cntX,cntY,sizeX,sizeY)
         fp_type='  (attr smd)'+os.linesep
         if len (drill_pos)>0:
-            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '       
+            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '
             sayw ('collected drills centers and positions')
             fp_type=''
         #re.sub(r'^[^\n]*\n', '', s)
             newcontent=u"(module "+fp_name+" (layer F.Cu) (tedit 5A74E519)"+os.linesep+newcontent
         else:
             newcontent=u"(module "+fp_name+" (layer F.Cu) (tedit 5A74E519)"+os.linesep+fp_type+newcontent
-        
+
         #header=header+fp_type
-        ### ----------TH-------------------------------      
+        ### ----------TH-------------------------------
         npad=u''
         mpad=[]
         nline=1
@@ -16292,9 +16352,9 @@ def export_footprint(fname=None):
                     mpad=[]
                     found_arc=False
                 nline=nline+1
-                
+
         #print 'len pad '+str(len(npad))
-        
+
         #print newcontent
         if len (npad)>0:
             newcontent=newcontent+npad+os.linesep
@@ -16324,7 +16384,7 @@ def export_footprint(fname=None):
                     mpad=[]
                     found_arc=False
                 nline=nline+1
-                
+
         #print 'len pad '+str(len(npad))
         #print newcontent
         if len (npad)>0:
@@ -16363,7 +16423,7 @@ def export_footprint(fname=None):
                     mpad=[]
                     found_arc=False
                 nline=nline+1
-        #print npad        
+        #print npad
         # ### ----------Round Rect-------------------------------
         # npad=u''
         # mpad=[]
@@ -16391,8 +16451,8 @@ def export_footprint(fname=None):
         #             mpad=[]
         #             found_arc=False
         #         nline=nline+1
-        # #print npad        
-        
+        # #print npad
+
         #print 'len pad '+str(len(npad))
         #print newcontent
         if len (npad)>0:
@@ -16421,11 +16481,11 @@ def export_footprint(fname=None):
             #         nline=0
             #         mdrills=[]
             #     nline=nline+1
-            
+
         #sayw(drill_pos)
         ## drill_pos (cntX,cntY,sizeX,sizeY)
         if len (polypad_pos)>0:
-            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '       
+            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '
             sayw ('collected poly pads centers and positions')
         ### ----------Poly-------------------------------
         #polypad_pos=[]  ### TBC polypad inside poly sketch
@@ -16458,8 +16518,8 @@ def export_footprint(fname=None):
                 nline=1
                 mpad=[]
             #nline=nline+1
-        #print npad        
-        
+        #print npad
+
         #print 'len pad '+str(len(npad))
         #print newcontent
         if len (npad)>0:
@@ -16497,8 +16557,8 @@ def export_footprint(fname=None):
                 nline=1
                 mpad=[]
             #nline=nline+1
-        #print npad        
-        
+        #print npad
+
         #print 'len pad '+str(len(npad))
         #print newcontent
         if len (npad)>0:
@@ -16527,11 +16587,11 @@ def export_footprint(fname=None):
             #         nline=0
             #         mdrills=[]
             #     nline=nline+1
-            
+
         #sayw(drill_pos)
         ## drill_pos (cntX,cntY,sizeX,sizeY)
         if len (pgeompad_pos)>0:
-            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '       
+            #newcontent=newcontent+os.linesep+')'+os.linesep+u' '
             sayw ('collected geometry pads centers and positions')
             sayw(pgeompad_pos)
         ### ----------Primitive Geometry-------------------------------
@@ -16557,24 +16617,24 @@ def export_footprint(fname=None):
                 nline=1
                 mpad=[]
             #nline=nline+1
-        #print npad        
-        
+        #print npad
+
         #print 'len pad '+str(len(npad))
         #print newcontent
         if len (npad)>0:
             newcontent=newcontent+npad+os.linesep
             say('created Geom pads')
         ### ---------- wrtiting file --------------------
-        newcontent=newcontent+')'+os.linesep+u' '       
+        newcontent=newcontent+')'+os.linesep+u' '
         with codecs.open(fpath,'w', encoding='utf-8') as ofile:
             ofile.write(newcontent)
-            ofile.close()        
+            ofile.close()
         say_time()
         msg="""<b>new Footprint pushed to kicad footprint!</b><br><br>"""
         msg+="<b>file saved to<br>"+fpath+"</b><br><br>"
         msgr="new Footprint pushed to kicad footprint!\n"
         msgr+="file saved to "+fpath+"\n"
-        lns=len (not_supported) 
+        lns=len (not_supported)
         #print lns
         if lns > 2:
             if lns < 103: # writing only some geometry not supported
@@ -16585,14 +16645,14 @@ def export_footprint(fname=None):
                 nss=nss[:101]+'... <br> ...'
                 msg+="<br><b>found downgraded Geometry:<br>"+nss+"</b>"
                 msgr+="\nfound downgraded Geometry: "+not_supported[:-2]+"!"
-            
+
         say(msgr)
         say_info(msg)
         #if not edge_pcb_exists:
         #    msg="<b>close your FC Sketch<br>and reload the kicad_pcb file</b>"
         #    say_warning(msg)
-        
-            
+
+
 ###
 def collect_drl(pads):
 
@@ -16600,8 +16660,8 @@ def collect_drl(pads):
     if pads is not None:
         for p in pads:
             #sayw(p)
-            #print p[0][0] ;print p[0][2] 
-            if p[0][0]=='circle': 
+            #print p[0][0] ;print p[0][2]
+            if p[0][0]=='circle':
                 p_center=(p[0][2],p[0][3],0)
                 p_radius=p[0][1]
                 #print p_center
@@ -16626,7 +16686,7 @@ def collect_drl(pads):
                     #print p
                     px=(p[0][10].x+p[2][10].x)/2;
                     py=(p[0][10].y+p[2][10].y)/2;
-                    sx=2*r1+abs(p[1][1]-p[3][1]); 
+                    sx=2*r1+abs(p[1][1]-p[3][1]);
                     sy=2*r1+abs(p[1][2]-p[1][4])
                     #print r1,' ',sx-2*r1
                 else: #vertical
@@ -16635,12 +16695,12 @@ def collect_drl(pads):
                     #print p[2][10].x
                     px=(p[0][10].x+p[2][10].x)/2;
                     py=(p[0][10].y+p[2][10].y)/2;
-                    sx=2*r1+abs(p[3][1]-p[3][3]); 
+                    sx=2*r1+abs(p[3][1]-p[3][3]);
                     sy=2*r1+abs(p[1][2]-p[1][4])
                 p_center=(px,py,0)
                 #Draft.makePoint(px,py, 0)
                 wr=[]
-                #print p 
+                #print p
                 #arc -> approximate shape with rectangle
                 wr.append(Part.makeLine((px-sx/2, py-sy/2,0.0),(px-sx/2, py+sy/2,0.0)))
                 wr.append(Part.makeLine((px-sx/2, py+sy/2,0.0),(px+sx/2, py+sy/2,0.0)))
@@ -16654,7 +16714,7 @@ def collect_drl(pads):
                 shpName=FreeCAD.ActiveDocument.ActiveObject.Name
                 #say( FreeCAD.ActiveDocument.ActiveObject.Label)
                 shape= FreeCAD.ActiveDocument.ActiveObject.Shape
-                pad_shps.append([p,p_center,shpName])   
+                pad_shps.append([p,p_center,shpName])
             elif p[0][0]=='line':
                 #print p
                 px=(p[0][1]+p[0][3])/2;py=(p[1][2]+p[1][4])/2;
@@ -16684,7 +16744,7 @@ def collect_drl(pads):
                 shpName=FreeCAD.ActiveDocument.ActiveObject.Name
                 #say( FreeCAD.ActiveDocument.ActiveObject.Label)
                 shape= FreeCAD.ActiveDocument.ActiveObject.Shape
-                pad_shps.append([p,p_center,shpName])            
+                pad_shps.append([p,p_center,shpName])
             elif p[0][0]=='arc':
                 #print pad
                 r1=p[0][1]; cx1=p[0][2]; cy1=p[0][3]
@@ -16703,7 +16763,7 @@ def collect_drl(pads):
                 p_center=(px,py,0)
                 # Draft.makePoint(px,py, 0)
                 wr=[]
-                #print p 
+                #print p
                 #arc -> approximate shape with rectangle
                 wr.append(Part.makeLine((px-sx/2, py-sy/2,0.0),(px-sx/2, py+sy/2,0.0)))
                 wr.append(Part.makeLine((px-sx/2, py+sy/2,0.0),(px+sx/2, py+sy/2,0.0)))
@@ -16717,7 +16777,7 @@ def collect_drl(pads):
                 shpName=FreeCAD.ActiveDocument.ActiveObject.Name
                 #say( FreeCAD.ActiveDocument.ActiveObject.Label)
                 shape= FreeCAD.ActiveDocument.ActiveObject.Shape
-                pad_shps.append([p,p_center,shpName])   
+                pad_shps.append([p,p_center,shpName])
         i=1
         drl=[]
         for p in pad_shps:
@@ -16744,7 +16804,7 @@ def collect_drl(pads):
                         drl.append(p[0])
                     else:
                         drl.append(p2[0])
-            i=i+1    
+            i=i+1
         #print pad_shps
         #sayw(drl)
         testing=False #True
@@ -16764,7 +16824,7 @@ def collect_drl(pads):
 def collect_pads(pad_list):
 
     #print pad_list
-    
+
         #sort edges to form a single closed 2D shape
     loopcounter = 0
     normalized_pads = []
@@ -16788,7 +16848,7 @@ def collect_pads(pad_list):
         pad_list=npd
         #sayw(pad_list)
         #sayerr (len(pad_list))
-        #stop        
+        #stop
         if (len(pad_list)>0):
             #print pad_list
             #newPads.append(pad_list.pop(0))
@@ -16811,7 +16871,7 @@ def collect_pads(pad_list):
             #    normalized_pads.append(newPads)
             #    ## TDB!!!
         #print 'nextCoordinate1 ',nextCoordinate
-        #print pad_list;stop           
+        #print pad_list;stop
         while(len(pad_list)>0 and loopcounter < 2):
             loopcounter = loopcounter + 1
             #print "nextCoordinate: ", nextCoordinate
@@ -16882,10 +16942,10 @@ def collect_pads(pad_list):
                         firstCoordinate = (newPads[0][10].x,newPads[0][10].y)
                         #stop
                     #elif newPads[0][0]=='circle':
-                        
+
                 #else:
                 #    say("error in creating Pads")
-                #    stop                    
+                #    stop
         #print normalized_pads, 'pads NBR ', len(normalized_pads), 'loopcounter ', loopcounter
         #sayw('pads NBR '+str(len(normalized_pads)))
         #sayw('normalized_pads '+str((normalized_pads)))
@@ -16914,12 +16974,12 @@ def collect_pads(pad_list):
             return norm_pads
         else:
             return normalized_pads
-        
+
 ##
 
 def createFpPad(pad,offset,tp, _drills=None):
     global pad_nbr, edge_tolerance
-    
+
     #if tp=='SMD':
     #    if pad[0]=='circle':
     #        sayerr('circle pad nbr.'+str(pad_nbr))
@@ -17151,7 +17211,7 @@ def createFpPad(pad,offset,tp, _drills=None):
                 sayerr('vertical')
                 px=(pad[0][10].x+pad[0][11].x)/2;py=(pad[0][10].y+pad[2][10].y)/-2;
                 sx=2*r1; sy=2*r1+abs((pad[0][10].y-pad[2][10].y))
- 
+
             found_drill=False
             if len(_drills)>0:
                 for d in _drills:
@@ -17235,7 +17295,7 @@ def createFpPad(pad,offset,tp, _drills=None):
                 # #print pad[2][10].x
                 # px=(pad[0][10].x+pad[4][10].x)/2;
                 # py=(pad[0][10].y+pad[4][10].y)/2;
-                # sx=2*r1+abs(pad[3][1]-pad[3][3]); 
+                # sx=2*r1+abs(pad[3][1]-pad[3][3]);
                 # sy=2*r1+abs(pad[1][2]-pad[1][4])
             p_center=(px,py,0)
             #print px,' ',py
@@ -17260,7 +17320,7 @@ def createFpPad(pad,offset,tp, _drills=None):
             #     sayerr('vertical')
             #     px=(pad[0][10].x+pad[0][11].x)/2;py=(pad[0][10].y+pad[2][10].y)/-2;
             #     sx=2*r1; sy=2*r1+abs((pad[0][10].y-pad[2][10].y))
- 
+
             found_drill=False
             if len(_drills)>0:
                 for d in _drills:
@@ -17387,7 +17447,7 @@ def createFpPad(pad,offset,tp, _drills=None):
         pad_ref=pad_ref+"    (options (clearance outline) (anchor circle))"+os.linesep
         pad_ref=pad_ref+"    (primitives"+os.linesep
         #pad_ref=pad_ref+"      (gr_poly"
-       
+
         if pad[0][0]=='line':
             #sayw(pad)
             pts="      (gr_poly (pts"+os.linesep
@@ -17436,7 +17496,7 @@ def createFpPad(pad,offset,tp, _drills=None):
               #    (xy 4.0 -2.0) (xy 5.0 2.0) (xy 1.0 3.0)) (width 0))
               #))
             #sayerr(pts)
-            
+
             #say(_drills)
             # sayerr('poly rect pad nbr.'+str(pad_nbr))
             # p1=(pad[0][1],pad[0][2]);p2=(pad[0][3]+pad[0][4])
@@ -17544,7 +17604,7 @@ def createFpPad(pad,offset,tp, _drills=None):
               #    (xy 4.0 -2.0) (xy 5.0 2.0) (xy 1.0 3.0)) (width 0))
               #))
             #sayerr(pts)
-            
+
             #say(_drills)
             # sayerr('poly rect pad nbr.'+str(pad_nbr))
             # p1=(pad[0][1],pad[0][2]);p2=(pad[0][3]+pad[0][4])
@@ -17636,7 +17696,7 @@ def getBoardOutline():
     to_discretize=[]
     construction_geom=[]
     not_supported = ''
-    
+
     sel = FreeCADGui.Selection.getSelection()
     if len (sel) >0:
         #sayw(doc.Name)
@@ -17644,7 +17704,7 @@ def getBoardOutline():
         #for j in doc.Objects:
             sayerr(j.Name)
             #sayw(j.Geometry)
-            
+
             #if hasattr(j, "Proxy") and hasattr(j.Proxy, "Type") and j.Proxy.Type == "PCBboard":
             ##if hasattr(j, "Geometry"):
             if "Sketch" in j.TypeId:
@@ -17693,7 +17753,7 @@ def getBoardOutline():
                             # outline.append([
                             #     'circle',
                             #     j.Geometry[k].Radius,
-                            #     j.Geometry[k].Center.x, 
+                            #     j.Geometry[k].Center.x,
                             #     j.Geometry[k].Center.y
                             # ])
                         #elif type(j.Geometry[k]).__name__ == 'ArcOfCircle':
@@ -17705,10 +17765,10 @@ def getBoardOutline():
                             sk_ge=j.Geometry[k].toShape() #needed to fix some issue on sketch geometry building
                             outline.append([
                                 'arc',
-                                j.Geometry[k].Radius, 
+                                j.Geometry[k].Radius,
                                 sk_ge.Edges[0].Curve.Center.x,
                                 sk_ge.Edges[0].Curve.Center.y,
-                                j.Geometry[k].FirstParameter, 
+                                j.Geometry[k].FirstParameter,
                                 j.Geometry[k].LastParameter,
                                 j.Geometry[k].Axis[0],
                                 j.Geometry[k].Axis[1],
@@ -17719,21 +17779,21 @@ def getBoardOutline():
                                 sk_ge.Edges[0].Orientation,
                                 j.Label
                             ])
-                            
-                            ##j.Geometry[k].Center.x, 
-                            ##j.Geometry[k].Center.y, 
-                                
+
+                            ##j.Geometry[k].Center.x,
+                            ##j.Geometry[k].Center.y,
+
                             # i=j.Geometry[k]
                             # sayerr('Xaxis1a')
                             # if 0: #i.XAxis.x < 0:   ## da cambiare this is not available on FC0.16
                             #     sayerr('Xaxis1b')
                             #     outline.append([
                             #         'arc',
-                            #         i.Radius, 
-                            #         i.Center.x, 
-                            #         i.Center.y, 
+                            #         i.Radius,
+                            #         i.Center.x,
+                            #         i.Center.y,
                             #         i.LastParameter+pi,
-                            #         i.FirstParameter+pi, 
+                            #         i.FirstParameter+pi,
                             #         -i.Axis[0],
                             #         i.Axis[1],
                             #         i.Axis[2],
@@ -17742,11 +17802,11 @@ def getBoardOutline():
                             # else:
                             #     outline.append([
                             #         'arc',
-                            #         i.Radius, 
-                            #         i.Center.x, 
-                            #         i.Center.y, 
+                            #         i.Radius,
+                            #         i.Center.x,
+                            #         i.Center.y,
                             #         i.LastParameter,
-                            #         i.FirstParameter+pi, 
+                            #         i.FirstParameter+pi,
                             #         i.Axis[0],
                             #         i.Axis[1],
                             #         i.Axis[2],
@@ -17773,10 +17833,10 @@ def getBoardOutline():
     return outline, not_supported, to_discretize, construction_geom
 ##
 
-
+##
 def createEdge(edg,ofs):
     global edge_width, maxRadius
-    
+
     #print edg
     k_edg=''
     if edge_width is None:
@@ -17784,7 +17844,7 @@ def createEdge(edg,ofs):
     #def getMinX(self, x):
     #    if x < self.minX:
     #        self.minX = x
-    #        
+    #
     #def getMinY(self, y):
     #    if y < self.minY:
     #        self.minY = y
@@ -17830,34 +17890,34 @@ def createEdge(edg,ofs):
         axisX = edg[6]
         axisY = edg[7]
         axisZ = edg[8]
-        
+
         angle = degrees(sA - eA) # * (-1)
         # sayerr(angle)
-        
+
         ##x1 = radius * cos(sA) + xs
         ##y1 = (radius * sin(sA)) * (-1) + ys
-        #xs = edg[11][0] 
-        #ys = (edg[11][1]) * (-1) 
+        #xs = edg[11][0]
+        #ys = (edg[11][1]) * (-1)
         ## sA = atan2(edg[10][1]-edg[3], edg[10][0]-edg[2])
         ## eA = atan2(edg[11][1]-edg[3], edg[11][0]-edg[2])
         # sayerr(edg[12])
-        
+
         if  1: #angle ==< 0:
-            x1 = edg[10][0] 
-            y1 = (edg[10][1]) * (-1) 
-            x2 = edg[11][0] 
-            y2 = (edg[11][1]) * (-1) 
+            x1 = edg[10][0]
+            y1 = (edg[10][1]) * (-1)
+            x2 = edg[11][0]
+            y2 = (edg[11][1]) * (-1)
         else:
-            x1 = edg[11][0] 
-            y1 = (edg[11][1]) * (-1) 
-        
+            x1 = edg[11][0]
+            y1 = (edg[11][1]) * (-1)
+
         #y1 = (radius * sin(sA)) * + ys
         #print axisX, axisY,axisZ
         #print 'coord     xs, ys, x1, y1 ', xs,';', ys,';', x1,';', y1,';',angle
-        
+
         #if angle > 180:
         #    angle = 360 - angle
-                         
+
         #self.getMinX(xs)
         #self.getMinY(ys)
         #self.getMinX(x1)
@@ -17866,7 +17926,120 @@ def createEdge(edg,ofs):
         # Draft.makePoint(x1, -y1, 0)
         # #Draft.makePoint(mp[0],mp[1],mp[2])
         # Draft.makePoint(x2, -y2, 0)
-        
+
+        if abs(xs) > maxRadius or abs(ys) > maxRadius:
+            k_edg = "  (gr_line (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (angle 0) (layer {5}) (width {4}))"\
+                        .format(x1+ofs[0], y1+ofs[1], x2+ofs[0], y2+ofs[1], edge_width, layer)
+            #k_edg = "  (gr_line (start {0} {1}) (end {2} {3}) (angle 90) (layer {5}) (width {4}))"\
+            #            .format(edg[1]+ofs[0], -edg[2]+ofs[1], edg[3]+ofs[0], -edg[4]+ofs[1], edge_width, 'Edge.Cuts')
+            #print xs + ofs[0]
+            #stop
+        else:
+            #self.pcbElem.append(['gr_arc', xs, ys, x1, y1, curve, width, layer])
+            k_edg = "  (gr_arc (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (angle {4:.3f}) (layer {6}) (width {5}))"\
+                    .format(xs+ofs[0], ys+ofs[1], x1+ofs[0], y1+ofs[1], angle, edge_width, layer)
+            #.format(
+            #            '{0:.10f}'.format(i[1] + abs(self.minX)), '{0:.10f}'.format(i[2] + abs(self.minY)), '{0:.10f}'.format(i[3] + abs(self.minX)), '{0:.10f}'.format(i[4] + abs(self.minY)), i[5], i[6], i[7]))
+    #    self.addArc(edg[1:], 'Edge.Cuts', 0.01)
+    return k_edg
+
+def createEco(edg,ofs,strTopBot):
+    global edge_width, maxRadius
+
+    #print edg
+    k_edg=''
+    if edge_width is None:
+        edge_width=0.16
+    #def getMinX(self, x):
+    #    if x < self.minX:
+    #        self.minX = x
+    #
+    #def getMinY(self, y):
+    #    if y < self.minY:
+    #        self.minY = y
+
+    if "Top" in strTopBot:
+        layer='Eco1.User'
+    else:
+        layer ='Eco2.User'
+
+    if edg[0] == 'line':
+        if 0: #abs(edg[1]+ofs[0])>500 or abs(edg[2]+ofs[1])>500: "{0:.3f}".
+            #print edg
+            stop
+            k_edg = "  (gr_line (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (angle 90) (layer {5}) (width {4}))"\
+                        .format(edg[1]+ofs[0], -edg[2]+ofs[1], edg[3]+ofs[0], -edg[4]+ofs[1], edge_width, layer)
+        else:
+            k_edg = "  (gr_line (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (angle 90) (layer {5}) (width {4}))"\
+                        .format(edg[1]+ofs[0], -edg[2]+ofs[1], edg[3]+ofs[0], -edg[4]+ofs[1], edge_width, layer)
+        #k_edg +=os.linesep
+        #.format('{0:.10f}').format(edg[1] + abs(0), '{0:.10f}').format(edg[2] + abs(0), '{0:.10f}').format(edg[3] + abs(0), '{0:.10f}').format(edg[4] + abs(0), 'Edge.Cuts', edge_width)
+    elif edg[0] == 'circle':
+        k_edg = "  (gr_circle (center {0:.3f} {1:.3f}) (end {2:.3f} {1:.3f}) (layer {4}) (width {3}))".format(edg[2]+ofs[0], -edg[3]+ofs[1], edg[2]+ofs[0]-edg[1], edge_width, layer)
+        #k_edg +=os.linesep
+                    #.format(
+                    #'{0:.10f}'.format(i[1] + abs(self.minX)), '{0:.10f}'.format(i[2] + abs(self.minY)), '{0:.10f}'.format(
+    #    self.addCircle(edg[1:], 'Edge.Cuts', 0.01)
+    elif edg[0] == 'arc':
+        #print edg
+        #print 2*pi
+        #use_rotation=False
+        #if abs(abs(edg[5])-2*pi) <= edge_tolerance:
+        #    print '2PI'
+        #    use_rotation=True
+        radius = edg[1]
+        xs = edg[2]
+        ys = (edg[3]) * (-1)
+        #if 0: #use_rotation:
+        #    sayerr('2PI')
+        #    sayerr('check edge orientation!!!')
+        #    #eA = edg[4]+pi
+        #    #sA = edg[5]+pi
+        #    eA = edg[4]-pi/2
+        #    sA = edg[5]-pi/2
+        #else:
+        sA = edg[4]
+        eA = edg[5]
+        axisX = edg[6]
+        axisY = edg[7]
+        axisZ = edg[8]
+
+        angle = degrees(sA - eA) # * (-1)
+        # sayerr(angle)
+
+        ##x1 = radius * cos(sA) + xs
+        ##y1 = (radius * sin(sA)) * (-1) + ys
+        #xs = edg[11][0]
+        #ys = (edg[11][1]) * (-1)
+        ## sA = atan2(edg[10][1]-edg[3], edg[10][0]-edg[2])
+        ## eA = atan2(edg[11][1]-edg[3], edg[11][0]-edg[2])
+        # sayerr(edg[12])
+
+        if  1: #angle ==< 0:
+            x1 = edg[10][0]
+            y1 = (edg[10][1]) * (-1)
+            x2 = edg[11][0]
+            y2 = (edg[11][1]) * (-1)
+        else:
+            x1 = edg[11][0]
+            y1 = (edg[11][1]) * (-1)
+
+        #y1 = (radius * sin(sA)) * + ys
+        #print axisX, axisY,axisZ
+        #print 'coord     xs, ys, x1, y1 ', xs,';', ys,';', x1,';', y1,';',angle
+
+        #if angle > 180:
+        #    angle = 360 - angle
+
+        #self.getMinX(xs)
+        #self.getMinY(ys)
+        #self.getMinX(x1)
+        #self.getMinY(y1)
+        # Draft.makePoint(xs, -ys, 0)
+        # Draft.makePoint(x1, -y1, 0)
+        # #Draft.makePoint(mp[0],mp[1],mp[2])
+        # Draft.makePoint(x2, -y2, 0)
+
         if abs(xs) > maxRadius or abs(ys) > maxRadius:
             k_edg = "  (gr_line (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (angle 0) (layer {5}) (width {4}))"\
                         .format(x1+ofs[0], y1+ofs[1], x2+ofs[0], y2+ofs[1], edge_width, layer)
@@ -17883,9 +18056,10 @@ def createEdge(edg,ofs):
     #    self.addArc(edg[1:], 'Edge.Cuts', 0.01)
     return k_edg
 ##
+##
 def createFp(edg,ofs,layer, edge_thick):
     global edge_width, maxRadius
-    
+
     #print edg
     k_edg=''
     #if edge_width is None:
@@ -17893,7 +18067,7 @@ def createFp(edg,ofs,layer, edge_thick):
     #def getMinX(self, x):
     #    if x < self.minX:
     #        self.minX = x
-    #        
+    #
     #def getMinY(self, y):
     #    if y < self.minY:
     #        self.minY = y
@@ -17941,34 +18115,34 @@ def createFp(edg,ofs,layer, edge_thick):
         axisX = edg[6]
         axisY = edg[7]
         axisZ = edg[8]
-        
+
         angle = degrees(sA - eA) # * (-1)
         # sayerr(angle)
-        
+
         ##x1 = radius * cos(sA) + xs
         ##y1 = (radius * sin(sA)) * (-1) + ys
-        #xs = edg[11][0] 
-        #ys = (edg[11][1]) * (-1) 
+        #xs = edg[11][0]
+        #ys = (edg[11][1]) * (-1)
         ## sA = atan2(edg[10][1]-edg[3], edg[10][0]-edg[2])
         ## eA = atan2(edg[11][1]-edg[3], edg[11][0]-edg[2])
         # sayerr(edg[12])
-        
+
         if  1: #angle ==< 0:
-            x1 = edg[10][0] 
-            y1 = (edg[10][1]) * (-1) 
-            x2 = edg[11][0] 
-            y2 = (edg[11][1]) * (-1) 
+            x1 = edg[10][0]
+            y1 = (edg[10][1]) * (-1)
+            x2 = edg[11][0]
+            y2 = (edg[11][1]) * (-1)
         else:
-            x1 = edg[11][0] 
-            y1 = (edg[11][1]) * (-1) 
-        
+            x1 = edg[11][0]
+            y1 = (edg[11][1]) * (-1)
+
         #y1 = (radius * sin(sA)) * + ys
         #print axisX, axisY,axisZ
         #print 'coord     xs, ys, x1, y1 ', xs,';', ys,';', x1,';', y1,';',angle
-        
+
         #if angle > 180:
         #    angle = 360 - angle
-                        
+
         #self.getMinX(xs)
         #self.getMinY(ys)
         #self.getMinX(x1)
@@ -17977,7 +18151,7 @@ def createFp(edg,ofs,layer, edge_thick):
         # Draft.makePoint(x1, -y1, 0)
         # #Draft.makePoint(mp[0],mp[1],mp[2])
         # Draft.makePoint(x2, -y2, 0)
-        
+
         if abs(xs) > maxRadius or abs(ys) > maxRadius:
             k_edg = "  ("+ln+" (start {0:.3f} {1:.3f}) (end {2:.3f} {3:.3f}) (layer {5}) (width {4}))"\
                         .format(x1+ofs[0], y1+ofs[1], x2+ofs[0], y2+ofs[1], edge_thick, layer)
@@ -18006,7 +18180,7 @@ def Discretize(skt_name):
     ##discretize(QuasiDeflection=d) => gives a list of points with a maximum deflection 'd' to the edge (faster)
     ##discretize(Angular=a,Curvature=c,[Minimum=m]) => gives a list of points with an angular deflection of 'a'
     ##and a curvature deflection of 'c'. Optionally a minimum number of points
-    ##can be set which by default is set to 2. 
+    ##can be set which by default is set to 2.
 
     global dvm, dqd, precision
 
@@ -18059,15 +18233,15 @@ def Discretize(skt_name):
             newShapeList.append(sh_name)
             newShapes.append(f)
             FreeCAD.ActiveDocument.removeObject(w_name)
-            FreeCAD.ActiveDocument.recompute() 
-        
+            FreeCAD.ActiveDocument.recompute()
+
     ## sketch = Draft.makeSketch(newShapes[0],autoconstraints=True)
     sketch = Draft.makeSketch(FreeCAD.ActiveDocument.getObject(newShapeList[0]),autoconstraints=True)
-    
+
     #FreeCAD.ActiveDocument.ActiveObject.Label="Sketch_dxf"
     sname=FreeCAD.ActiveDocument.ActiveObject.Name
     for w in newShapes[1:]:
-        Draft.makeSketch([w],addTo=sketch)    
+        Draft.makeSketch([w],addTo=sketch)
     geom=[]
     ## recreating a correct geometry
     for i in sketch.Geometry:
@@ -18076,23 +18250,23 @@ def Discretize(skt_name):
             arc.XAxis.x = -arc.XAxis.x
             geom.append(arc)
         else:
-            geom.append(i)                
+            geom.append(i)
     tsk= FreeCAD.activeDocument().addObject('Sketcher::SketchObject','Sketch_result')
     tsk.addGeometry(geom)
     tsk.Placement=FreeCAD.ActiveDocument.getObject(sname).Placement
     FreeCAD.ActiveDocument.removeObject(sname)
     #print tsk.Geometry
     ##for w in newShapes[1:]:
-    ##    Draft.makeSketch([w],addTo=sketch)    
+    ##    Draft.makeSketch([w],addTo=sketch)
     #stop
     #for wire in wires:
     #    FreeCAD.ActiveDocument.removeObject(wire.Name)
     for wnm in newShapeList:
         FreeCAD.ActiveDocument.removeObject(wnm)
     FreeCAD.ActiveDocument.removeObject(skt_name)
-    FreeCAD.ActiveDocument.recompute() 
+    FreeCAD.ActiveDocument.recompute()
     s_name=tsk.Name
-        
+
         #else: #ellipses
         #    #l=b.Shape.copy().discretize(dv)
         #    #l=b.Shape.copy().discretize(QuasiDeflection=0.02)
@@ -18100,20 +18274,20 @@ def Discretize(skt_name):
         #    f=Part.makePolygon(l)
         #    Part.show(f)
         #    sh_name=FreeCAD.ActiveDocument.ActiveObject.Name
-        #    FreeCAD.ActiveDocument.recompute() 
+        #    FreeCAD.ActiveDocument.recompute()
         #    Draft.makeSketch(FreeCAD.ActiveDocument.getObject(sh_name),autoconstraints=True)
         #    s_name=FreeCAD.ActiveDocument.ActiveObject.Name
         #    FreeCAD.ActiveDocument.removeObject(sh_name)
         #    FreeCAD.ActiveDocument.removeObject(skt_name)
-        #    FreeCAD.ActiveDocument.recompute() 
-    
-    
+        #    FreeCAD.ActiveDocument.recompute()
+
+
     return s_name
     #stop
 
 ##
 def remove_basic_geom(c_name, to_disc):
-    
+
     s=FreeCAD.ActiveDocument.getObject(c_name)
     geoL=len(FreeCAD.ActiveDocument.getObject(c_name).Geometry)
     #print 'to discretize'
@@ -18132,7 +18306,7 @@ def remove_basic_geom(c_name, to_disc):
         #if str(s.Geometry[i-1]) in to_disc_str:
         #    print 'found geo to disc'
         #else:
-        #print str(s.Geometry[i]), ';;' 
+        #print str(s.Geometry[i]), ';;'
         if str(s.Geometry[i]) not in to_disc_str:
             if hasattr(s.Geometry[i],'Construction'):
                 if not s.Geometry[i].Construction:
@@ -18140,11 +18314,11 @@ def remove_basic_geom(c_name, to_disc):
                     FreeCAD.ActiveDocument.getObject(c_name).delGeometry(i)
     FreeCAD.ActiveDocument.recompute()
     #stop
-    #if i not in 
+    #if i not in
     #App.ActiveDocument.getObject("PCB_Sketch").delGeometry(0, 3, 4, 10, 11, 12)
 ##
 def split_basic_geom(c_name, to_disc):
-    
+
     s=FreeCAD.ActiveDocument.getObject(c_name)
     geoL=len(FreeCAD.ActiveDocument.getObject(c_name).Geometry)
     geoB = []
@@ -18164,7 +18338,7 @@ def split_basic_geom(c_name, to_disc):
         #if str(s.Geometry[i-1]) in to_disc_str:
         #    print 'found geo to disc'
         #else:
-        #print str(s.Geometry[i]), ';;' 
+        #print str(s.Geometry[i]), ';;'
         if str(s.Geometry[i]) not in to_disc_str:
             if hasattr(s.Geometry[i],'Construction'):
                 if not s.Geometry[i].Construction:
@@ -18173,12 +18347,12 @@ def split_basic_geom(c_name, to_disc):
                     FreeCAD.ActiveDocument.getObject(c_name).delGeometry(i)
     FreeCAD.ActiveDocument.recompute()
     #stop
-    #if i not in 
+    #if i not in
     #App.ActiveDocument.getObject("PCB_Sketch").delGeometry(0, 3, 4, 10, 11, 12)
     return geoB
 ##
 def check_geom(sk_name, ofs=None):
-    
+
     if ofs is None:
         ofs=[0,0]
     j=FreeCAD.ActiveDocument.getObject(sk_name)
@@ -18222,24 +18396,24 @@ def check_geom(sk_name, ofs=None):
             outline.append([
                 'circle',
                 sk_ge.Edges[0].Curve.Radius,
-                sk_ge.Edges[0].Curve.Center.x+ofs[0], 
+                sk_ge.Edges[0].Curve.Center.x+ofs[0],
                 sk_ge.Edges[0].Curve.Center.y+ofs[1],
-                j.Label 
+                j.Label
             ])
             #outline.append([
             #    'circle',
             #    j.Geometry[k].Radius,
-            #    j.Geometry[k].Center.x+ofs[0], 
+            #    j.Geometry[k].Center.x+ofs[0],
             #    j.Geometry[k].Center.y+ofs[1]
             #])
         #elif type(j.Geometry[k]).__name__ == 'ArcOfCircle':
         elif 'ArcOfCircle' in type(j.Geometry[k]).__name__:
             #outline.append([
             #    'arc',
-            #    j.Geometry[k].Radius, 
-            #    j.Geometry[k].Center.x+ofs[0], 
-            #    j.Geometry[k].Center.y+ofs[1], 
-            #    j.Geometry[k].FirstParameter+ofs[0], 
+            #    j.Geometry[k].Radius,
+            #    j.Geometry[k].Center.x+ofs[0],
+            #    j.Geometry[k].Center.y+ofs[1],
+            #    j.Geometry[k].FirstParameter+ofs[0],
             #    j.Geometry[k].LastParameter+ofs[1],
             #    j.Geometry[k].Axis[0],
             #    j.Geometry[k].Axis[1],
@@ -18252,7 +18426,7 @@ def check_geom(sk_name, ofs=None):
             sk_ge=j.Geometry[k].toShape() #needed to fix some issue on sketch geometry building
             outline.append([
                 'arc',
-                j.Geometry[k].Radius, 
+                j.Geometry[k].Radius,
                 sk_ge.Edges[0].Curve.Center.x+ofs[0],
                 sk_ge.Edges[0].Curve.Center.y+ofs[1],
                 j.Geometry[k].FirstParameter+ofs[0],
@@ -18277,11 +18451,11 @@ def check_geom(sk_name, ofs=None):
             #     sayerr('Xaxis2b')
             #     outline.append([
             #         'arc',
-            #         i.Radius, 
-            #         i.Center.x, 
-            #         i.Center.y, 
+            #         i.Radius,
+            #         i.Center.x,
+            #         i.Center.y,
             #         i.LastParameter+pi,
-            #         i.FirstParameter+pi, 
+            #         i.FirstParameter+pi,
             #         -i.Axis[0],
             #         i.Axis[1],
             #         i.Axis[2],
@@ -18290,11 +18464,11 @@ def check_geom(sk_name, ofs=None):
             # else:
             #     outline.append([
             #         'arc',
-            #         i.Radius, 
-            #         i.Center.x, 
-            #         i.Center.y, 
+            #         i.Radius,
+            #         i.Center.x,
+            #         i.Center.y,
             #         i.LastParameter,
-            #         i.FirstParameter+pi, 
+            #         i.FirstParameter+pi,
             #         i.Axis[0],
             #         i.Axis[1],
             #         i.Axis[2],
@@ -18312,7 +18486,7 @@ def check_geom(sk_name, ofs=None):
             elif 'ArcOfHyperbola' in str_geom:
                 str_geom='ArcOfHyperbola'
             #continue
-                    ##break            
+                    ##break
                     #print j.Geometry[k],'; not supported'
         #else:
         #    str_geom=str(j.Geometry[k])
@@ -18331,12 +18505,12 @@ def check_geom(sk_name, ofs=None):
         #        foundGeom=True;foundBSP==False;foundElly==False
         #    if 'Vector' in str_geom:
         #        if foundBSP==True and foundGeom==False or foundElly==True and foundGeom==False:
-        #            to_discretize.append(j.Geometry[k])   
+        #            to_discretize.append(j.Geometry[k])
         #    #continue
     ##break
     #print to_discretize
     #stop
-    
+
     return outline, to_discretize
 
 
@@ -18366,22 +18540,22 @@ def export_pcb(fname=None):
     global pcb_path, use_AppPart, force_oldGroups, use_Links
     global original_filename, aux_orig, grid_orig
     global off_x, off_y, maxRadius
-    
+
     sayw('exporting new pcb edges')
     doc=FreeCAD.ActiveDocument
     #filePath=last_pcb_path
     #fpath=filePath+os.sep+doc.Label+'.kicad_pcb'
     #sayerr('to '+fpath)
-    
+
     #print fname
     if fname is None:
         fpath=original_filename
     else:
         fpath=fname
-    
+
     sayerr('saving to '+fpath)
     #stop
-    
+
     if len(fpath) > 0:
         #new_edge_list=getBoardOutline()
         #say (new_edge_list)
@@ -18428,7 +18602,7 @@ def export_pcb(fname=None):
                 pcb_push=False
                 say(msgr)
                 say_info(msg)
-        if pcb_push==True:    
+        if pcb_push==True:
             #stop
             edge_pcb_exists=False
             if len(re.findall('\s\(gr_line(.+?)Edge(.+?)\)\)\r\n|\(gr_line(.+?)Edge(.+?)\)\)\r|\(gr_line(.+?)Edge(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
@@ -18445,7 +18619,7 @@ def export_pcb(fname=None):
                 edge_pcb_exists=True
             if not edge_pcb_exists and len(re.findall('\s\(gr_poly(.+?)Edge(.+?)\)\)\r\n|\(gr_poly(.+?)Edge(.+?)\)\)\r|\(gr_poly(.+?)Edge(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
                 edge_pcb_exists=True
-  
+
             oft=None
             if aux_orig == 1:
                 oft=getAuxOrigin(data)
@@ -18457,7 +18631,7 @@ def export_pcb(fname=None):
                 off_x=oft[0];off_y=-oft[1]
                 offset = oft
                 gof=True
-  
+
             if edge_pcb_exists:
                 #offset=[0,0]
                 doc=FreeCAD.ActiveDocument
@@ -18513,14 +18687,14 @@ def export_pcb(fname=None):
                 ##            #FreeCAD.ActiveDocument.getObject(j.Name).Placement = FreeCAD.Placement(FreeCAD.Vector(148.5, -98.5,0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
                 ##            if FreeCAD.ActiveDocument.getObject(j.Name).Placement.Base[0]==0: #sketch created at FC origin
                 ##                FreeCAD.ActiveDocument.getObject(j.Name).Placement = FreeCAD.Placement(FreeCAD.Vector(148.5,-98.5,0), App.Rotation(0,0,0), App.Vector(0,0,0)) #[Pos=(-148.5,98,5), Yaw-Pitch-Roll=(0,0,0)]
-                            
+
                             #shift_sketch(j.Name,offset)
                 FreeCAD.ActiveDocument.recompute()
                 FreeCADGui.SendMsgToActiveView("ViewFit")
                 k = data.rfind(")")  #removing latest ')'
-                newcontent = data[:k] 
+                newcontent = data[:k]
             new_edge_list, not_supported, to_discretize, construction_geom = getBoardOutline()
-                        
+
             #geoL=len(App.ActiveDocument.getObject("PCB_Sketch").Geometry)
             if len(to_discretize)>0:
                 sel = FreeCADGui.Selection.getSelection()
@@ -18561,12 +18735,12 @@ def export_pcb(fname=None):
                     if obj.Name in obj_list_after:
                         if (obj.TypeId=="Part::Part2DObjectPython"):
                             FreeCAD.ActiveDocument.removeObject(obj.Name)
-                            FreeCAD.ActiveDocument.recompute() 
+                            FreeCAD.ActiveDocument.recompute()
                         else:
                            sk_to_conv.append(obj.Name)
                 keep_sketch_converted=False #False
                 for s in sk_to_conv:
-                    #sayerr(s) ## 
+                    #sayerr(s) ##
                     ns=Discretize(s)
                     offset1=[-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[0],-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[1]]
                     elist, to_dis=check_geom(ns,offset1)
@@ -18585,7 +18759,7 @@ def export_pcb(fname=None):
             #replace = re.sub('\s\(gr_arc(.+?Edge)\)\)\r\n|\(gr_line(.+?Edge)\)\)\r|\(gr_line(.+?Edge)\)\)\n','',replace, flags=re.MULTILINE)
             #replace = re.sub('\s\(gr_circle(.+?Edge)\)\)\r\n|\(gr_line(.+?Edge)\)\)\r|\(gr_line(.+?Edge)\)\)\n','',replace, flags=re.MULTILINE)
             #newcontent = re.sub('^\)','ENDOFFILE',replace, flags=re.MULTILINE)
-            
+
             #newcontent = re.sub('^\)','',replace, flags=re.MULTILINE) #end of file
             #newcontent = re.sub('/\.(?=[^\(]*$)/','',replace, flags=re.MULTILINE) #end of file
             #newcontent = newcontent.replace(/\((?=[^.]*$)/, "")
@@ -18624,11 +18798,11 @@ def export_pcb(fname=None):
             #stop
             new_edge=new_border+os.linesep+')'+os.linesep
             newcontent=newcontent+new_edge+u' '
-                
+
             #print newcontent
             with codecs.open(fpath,'w', encoding='utf-8') as ofile:
                 ofile.write(newcontent)
-                ofile.close()        
+                ofile.close()
             say_time()
             msg="""<b>new Edge pushed to kicad board!</b><br><br>"""
             msg+="<b>file saved to<br>"+fpath+"</b><br><br>"
@@ -18636,7 +18810,7 @@ def export_pcb(fname=None):
             msgr="new Edge pushed to kicad board!\n"
             msgr+="file saved to "+fpath+"\n"
             msgr+="backup file saved to "+foname
-            lns=len (not_supported) 
+            lns=len (not_supported)
             #print lns
             if lns > 2:
                 if lns < 103: # writing only some geometry not supported
@@ -18647,16 +18821,349 @@ def export_pcb(fname=None):
                     nss=nss[:101]+'... <br> ...'
                     msg+="<br><b>found downgraded Geometry:<br>"+nss+"</b>"
                     msgr+="\nfound downgraded Geometry: "+not_supported[:-2]+"!"
-                
+
             say(msgr)
             say_info(msg)
             if not edge_pcb_exists:
                 msg="<b>close your FC Sketch<br>and reload the kicad_pcb file</b>"
                 say_warning(msg)
-            
+
     #def precision(self, value):
     #    return "%.2f" % float(value)
-    
+##
+def export_pcb_keepout(fname=None, strTopBot="Top"):
+    global last_fp_path, test_flag, start_time
+    global configParser, configFilePath, start_time
+    global ignore_utf8, ignore_utf8_incfg, disable_PoM_Observer
+    global board_base_point_x, board_base_point_y, real_board_pos_x, real_board_pos_y
+    global pcb_path, use_AppPart, force_oldGroups, use_Links
+    global original_filename, aux_orig, grid_orig
+    global off_x, off_y, maxRadius
+
+    sayw('exporting new pcb edges')
+    doc=FreeCAD.ActiveDocument
+    #filePath=last_pcb_path
+    #fpath=filePath+os.sep+doc.Label+'.kicad_pcb'
+    #sayerr('to '+fpath)
+
+    #print fname
+    if fname is None:
+        fpath=original_filename
+    else:
+        fpath=fname
+
+    sayerr('saving to '+fpath)
+    #stop
+
+    if len(fpath) > 0:
+        #new_edge_list=getBoardOutline()
+        #say (new_edge_list)
+        cfg_read_all()
+        path, fname = os.path.split(fpath)
+        name=os.path.splitext(fname)[0]
+        ext=os.path.splitext(fname)[1]
+        fpth = os.path.dirname(os.path.abspath(fpath))
+        #filePath = os.path.split(os.path.realpath(__file__))[0]
+        say ('my file path '+fpth)
+        # stop
+        if fpth == "":
+            fpth = "."
+        last_pcb_path = fpth
+        last_pcb_path = re.sub("\\\\", "/", last_pcb_path)
+        ini_vars[10] = last_pcb_path
+        #cfg_update_all()
+        pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
+        pg.SetString("last_pcb_path", make_string(last_pcb_path))
+        #sayerr(name+':'+ext)
+        with codecs.open(fpath,'r', encoding='utf-8') as txtFile:
+            content = txtFile.readlines() # problems?
+        content.append(u" ")
+        txtFile.close()
+        data=u''.join(content)
+        tml= time.localtime()
+        now=str(tml.tm_year)+'-'+str(tml.tm_mon)+'-'+str(tml.tm_mday)+'-'+str(tml.tm_hour)+'.'+str(tml.tm_min)+'.'+str(tml.tm_sec)
+        #foname=os.path.join(path, name+'-bkp-'+now+ext+'-bak')
+        foname=os.path.join(path, name+u'-bkp-'+make_unicode(now)+ext+u'-bak')
+        pcb_push=True
+        testing=False
+        if testing is not True:
+            try:
+                #with codecs.open(foname,'w', encoding='utf-8') as ofile:
+                #    ofile.write(data)
+                #    ofile.close()
+                copyfile(fpath, foname)
+                say('file copied')
+            except:
+                msg="""<b>problem in writing permissions to kicad board!</b><br><br>"""
+                msg+="<b>file saving aborted to<br>"+fpath+"</b><br><br>"
+                msgr="problem in writing permissions to kicad board!\n"
+                msgr+="file saving aborted to "+fpath+"\n"
+                pcb_push=False
+                say(msgr)
+                say_info(msg)
+        if pcb_push==True:
+            #stop
+            edge_pcb_exists=False
+            if "Top" in strTopBot:
+                if len(re.findall('\s\(gr_line(.+?)Eco1(.+?)\)\)\r\n|\(gr_line(.+?)Eco1(.+?)\)\)\r|\(gr_line(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_arc(.+?)Eco1(.+?)\)\)\r\n|\(gr_arc(.+?)Eco1(.+?)\)\)\r|\(gr_arc(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_circle(.+?)Eco1(.+?)\)\)\r\n|\(gr_circle(.+?)Eco1(.+?)\)\)\r|\(gr_circle(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if len(re.findall('\s\(fp_line(.+?)Eco1(.+?)\)\)\r\n|\(fp_line(.+?)Eco1(.+?)\)\)\r|\(fp_line(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(fp_arc(.+?)Eco1(.+?)\)\)\r\n|\(fp_arc(.+?)Eco1(.+?)\)\)\r|\(fp_arc(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(fp_circle(.+?)Eco1(.+?)\)\)\r\n|\(fp_circle(.+?)Eco1(.+?)\)\)\r|\(fp_circle(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_poly(.+?)Eco1(.+?)\)\)\r\n|\(gr_poly(.+?)Eco1(.+?)\)\)\r|\(gr_poly(.+?)Eco1(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+            else:
+                if len(re.findall('\s\(gr_line(.+?)Eco2(.+?)\)\)\r\n|\(gr_line(.+?)Eco2(.+?)\)\)\r|\(gr_line(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_arc(.+?)Eco2(.+?)\)\)\r\n|\(gr_arc(.+?)Eco2(.+?)\)\)\r|\(gr_arc(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_circle(.+?)Eco2(.+?)\)\)\r\n|\(gr_circle(.+?)Eco2(.+?)\)\)\r|\(gr_circle(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if len(re.findall('\s\(fp_line(.+?)Eco2(.+?)\)\)\r\n|\(fp_line(.+?)Eco2(.+?)\)\)\r|\(fp_line(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(fp_arc(.+?)Eco2(.+?)\)\)\r\n|\(fp_arc(.+?)Eco2(.+?)\)\)\r|\(fp_arc(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(fp_circle(.+?)Eco2(.+?)\)\)\r\n|\(fp_circle(.+?)Eco2(.+?)\)\)\r|\(fp_circle(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+                if not edge_pcb_exists and len(re.findall('\s\(gr_poly(.+?)Eco2(.+?)\)\)\r\n|\(gr_poly(.+?)Eco2(.+?)\)\)\r|\(gr_poly(.+?)Eco2(.+?)\)\)\n',data, re.MULTILINE|re.DOTALL))>0:
+                    edge_pcb_exists=True
+
+            oft=None
+            if aux_orig == 1:
+                oft=getAuxOrigin(data)
+            if grid_orig == 1:
+                oft=getGridOrigin(data)
+            #print oft
+            gof=False
+            if oft is not None:
+                off_x=oft[0];off_y=-oft[1]
+                offset = oft
+                gof=True
+
+            if edge_pcb_exists:
+                #offset=[0,0]
+                doc=FreeCAD.ActiveDocument
+                ksu_found=False;skt_name='';pcb_found=False
+                for obj in doc.Objects:
+                    if ("PCB_Sketch" in obj.Name) or ("PCB_Sketch" in obj.Label):
+                        ksu_found=True
+                        skt_name=obj.Name
+                    if ("Pcb" in obj.Name):
+                        ksu_found=True
+                        pcb_found=True
+                testing=False
+                if testing is True:
+                    off_x=0;off_y=0
+                if ksu_found==True or testing==True:
+                    if pcb_found==True:
+                        bbpx=-FreeCAD.ActiveDocument.getObject('Pcb').Placement.Base[0]+FreeCAD.ActiveDocument.getObject(skt_name).Placement.Base[0]
+                        bbpy=FreeCAD.ActiveDocument.getObject('Pcb').Placement.Base[1]-FreeCAD.ActiveDocument.getObject(skt_name).Placement.Base[1]
+                        offset=[bbpx,bbpy]
+                    else:
+                        offset=[off_x,-off_y]
+                    if gof and grid_orig==1:
+                        offset=[off_x,-off_y]
+                    #print offset
+                    #stop
+                    say('pcb edge exists')
+                    sayw('removing old Eco')
+                    ## removing old Eco
+                    if "Top" in strTopBot:
+                        repl = re.sub('\s\(gr_line(.+?)Eco1(.+?)\)\)\r\n|\(gr_line(.+?)Eco1(.+?)\)\)\r|\(gr_line(.+?)Eco1(.+?)\)\)\n','',data, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_arc(.+?)Eco1(.+?)\)\)\r\n|\(gr_arc(.+?)Eco1(.+?)\)\)\r|\(gr_arc(.+?)Eco1(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_circle(.+?)Eco1(.+?)\)\)\r\n|\(gr_circle(.+?)Eco1(.+?)\)\)\r|\(gr_circle(.+?)Eco1(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_poly(.+?)Eco1(.+?)\)\)\r\n|\(gr_poly(.+?)Eco1(.+?)\)\)\r|\(gr_poly(.+?)Eco1(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                    else:
+                        repl = re.sub('\s\(gr_line(.+?)Eco2(.+?)\)\)\r\n|\(gr_line(.+?)Eco2(.+?)\)\)\r|\(gr_line(.+?)Eco2(.+?)\)\)\n','',data, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_arc(.+?)Eco2(.+?)\)\)\r\n|\(gr_arc(.+?)Eco2(.+?)\)\)\r|\(gr_arc(.+?)Eco2(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_circle(.+?)Eco2(.+?)\)\)\r\n|\(gr_circle(.+?)Eco2(.+?)\)\)\r|\(gr_circle(.+?)Eco2(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                        repl = re.sub('\s\(gr_poly(.+?)Eco2(.+?)\)\)\r\n|\(gr_poly(.+?)Eco2(.+?)\)\)\r|\(gr_poly(.+?)Eco2(.+?)\)\)\n','',repl, flags=re.MULTILINE)
+                    #sayerr(replace)
+                    k = repl.rfind(")")  #removing latest ')'
+                    newcontent = repl[:k]
+                else:
+                    if "Top" in strTopBot:
+                        sayerr('to push a new release of Eco1 to a kicad board with an existing Eco1\nyou need to load the board with StepUp first')
+                        say_warning("""<b>to push a new release of Eco1 to a kicad board<br>with an existing Eco1<br>you need to load the board with StepUp first""")
+                    else:
+                        sayerr('to push a new release of Eco2 to a kicad board with an existing Eco2\nyou need to load the board with StepUp first')
+                        say_warning("""<b>to push a new release of Eco2 to a kicad board<br>with an existing Eco2<br>you need to load the board with StepUp first""")
+                    stop
+            else:
+                #[148.5, -98.5] center of A4 page
+                if gof and grid_orig==1:
+                    sayw('pcb edge does not exist, aligning sketch to Grid Origin')
+                    offset=[off_x,-off_y]
+                else:
+                    sayw('pcb edge does not exist, aligning sketch to center of A4 page')
+                    offset=[148.5,98.5]
+                ##sel = FreeCADGui.Selection.getSelection()
+                ##if len (sel) >0:
+                ##    #sayw(doc.Name)
+                ##    for j in sel:
+                ##        if "Sketch" in j.TypeId:
+                ##            #FreeCAD.ActiveDocument.getObject(j.Name).Placement = FreeCAD.Placement(FreeCAD.Vector(148.5, -98.5,0),FreeCAD.Rotation(FreeCAD.Vector(0,0,1),0))
+                ##            if FreeCAD.ActiveDocument.getObject(j.Name).Placement.Base[0]==0: #sketch created at FC origin
+                ##                FreeCAD.ActiveDocument.getObject(j.Name).Placement = FreeCAD.Placement(FreeCAD.Vector(148.5,-98.5,0), App.Rotation(0,0,0), App.Vector(0,0,0)) #[Pos=(-148.5,98,5), Yaw-Pitch-Roll=(0,0,0)]
+
+                            #shift_sketch(j.Name,offset)
+                FreeCAD.ActiveDocument.recompute()
+                FreeCADGui.SendMsgToActiveView("ViewFit")
+                k = data.rfind(")")  #removing latest ')'
+                newcontent = data[:k]
+            new_edge_list, not_supported, to_discretize, construction_geom = getBoardOutline()
+
+            #geoL=len(App.ActiveDocument.getObject("PCB_Sketch").Geometry)
+            if len(to_discretize)>0:
+                sel = FreeCADGui.Selection.getSelection()
+                if len (sel)==1:
+                    sk_name=sel[0].Name
+                    t_name=cpy_sketch(sk_name)
+                    ###t_sk=FreeCAD.ActiveDocument.copyObject(FreeCAD.ActiveDocument.getObject(sk_name))
+                    elist, to_dis=check_geom(t_name)
+                    #Draft.clone(FreeCAD.ActiveDocument.getObject(sk_name),copy=True)
+                    #clone_name=App.ActiveDocument.ActiveObject.Name
+                    remove_basic_geom(t_name, to_dis)
+                    ##remove_basic_geom(t_sk.Name, to_discretize)
+                    ##elist, to_dis=check_geom(t_sk.Name)
+                    #print elist
+                    #stop
+                obj_list_prev=[]
+                for obj in doc.Objects:
+                    #print obj.TypeId
+                    if (obj.TypeId=="Part::Feature") or (obj.TypeId=="Sketcher::SketchObject"):
+                        obj_list_prev.append(obj.Name)
+                #Draft.draftify(FreeCAD.ActiveDocument.getObject(t_name),delete=True)
+                #Draft.draftify(FreeCAD.ActiveDocument.getObject(t_name),delete=False)
+                b=FreeCAD.ActiveDocument.getObject(t_name)
+                shp1=b.Shape.copy()
+                Part.show(shp1)
+                FreeCAD.ActiveDocument.removeObject(t_name)
+                FreeCAD.ActiveDocument.recompute()
+                #stop
+                obj_list_after=[]
+                for obj in doc.Objects:
+                    if (obj.TypeId=="Part::Feature") or (obj.TypeId=="Sketcher::SketchObject")\
+                       or (obj.TypeId=="Part::Part2DObjectPython"):
+                        if obj.Name not in obj_list_prev:
+                            obj_list_after.append(obj.Name)
+                #print obj_list_after #, obj_list_prev
+                sk_to_conv=[]
+                for obj in doc.Objects:
+                    if obj.Name in obj_list_after:
+                        if (obj.TypeId=="Part::Part2DObjectPython"):
+                            FreeCAD.ActiveDocument.removeObject(obj.Name)
+                            FreeCAD.ActiveDocument.recompute()
+                        else:
+                           sk_to_conv.append(obj.Name)
+                keep_sketch_converted=False #False
+                for s in sk_to_conv:
+                    #sayerr(s) ##
+                    ns=Discretize(s)
+                    offset1=[-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[0],-FreeCAD.ActiveDocument.getObject(sk_name).Placement.Base[1]]
+                    elist, to_dis=check_geom(ns,offset1)
+                    new_edge_list=new_edge_list+elist
+                    if not keep_sketch_converted:
+                        FreeCAD.ActiveDocument.removeObject(ns)
+                    FreeCAD.ActiveDocument.recompute()
+                    #print new_edge_list
+                #stop
+            #if len (not_supported)>0:
+            #    Draft.downgrade(FreeCADGui.Selection.getSelection(),delete=False)
+            #    stop
+            #say (new_edge_list)
+            #stop
+            #sayerr(replace)
+            #replace = re.sub('\s\(gr_arc(.+?Eco1)\)\)\r\n|\(gr_line(.+?Eco1)\)\)\r|\(gr_line(.+?Eco1)\)\)\n','',replace, flags=re.MULTILINE)
+            #replace = re.sub('\s\(gr_circle(.+?Eco1)\)\)\r\n|\(gr_line(.+?Eco1)\)\)\r|\(gr_line(.+?Eco1)\)\)\n','',replace, flags=re.MULTILINE)
+            #newcontent = re.sub('^\)','ENDOFFILE',replace, flags=re.MULTILINE)
+
+            #newcontent = re.sub('^\)','',replace, flags=re.MULTILINE) #end of file
+            #newcontent = re.sub('/\.(?=[^\(]*$)/','',replace, flags=re.MULTILINE) #end of file
+            #newcontent = newcontent.replace(/\((?=[^.]*$)/, "")
+            #newcontent = re.sub(r'(.*)\)', r'', replace, flags=re.MULTILINE)
+            new_border=''
+            #print new_edge_list
+            ## maxRadius # 4000 = 4m max lenght for KiCad
+            #edge_nbr=0
+            sanitized_edge_list=[]
+            for border in new_edge_list:
+                #print border # [0]
+                if 'arc' in border[0]:
+                    #print border[0]
+                    if abs(float(border[3])) > maxRadius:
+                        #print 'too big radius= ',border[3]
+                        #print 'border len= ', len(border)
+                        #points=border [10].x
+                        #p1x = float(border [10].x);p1y=float(border [10].y)
+                        p1x = float("{0:.3f}".format(border [10].x));p1y=float("{0:.3f}".format(border [10].y))
+                        #print p1x, ' ',p1y
+                        #p2x = float(border [11].x);p2y=float(border [11].y)
+                        p2x = float("{0:.3f}".format(border [11].x));p2y=float("{0:.3f}".format(border [11].y))
+                        #print '1st point ', border [10],' 2nd point ', border [11]
+                        sanitized_edge_list.append(['line',p1x,p1y,p2x,p2y])
+                    else:
+                        sanitized_edge_list.append(border)
+                else:
+                    sanitized_edge_list.append(border)
+                #edge_nbr=edge_nbr+1
+            #print sanitized_edge_list
+            #stop
+            #for border in new_edge_list:
+            for border in sanitized_edge_list:
+                new_border=new_border+os.linesep+createEco(border,offset, strTopBot)
+                #sayw(createEco1(border))
+            #stop
+            new_edge=new_border+os.linesep+')'+os.linesep
+            newcontent=newcontent+new_edge+u' '
+
+            #print newcontent
+            with codecs.open(fpath,'w', encoding='utf-8') as ofile:
+                ofile.write(newcontent)
+                ofile.close()
+            say_time()
+            if "Top" in strTopBot:
+                msg="""<b>new Eco1 pushed to kicad board!</b><br><br>"""
+                msg+="<b>file saved to<br>"+fpath+"</b><br><br>"
+                msg+="<i>backup file saved to<br>"+foname+"</i><br>"
+                msgr="new Eco1 pushed to kicad board!\n"
+                msgr+="file saved to "+fpath+"\n"
+                msgr+="backup file saved to "+foname
+            else:
+                msg="""<b>new Eco2 pushed to kicad board!</b><br><br>"""
+                msg+="<b>file saved to<br>"+fpath+"</b><br><br>"
+                msg+="<i>backup file saved to<br>"+foname+"</i><br>"
+                msgr="new Eco2 pushed to kicad board!\n"
+                msgr+="file saved to "+fpath+"\n"
+                msgr+="backup file saved to "+foname
+            lns=len (not_supported)
+            #print lns
+            if lns > 2:
+                if lns < 103: # writing only some geometry not supported
+                    msg+="<br><b>found downgraded Geometry:<br>"+not_supported[:-2]+"!</b>"
+                    msgr+="\nfound downgraded Geometry: "+not_supported[:-2]+"!"
+                else:
+                    nss=not_supported[:-2]
+                    nss=nss[:101]+'... <br> ...'
+                    msg+="<br><b>found downgraded Geometry:<br>"+nss+"</b>"
+                    msgr+="\nfound downgraded Geometry: "+not_supported[:-2]+"!"
+
+            say(msgr)
+            say_info(msg)
+            if not edge_pcb_exists:
+                msg="<b>close your FC Sketch<br>and reload the kicad_pcb file</b>"
+                say_warning(msg)
+
+    #def precision(self, value):
+    #    return "%.2f" % float(value)
+
 ##
 def push3D2pcb(s,cnt,tsp):
     #global last_fp_path, test_flag, start_time
@@ -18667,7 +19174,7 @@ def push3D2pcb(s,cnt,tsp):
     #global pcb_path, use_AppPart, force_oldGroups, use_Links
     #global original_filename, aux_orig, grid_orig
     global off_x, off_y, maxRadius
-    
+
     sayw('pushing 3D model moved to pcb')
     doc=FreeCAD.ActiveDocument
     data=u''.join(cnt)
@@ -18766,12 +19273,12 @@ def push3D2pcb(s,cnt,tsp):
                         ln_r=cnt[idxF+ik+1]
                         #      (offset (xyz -1.27 0 0)) mm
                         #      (at (xyz -1.27/25.4 0 0)) decimils
-                        if 'at' in ln_r: 
+                        if 'at' in ln_r:
                             k=25.40
                         else:
                             k=1.0
                         ido = ln_r.find('xyz');ofs=ln_r[ido+3:] #lstrip('xyz')
-                        ido = ofs.find('))');ofs=ofs[:ido] 
+                        ido = ofs.find('))');ofs=ofs[:ido]
                         ofs = ofs.lstrip(' ').split(' ')
                         #sayerr(ofs)
                         if len(ofs)==3:
@@ -18785,7 +19292,7 @@ def push3D2pcb(s,cnt,tsp):
                         #      (rotate (xyz 0 0 0))
                         #print(ln_r)#;stop
                         idz = ln_r.find('xyz');z_rot=ln_r[idz+3:] #lstrip('xyz')
-                        idz = z_rot.find('))');z_rot=z_rot[:idz] 
+                        idz = z_rot.find('))');z_rot=z_rot[:idz]
                         #z_rot = z_rot.rstrip('))')
                         z_rot = z_rot.lstrip(' ').split(' ')
                         #sayerr(z_rot)
@@ -18877,14 +19384,14 @@ def push3D2pcb(s,cnt,tsp):
                 ln=cnt[idx_ref]
                 cnt[idx_ref] = ln.split('(at ')[0]+'(at ' + ref_values[0] +' '+ ref_values[1]+new_ref_angle+ln[ln.index(')'):]
             if old_val_angle is not None:
-                base_val_angle = old_ref_angle - mod_old_angle # 
+                base_val_angle = old_ref_angle - mod_old_angle #
                 new_val_angle = ' '+("{0:.3f}".format(base_val_angle + bbpa + z_rot))
                 if float(new_val_angle) == 0:
                     new_val_angle=''
                 ln=cnt[idx_val]
                 cnt[idx_val] = ln.split('(at ')[0]+'(at ' + val_values[0] +' '+ val_values[1]+new_val_angle+ln[ln.index(')'):]
             if old_usr_angle is not None:
-                base_usr_angle = old_usr_angle - mod_old_angle # 
+                base_usr_angle = old_usr_angle - mod_old_angle #
                 new_usr_angle = ' '+("{0:.3f}".format(base_usr_angle + bbpa + z_rot))
                 if float(new_usr_angle) == 0:
                     new_usr_angle=''
@@ -18898,7 +19405,7 @@ def push3D2pcb(s,cnt,tsp):
                 #print (pad_values);print(ln.split('(at '))
                 ln  = cnt[p2r[1]]
                 pad_val = p2r[2]
-                cnt[p2r[1]] = ln.split('(at ')[0]+'(at ' + pad_val[0] +' '+ pad_val[1]+new_pad_angle+ln[ln.index(')'):]                    
+                cnt[p2r[1]] = ln.split('(at ')[0]+'(at ' + pad_val[0] +' '+ pad_val[1]+new_pad_angle+ln[ln.index(')'):]
             #stop # 'we need to search for pads in module and add rotation angle each'
         #stop
         #newdata=u''.join(content)
@@ -18910,7 +19417,7 @@ def push3D2pcb(s,cnt,tsp):
         newcontent=cnt
     # with codecs.open(fpath,'w', encoding='utf-8') as ofile:
     #     ofile.write(newcontent)
-    #     ofile.close()        
+    #     ofile.close()
     # say_time()
     # msg="""<b>3D model new position pushed to kicad board!</b><br><br>"""
     # if found_tracks:
@@ -18922,7 +19429,7 @@ def push3D2pcb(s,cnt,tsp):
     # msgr+="backup file saved to "+foname
     # say(msgr)
     # #say_info(msg)
-    return newcontent        
+    return newcontent
 ##
 
 ###############################################################################################################
@@ -18967,7 +19474,7 @@ if singleInstance():
     KSUWidget.ui = Ui_DockWidget()           # myWidget_Ui()             # load the Ui script
     KSUWidget.ui.setupUi(KSUWidget) # setup the ui
     KSUWidget.setObjectName("kicadStepUp")
-            
+
     paramGet = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/MainWindow")
     if len(paramGet.GetString("StyleSheet"))>0: #we are using a StyleSheet
         KSUWidget.setStyleSheet('QPushButton {border-radius: 0px; padding: 1px 2px;}')
@@ -18976,25 +19483,25 @@ if singleInstance():
     ## wf = t.findChild(QtGui.QDockWidget, "KSUWidget")
     cv = t.findChild(QtGui.QDockWidget, "Combo View")
     #say( "Combo View" + str(cv))
-    ## print( "KSUWidget" + str(wf))        
+    ## print( "KSUWidget" + str(wf))
     cv.setFeatures( QtGui.QDockWidget.DockWidgetMovable | QtGui.QDockWidget.DockWidgetFloatable|QtGui.QDockWidget.DockWidgetClosable )
     #KSUWidget.setFeatures( QtGui.QDockWidget.DockWidgetMovable | QtGui.QDockWidget.DockWidgetFloatable|QtGui.QDockWidget.DockWidgetClosable )
     KSUWidget.setFeatures( QtGui.QDockWidget.DockWidgetMovable | QtGui.QDockWidget.DockWidgetFloatable) #|QtGui.QDockWidget.DockWidgetClosable )
-    
-    
+
+
     ksu_in_tab=False
-    
+
     #tabify_widg=True
     #tabify_widg=False
     #dock_to_right=True
-    
-    
+
+
     if docking_mode == 'float':
         tabify()
         undock()
         textEdit_dim=textEdit_dim_base
         KSUWidget.ui.textEdit.setGeometry(textEdit_dim[0],textEdit_dim[1],textEdit_dim[2],textEdit_dim[3])
-        
+
     elif docking_mode == 'left':
         textEdit_dim=textEdit_dim_hide
         KSUWidget.ui.textEdit.setGeometry(textEdit_dim[0],textEdit_dim[1],textEdit_dim[2],textEdit_dim[3])
@@ -19014,10 +19521,10 @@ if singleInstance():
     #if (tabify_widg):
     #    tabify()
     #elif not dock_to_right:
-    #    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it 
+    #    #KSUmw = FreeCADGui.getMainWindow()                 # PySide # the active qt window, = the freecad window since we are inside it
     #    tabify()
     #    undock()
-    #    #KSUmw.addDockWidget(QtCore.Qt.RightDockWidgetArea,KSUWidget)  # add the widget to the main window  
+    #    #KSUmw.addDockWidget(QtCore.Qt.RightDockWidgetArea,KSUWidget)  # add the widget to the main window
     #else:
     #    dock_right()
 
@@ -19040,9 +19547,9 @@ def getComboView(self,window):
 #KSUWidget.setStyleSheet('QPushButton { border: 1px solid #5a5a5a;border-radius: 0px;min-width: 50px;min-height: 20px;padding: 1px 2px;}')
 #KSUWidget.setStyleSheet('QPushButton:hover,QPushButton:focus { color: white; border-color: #3874f2; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5e90fa, stop:1 #3874f2);}')
 
-# print QtGui.QApplication.style().metaObject().className()    # 
-# print KSUWidget.style().metaObject().className()    # 
-# print QtGui.QApplication.instance().styleSheet()    # list all applied styles    
+# print QtGui.QApplication.style().metaObject().className()    #
+# print KSUWidget.style().metaObject().className()    #
+# print QtGui.QApplication.instance().styleSheet()    # list all applied styles
 
 # try:
 #     if KSUWidget.style().metaObject().className()== "QStyleSheetStyle":
@@ -19050,15 +19557,13 @@ def getComboView(self,window):
 # except:
 #     pass
 ## QtGui.QFont().setPointSize(font_size) ???? to evaluate if still is necessary
-   
+
 #Ui_DockWidget().destroyed.connect(onDestroy())
 ## KSUWidget.installEventFilter(KSUWidget)
 
 ## form = RotateXYZGuiClass()
 ## #rotate = rotate_gui()
 ## form.setObjectName("kicadStepUp")
-## 
+##
 ## if QtGui.QApplication.style().metaObject().className() == "QStyleSheetStyle":
 ##     form.setStyleSheet('QPushButton {border-radius: 0px; padding: 1px 2px;}')
-
-

@@ -60,7 +60,7 @@ ksuWB_icons_path =  os.path.join( ksuWBpath, 'Resources', 'icons')
 
 # class SMExtrudeCommandClass():
 #   """Extrude face"""
-# 
+#
 #   def GetResources(self):
 #     return {'Pixmap'  : os.path.join( iconPath , 'SMExtrude.svg') , # the name of a svg file available in the resources
 #             'MenuText': "Extend Face" ,
@@ -162,8 +162,8 @@ class Ui_CDialog(object):
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("accepted()"), CDialog.accept)
         QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL("rejected()"), CDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(CDialog)
-        
-        
+
+
         myiconsize=48
         icon = QtGui.QIcon()
         myicon=os.path.join( ksuWB_icons_path , 'Sketcher_LockCoincident.svg')
@@ -180,7 +180,7 @@ class Ui_CDialog(object):
         myicon=os.path.join( ksuWB_icons_path , 'Sketcher_LockAll.svg')
         icond.addPixmap(QtGui.QPixmap(myicon), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         CDialog.setWindowIcon(icon)
-    
+
 
         # remove question mark from the title bar
         CDialog.setWindowFlags(CDialog.windowFlags() ^ QtCore.Qt.WindowContextHelpButtonHint)
@@ -189,7 +189,7 @@ class Ui_CDialog(object):
     def return_strings(self):
     #   Return list of values. It need map with str (self.lineedit.text() will return QString)
         return map(str, [self.tolerance.text(), self.all_constraints.isChecked()])
-        
+
     # @staticmethod
     # def get_data(parent=None):
     #     #dialog = Ui_CDialog()
@@ -197,17 +197,17 @@ class Ui_CDialog(object):
     #     #dialog = QtGui.QDialog()
     #     dialog.exec_()
     #     return dialog.return_strings()
-        
+
 ################ ------------------- end CD-ui #############################
 
 class ksuTools:
     "ksu tools object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'kicad-StepUp-icon.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Tools" ,
                      'ToolTip' : "kicad StepUp Tools"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -216,25 +216,25 @@ class ksuTools:
         #import kicadStepUptools
         import os, sys
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
         reload_lib( kicadStepUptools )
         FreeCAD.Console.PrintWarning( 'active :)\n' )
         #import kicadStepUptools
- 
+
 FreeCADGui.addCommand('ksuTools',ksuTools())
 ##
 
 class ksuToolsOpenBoard:
     "ksu tools Open Board object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'importBoard.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Load Board" ,
                      'ToolTip' : "Load KiCad PCB Board and Parts"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -242,7 +242,7 @@ class ksuToolsOpenBoard:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -255,7 +255,7 @@ class ksuToolsOpenBoard:
         kicadStepUptools.onLoadBoard()
         # ppcb=kicadStepUptools.KSUWidget
         # ppcb.onPushPCB()
-    
+
         #onPushPCB()
         #import kicadStepUptools
 
@@ -265,12 +265,12 @@ FreeCADGui.addCommand('ksuToolsOpenBoard',ksuToolsOpenBoard())
 
 class ksuToolsLoadFootprint:
     "ksu tools Load Footprint object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'importFP.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Load FootPrint" ,
                      'ToolTip' : "Load KiCad PCB FootPrint"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -278,7 +278,7 @@ class ksuToolsLoadFootprint:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -294,12 +294,12 @@ FreeCADGui.addCommand('ksuToolsLoadFootprint',ksuToolsLoadFootprint())
 
 class ksuToolsExportModel:
     "ksu tools Export Model to KiCad object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'export3DModel.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Export 3D Model" ,
                      'ToolTip' : "Export 3D Model to KiCad"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -307,7 +307,7 @@ class ksuToolsExportModel:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -324,7 +324,7 @@ class ksuToolsExportModel:
         #kicadStepUptools.Ui_DockWidget.onCfg()
         # ppcb=kicadStepUptools.KSUWidget
         # ppcb.onPushPCB()
- 
+
         #onPushPCB()
         #import kicadStepUptools
 
@@ -333,12 +333,12 @@ FreeCADGui.addCommand('ksuToolsExportModel',ksuToolsExportModel())
 
 class ksuToolsImport3DStep:
     "ksu tools Import 3D Step object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'add_block_y.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Import 3D Step" ,
                      'ToolTip' : "Import 3D Step Model"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -346,7 +346,7 @@ class ksuToolsImport3DStep:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -363,12 +363,12 @@ FreeCADGui.addCommand('ksuToolsImport3DStep',ksuToolsImport3DStep())
 
 class ksuToolsExport3DStep:
     "ksu tools Export 3D to Step object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'export3DStep.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Export 3D to Step" ,
                      'ToolTip' : "Export selected objects to Step Model"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -376,7 +376,7 @@ class ksuToolsExport3DStep:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -393,12 +393,12 @@ FreeCADGui.addCommand('ksuToolsExport3DStep',ksuToolsExport3DStep())
 
 class ksuToolsMakeUnion:
     "ksu tools Make a Union object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'fusion.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Make Union" ,
                      'ToolTip' : "Make a Union of selected objects"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -406,7 +406,7 @@ class ksuToolsMakeUnion:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -423,12 +423,12 @@ FreeCADGui.addCommand('ksuToolsMakeUnion',ksuToolsMakeUnion())
 
 class ksuToolsMakeCompound:
     "ksu tools Make a Union object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'compound.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Make Compound" ,
                      'ToolTip' : "Make a Compound of selected objects"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -436,7 +436,7 @@ class ksuToolsMakeCompound:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -453,12 +453,12 @@ FreeCADGui.addCommand('ksuToolsMakeCompound',ksuToolsMakeCompound())
 
 class ksuToolsPushPCB:
     "ksu tools Push/Pull Sketch object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sketcher_Rectangle.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Push/Pull Sketch to PCB" ,
                      'ToolTip' : "Push/Pull Sketch to/from PCB Edge"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -466,7 +466,7 @@ class ksuToolsPushPCB:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -479,7 +479,7 @@ class ksuToolsPushPCB:
         kicadStepUptools.PushPullPCB()
         # ppcb=kicadStepUptools.KSUWidget
         # ppcb.onPushPCB()
- 
+
         #onPushPCB()
         #import kicadStepUptools
 
@@ -487,14 +487,14 @@ class ksuToolsPushPCB:
 FreeCADGui.addCommand('ksuToolsPushPCB',ksuToolsPushPCB())
 ##
 
-class ksuToolsPushMoved:
-    "ksu tools Push/Pull 3D moved model"
- 
+class ksuToolsPushPCBKeepOutTop:
+    "ksu tools Push/Pull Sketch object"
+
     def GetResources(self):
-        return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'PushMoved.svg') , # the name of a svg file available in the resources
-                     'MenuText': "ksu Push/Pull 3D moved model(s) to PCB" ,
-                     'ToolTip' : "Push/Pull 3D moved model(s) to PCB"}
- 
+        return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sketch_to_top_keepout.svg') , # the name of a svg file available in the resources
+                     'MenuText': "ksu Push Sketch to PCB to indicate top keepout area" ,
+                     'ToolTip' : "Push Sketch to PCB top keepout area"}
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -502,7 +502,79 @@ class ksuToolsPushMoved:
         #    return True
         #import kicadStepUptools
         return True
- 
+
+    def Activated(self):
+        # do something here...
+        import kicadStepUptools
+        #if not kicadStepUptools.checkInstance():
+        #    reload( kicadStepUptools )
+        if reload_Gui:
+            reload_lib( kicadStepUptools )
+        #from kicadStepUptools import onPushPCB
+        #FreeCAD.Console.PrintWarning( 'active :)\n' )
+        kicadStepUptools.PushPullPCBKeepOut("Top")
+        # ppcb=kicadStepUptools.KSUWidget
+        # ppcb.onPushPCB()
+
+        #onPushPCB()
+        #import kicadStepUptools
+
+
+FreeCADGui.addCommand('ksuToolsPushPCBKeepOutTop',ksuToolsPushPCBKeepOutTop())
+##
+
+class ksuToolsPushPCBKeepOutBot:
+    "ksu tools Push/Pull Sketch object"
+
+    def GetResources(self):
+        return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sketch_to_bot_keepout.svg') , # the name of a svg file available in the resources
+                     'MenuText': "ksu Push Sketch to PCB to indicate bottom keepout area" ,
+                     'ToolTip' : "Push Sketch to PCB bottom keepout area"}
+
+    def IsActive(self):
+        #if FreeCAD.ActiveDocument == None:
+        #    return False
+        #else:
+        #    return True
+        #import kicadStepUptools
+        return True
+
+    def Activated(self):
+        # do something here...
+        import kicadStepUptools
+        #if not kicadStepUptools.checkInstance():
+        #    reload( kicadStepUptools )
+        if reload_Gui:
+            reload_lib( kicadStepUptools )
+        #from kicadStepUptools import onPushPCB
+        #FreeCAD.Console.PrintWarning( 'active :)\n' )
+        kicadStepUptools.PushPullPCBKeepOut("Bot")
+        # ppcb=kicadStepUptools.KSUWidget
+        # ppcb.onPushPCB()
+
+        #onPushPCB()
+        #import kicadStepUptools
+
+
+FreeCADGui.addCommand('ksuToolsPushPCBKeepOutBot',ksuToolsPushPCBKeepOutBot())
+
+##
+class ksuToolsPushMoved:
+    "ksu tools Push/Pull 3D moved model"
+
+    def GetResources(self):
+        return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'PushMoved.svg') , # the name of a svg file available in the resources
+                     'MenuText': "ksu Push/Pull 3D moved model(s) to PCB" ,
+                     'ToolTip' : "Push/Pull 3D moved model(s) to PCB"}
+
+    def IsActive(self):
+        #if FreeCAD.ActiveDocument == None:
+        #    return False
+        #else:
+        #    return True
+        #import kicadStepUptools
+        return True
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -515,7 +587,7 @@ class ksuToolsPushMoved:
         kicadStepUptools.PushMoved()
         # ppcb=kicadStepUptools.KSUWidget
         # ppcb.onPushPCB()
- 
+
         #onPushPCB()
         #import kicadStepUptools
 
@@ -523,18 +595,18 @@ FreeCADGui.addCommand('ksuToolsPushMoved',ksuToolsPushMoved())
 ##
 class ksuAsm2Part:
     "ksu tools Push/Pull 3D moved model"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Assembly_To_Part.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Convert an Assembly (A3) to Part hierarchy" ,
                      'ToolTip' : "Convert an Assembly (A3) to Part hierarchy"}
- 
+
     def IsActive(self):
         if a3:
             return True
         else:
             return False
- 
+
     def Activated(self):
         # do something here...
         # import kicadStepUptools
@@ -571,7 +643,7 @@ class ksuAsm2Part:
                     FreeCADGui.SendMsgToActiveView("ViewFit")
                     copy.recompute(True)
                 return copy
-        
+
             obj,matrix = parentObj.getSubObject(subname,1,FreeCAD.Matrix(),not subname)
             if not obj:
                 return
@@ -590,7 +662,7 @@ class ksuAsm2Part:
                 copy.Shape = shape
                 copy.ViewObject.mapShapeColors(obj.Document)
                 return copy
-        
+
             part = doc.addObject('App::Part',obj.Name)
             part.Label = obj.Label
             part.Placement = FreeCAD.Placement(matrix)
@@ -654,12 +726,12 @@ FreeCADGui.addCommand('ksuAsm2Part',ksuAsm2Part())
 ##
 class ksuToolsSync3DModels:
     "ksu tools Push/Pull 3D moved model"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sync3Dmodels.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Sync 3D model(s) Ref & TimeStamps with PCB" ,
                      'ToolTip' : "Sync 3D model(s) Ref & TimeStamps\nof the Selected 3D model with kicad PCB"}
- 
+
     def IsActive(self):
         #if FreeCAD.ActiveDocument == None:
         #    return False
@@ -667,7 +739,7 @@ class ksuToolsSync3DModels:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -680,7 +752,7 @@ class ksuToolsSync3DModels:
         kicadStepUptools.Sync3DModel()
         # ppcb=kicadStepUptools.KSUWidget
         # ppcb.onPushPCB()
- 
+
         #onPushPCB()
         #import kicadStepUptools
 
@@ -689,12 +761,12 @@ FreeCADGui.addCommand('ksuToolsSync3DModels',ksuToolsSync3DModels())
 ##
 class ksuToolsGeneratePositions:
     "ksu tools Generate 3D models Positions"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'File_Positions.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Generate 3D models Positions" ,
                      'ToolTip' : "Generate 3D models Positions\nData for Active Document\n[MCAD Syncronize]"}
- 
+
     def IsActive(self):
         if FreeCAD.ActiveDocument is None:
             return False
@@ -702,7 +774,7 @@ class ksuToolsGeneratePositions:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         #import kicadStepUptools
@@ -710,18 +782,18 @@ class ksuToolsGeneratePositions:
         #    reload_lib( kicadStepUptools )
         import exchangePositions;reload_lib(exchangePositions)
         exchangePositions.expPos()
-        
+
 
 FreeCADGui.addCommand('ksuToolsGeneratePositions',ksuToolsGeneratePositions())
 ##
 class ksuToolsComparePositions:
     "ksu tools Compare 3D models Positions"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Compare_Positions.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Compare 3D models Positions" ,
                      'ToolTip' : "Compare 3D models Positions\nData with the Active Document\n[MCAD Syncronize]"}
- 
+
     def IsActive(self):
         if FreeCAD.ActiveDocument is None:
             return False
@@ -729,26 +801,26 @@ class ksuToolsComparePositions:
         #    return True
         #import kicadStepUptools
         return True
- 
+
     def Activated(self):
         # do something here...
         import exchangePositions;reload_lib(exchangePositions)
         exchangePositions.cmpPos()
-        
+
 
 FreeCADGui.addCommand('ksuToolsComparePositions',ksuToolsComparePositions())
 ##
 # class ksuToolsEdit:
 #     "ksu tools Editor object"
-#  
+#
 #     def GetResources(self):
 #         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'edit.svg') , # the name of a svg file available in the resources
 #                      'MenuText': "ksu Edit parameters" ,
 #                      'ToolTip' : "ksu View Config Parameters"}
-#  
+#
 #     def IsActive(self):
 #         return True
-#  
+#
 #     def Activated(self):
 #         # do something here...
 #         import kicadStepUptools
@@ -758,21 +830,21 @@ FreeCADGui.addCommand('ksuToolsComparePositions',ksuToolsComparePositions())
 #             reload( kicadStepUptools )
 #         FreeCAD.Console.PrintWarning( 'active :)\n' )
 #         kicadStepUptools.view_cfg()
-# 
+#
 # FreeCADGui.addCommand('ksuToolsEdit',ksuToolsEdit())
 ##
 
 class ksuToolsCollisions:
     "ksu tools Check Collisions object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'collisions.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Check Collisions" ,
                      'ToolTip' : "Check Collisions and Interferences"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         import kicadStepUptools
@@ -788,15 +860,15 @@ FreeCADGui.addCommand('ksuToolsCollisions',ksuToolsCollisions())
 
 class ksuTools3D2D:
     "ksu tools 3D to 2D object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , '3Dto2D.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu 3D to 2D" ,
                      'ToolTip' : "3D object to 2D projection"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         FreeCAD.Console.PrintMessage('projecting the selected object to a 2D shape in the document\n')
@@ -830,27 +902,27 @@ FreeCADGui.addCommand('ksuTools3D2D',ksuTools3D2D())
 ##
 class ksuToolsTurnTable:
     "ksu tools TurnTable"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'texture_turntable.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu TurnTable" ,
                      'ToolTip' : "TurnTable"}
- 
+
     def IsActive(self):
         if FreeCAD.ActiveDocument is None:
             return False
         else:
             return True
- 
+
     def Activated(self):
         # do something here...
         # https://forum.freecadweb.org/viewtopic.php?f=3&t=28795
-        
+
         ## references
         # My 2 favorite docs about coin are :
         # http://www-evasion.imag.fr/~Francois.Fa ... index.html
         # https://grey.colorado.edu/coin3d/annotated.html
-        
+
         imgfilename = os.path.join( ksuWB_icons_path , '../textures/infinite_reflection_blur.png')
         sg = FreeCADGui.ActiveDocument.ActiveView.getSceneGraph()
         tex = sg.getByName("myTexture")
@@ -874,26 +946,26 @@ class ksuToolsTurnTable:
             tc = coin.SoTextureCoordinateEnvironment()
             tc.setName("myTextCoord")
             sg.insertChild(tc,2)
-        
+
 
 FreeCADGui.addCommand('ksuToolsTurnTable',ksuToolsTurnTable())
 ##
 
 class ksuToolsConstrainator:
     "ksu tools Constraint Sketch"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sketcher_LockAll.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Constrain a Sketch" ,
                      'ToolTip' : "Fix & auto Constrain a Sketch"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         sel = FreeCADGui.Selection.getSelection()
-        if len(sel)==1:    
+        if len(sel)==1:
             if sel[0].TypeId == 'Sketcher::SketchObject' and len(sel)==1:
                 CDialog = QtGui.QDialog()
                 ui = Ui_CDialog()
@@ -920,21 +992,21 @@ class ksuToolsConstrainator:
         else:
             reply = QtGui.QMessageBox.information(None,"Warning", "select ONE Sketch to be Fix & Constrained")
             FreeCAD.Console.PrintError('select ONE Sketch to be Fix & Constrained\n')
-    
+
 
 FreeCADGui.addCommand('ksuToolsConstrainator',ksuToolsConstrainator())
 ##
 class ksuToolsDiscretize:
     "ksu tools Discretize"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Discretize.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Discretize" ,
                      'ToolTip' : "Discretize a shape/outline to a Sketch"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         sel = FreeCADGui.Selection.getSelection()
@@ -950,7 +1022,7 @@ class ksuToolsDiscretize:
                         shapes.append(Part.makePolygon(e.discretize(QuasiDeflection=q_deflection)))
                     else:
                         shapes.append(Part.Wire(e))
-                    #sd=e.copy().discretize(QuasiDeflection=dqd)    
+                    #sd=e.copy().discretize(QuasiDeflection=dqd)
             sk_d=Draft.makeSketch(shapes)
 
 FreeCADGui.addCommand('ksuToolsDiscretize',ksuToolsDiscretize())
@@ -958,15 +1030,15 @@ FreeCADGui.addCommand('ksuToolsDiscretize',ksuToolsDiscretize())
 ##
 class ksuToolsResetPlacement:
     "ksu tools Reset Placement"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'resetPlacement.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Reset Placement" ,
                      'ToolTip' : "Reset Placement for a Shape"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         sel = FreeCADGui.Selection.getSelection()
@@ -983,15 +1055,15 @@ FreeCADGui.addCommand('ksuToolsResetPlacement',ksuToolsResetPlacement())
 #####
 class ksuTools2D2Sketch:
     "ksu tools 2D to Sketch object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , '2DtoSketch.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu 2D to Sketch" ,
                      'ToolTip' : "2D object (or DXF) to Sketch"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1037,7 +1109,7 @@ class ksuTools2D2Sketch:
                         using_draft_makeSketch=True
                         for obj in FreeCADGui.Selection.getSelection():
                             FreeCADGui.ActiveDocument.getObject(obj.Name).Visibility=False
-                    
+
                     if FC_majorV==0 and FC_minorV>=16:
                         try:
                             sketch = Draft.makeSketch(wires[0:1])
@@ -1052,7 +1124,7 @@ class ksuTools2D2Sketch:
                         #sname=FreeCAD.ActiveDocument.ActiveObject.Name
                         for wire in wires:
                             FreeCAD.ActiveDocument.removeObject(wire.Name)
-                    #FreeCAD.Console.PrintWarning("\nConverting Bezier curves to Arcs\n")                                
+                    #FreeCAD.Console.PrintWarning("\nConverting Bezier curves to Arcs\n")
                     #wires,_faces = Draft.downgrade(faceobj,delete=True)
                 ##elif using_draft_makeSketch == False:
                     newShapeList = []
@@ -1087,14 +1159,14 @@ class ksuTools2D2Sketch:
                                 newShapes.append(w)
                                 w_name = FreeCAD.ActiveDocument.ActiveObject.Name
                                 newShapeList.append(w_name)
-                                
+
                     #stop
                     #print newShapes
                     if len(newShapes)>0:  #at least a STD geometry exists
                         sketch = Draft.makeSketch(newShapes[0])
                         FreeCAD.ActiveDocument.ActiveObject.Label="Sketch_conv"
                         sname=FreeCAD.ActiveDocument.ActiveObject.Name
-                
+
                         if len(newShapes)>1:  #at least a STD geometry exists
                             for w in newShapes[1:]:
                                 Draft.makeSketch([w],addTo=sketch)
@@ -1105,7 +1177,7 @@ class ksuTools2D2Sketch:
                             sketch.addGeometry(e.Curve, False)
                             # Sketcher magic fonction :
                         for i in range(0, len(sketch.Geometry)):
-                            try: 
+                            try:
                                 if 'BSpline' in str(sketch.Geometry[i]):
                                     sketch.exposeInternalGeometry(i)
                             except:
@@ -1113,7 +1185,7 @@ class ksuTools2D2Sketch:
                                 pass
                         FreeCAD.ActiveDocument.recompute()
                         FreeCAD.ActiveDocument.getObject(sname).Label="Sketch_converted"
-                        #Draft.makeSketch([w])    
+                        #Draft.makeSketch([w])
                     elif FC_majorV==0 and FC_minorV>=16:
                         if len (newBSlEdges)>0:
                             sketch = FreeCAD.activeDocument().addObject('Sketcher::SketchObject','Sketch_conv')
@@ -1125,13 +1197,13 @@ class ksuTools2D2Sketch:
                                 sketch.addGeometry(e.Curve, False)
                                 # Sketcher magic fonction :
                                 for i in range(0, len(sketch.Geometry)):
-                                    try: 
+                                    try:
                                         if 'BSpline' in str(sketch.Geometry[i]):
                                             sketch.exposeInternalGeometry(i)
                                     except:
                                         #print 'error'
                                         pass
-                                FreeCAD.ActiveDocument.recompute()                        
+                                FreeCAD.ActiveDocument.recompute()
                     for wire in wires:
                         FreeCAD.ActiveDocument.removeObject(wire.Name)
                     for wnm in newShapeList:
@@ -1152,14 +1224,14 @@ class ksuTools2D2Sketch:
                     using_draft_makeSketch=True
                     for obj in FreeCADGui.Selection.getSelection():
                         FreeCADGui.ActiveDocument.getObject(obj.Name).Visibility=False
-                        
+
             except Part.OCCError: # Exception: #
                 FreeCAD.Console.PrintError('Error in source %s (%s)' % (faceobj.Name,faceobj.Label)+"\n")
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select elements to be converted to Sketch")
-            FreeCAD.Console.PrintWarning("Select elements to be converted to Sketch\n")             
-        
+            FreeCAD.Console.PrintWarning("Select elements to be converted to Sketch\n")
+
         pass
 #
 FreeCADGui.addCommand('ksuTools2D2Sketch',ksuTools2D2Sketch())
@@ -1167,15 +1239,15 @@ FreeCADGui.addCommand('ksuTools2D2Sketch',ksuTools2D2Sketch())
 #####
 class ksuTools2DtoFace:
     "ksu tools 2D to Sketch object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , '2DtoFace.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu 2D to Face" ,
                      'ToolTip' : "2D object (or DXF) to Surface for extruding"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1204,7 +1276,7 @@ class ksuTools2DtoFace:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select elements to be converted to Face")
-            FreeCAD.Console.PrintWarning("Select elements to be converted to Face\n")             
+            FreeCAD.Console.PrintWarning("Select elements to be converted to Face\n")
 
 FreeCADGui.addCommand('ksuTools2DtoFace',ksuTools2DtoFace())
 
@@ -1212,15 +1284,15 @@ FreeCADGui.addCommand('ksuTools2DtoFace',ksuTools2DtoFace())
 
 class ksuToolsSimplifySketck:
     "ksu tools Simplify Sketch object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'SimplifySketch.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Simplify Sketch" ,
                      'ToolTip' : "Simplifying Sketch to Arcs and Lines"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if len(FreeCADGui.Selection.getSelection()):
@@ -1231,22 +1303,22 @@ class ksuToolsSimplifySketck:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select ONE Sketch to be Simplified")
-            FreeCAD.Console.PrintWarning("Select ONE Sketch to be Simplified\n")             
+            FreeCAD.Console.PrintWarning("Select ONE Sketch to be Simplified\n")
 
 FreeCADGui.addCommand('ksuToolsSimplifySketck',ksuToolsSimplifySketck())
 
 #####
 class ksuToolsFootprintGen:
     "ksu tools Footprint generator object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'exportFootprint.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Footprint generator" ,
                      'ToolTip' : "Footprint editor and exporter"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1260,7 +1332,7 @@ class ksuToolsFootprintGen:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select Group or Sketch/Text elements to be converted to KiCad Footprint")
-            FreeCAD.Console.PrintWarning("Select Group or Sketch/Text elements to be converted to KiCad Footprint\n")             
+            FreeCAD.Console.PrintWarning("Select Group or Sketch/Text elements to be converted to KiCad Footprint\n")
 
 FreeCADGui.addCommand('ksuToolsFootprintGen',ksuToolsFootprintGen())
 
@@ -1268,12 +1340,12 @@ FreeCADGui.addCommand('ksuToolsFootprintGen',ksuToolsFootprintGen())
 
 class ksuToolsStepImportModeSTD:
     "ksu tools full STEP Import Mode"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'ImportModeSTD.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools disable Full STEP Import Mode" ,
                      'ToolTip' : "ksu tools disable Full STEP Import Mode"}
- 
+
     def IsActive(self):
         paramGetVS = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Import/hSTEP")
         ReadShapeCompoundMode_status=paramGetVS.GetBool("ReadShapeCompoundMode")
@@ -1303,12 +1375,12 @@ FreeCADGui.addCommand('ksuToolsStepImportModeSTD',ksuToolsStepImportModeSTD())
 
 class ksuToolsStepImportModeComp:
     "ksu tools disable Simplified STEP Import Mode"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'ImportModeSimplified.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools disable Simplified STEP Import Mode" ,
                      'ToolTip' : "ksu tools disable Simplified STEP Import Mode"}
- 
+
     def IsActive(self):
         paramGetVS = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/Import/hSTEP")
         ReadShapeCompoundMode_status=paramGetVS.GetBool("ReadShapeCompoundMode")
@@ -1338,12 +1410,12 @@ FreeCADGui.addCommand('ksuToolsStepImportModeComp',ksuToolsStepImportModeComp())
 ####
 class ksuToolsCopyPlacement:
     "ksu tools Copy Placement"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Placement_Copy.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Copy Placement 1st to 2nd" ,
                      'ToolTip' : "ksu tools Copy Placement 1st to 2nd"}
- 
+
     def IsActive(self):
         return True
 
@@ -1358,7 +1430,7 @@ class ksuToolsCopyPlacement:
             for o in sel:
                 if hasattr(o,'Placement'):
                     o.Placement=main_p
-        
+
         doc = FreeCADGui.ActiveDocument
         sel = FreeCADGui.Selection.getSelection()
         if not sel:
@@ -1376,15 +1448,15 @@ FreeCADGui.addCommand('ksuToolsCopyPlacement',ksuToolsCopyPlacement())
 ####
 class ksuToolsSimpleCopy:
     "ksu tools Simple Copy object"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'simple_copy.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Simple Copy" ,
                      'ToolTip' : "Simple Copy object"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1406,7 +1478,7 @@ class ksuToolsSimpleCopy:
             if len(sel)<1:
                     msg="Select at least one object with Shape to be copied!\n"
                     reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                    FreeCAD.Console.PrintWarning(msg)             
+                    FreeCAD.Console.PrintWarning(msg)
             elif (sel[0].TypeId != 'PartDesign::Body'):
                 for obj_tocopy in sel:
                 #obj_tocopy=sel[0]
@@ -1421,15 +1493,15 @@ class ksuToolsSimpleCopy:
                         FreeCADGui.ActiveDocument.ActiveObject.Transparency=FreeCADGui.ActiveDocument.getObject(obj_tocopy.Name).Transparency
                         FreeCAD.ActiveDocument.recompute()
                     #else:
-                    #    FreeCAD.Console.PrintWarning("Select object with a \"Shape\" to be copied!\n")             
+                    #    FreeCAD.Console.PrintWarning("Select object with a \"Shape\" to be copied!\n")
             else:
                 #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
                 reply = QtGui.QMessageBox.information(None,"Warning", "Select at least one object with Shape to be copied!\nBody PDN not allowed.")
-                FreeCAD.Console.PrintWarning("Select at least one object with Shape to be copied!\nBody PDN not allowed.")             
+                FreeCAD.Console.PrintWarning("Select at least one object with Shape to be copied!\nBody PDN not allowed.")
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select at least one object with Shape to be copied!")
-            FreeCAD.Console.PrintWarning("Select at least one object with Shape to be copied!\n")             
+            FreeCAD.Console.PrintWarning("Select at least one object with Shape to be copied!\n")
 
 FreeCADGui.addCommand('ksuToolsSimpleCopy',ksuToolsSimpleCopy())
 
@@ -1442,27 +1514,27 @@ class ksuToolsDeepCopy:
     __Author__ = 'galou_breizh'
 
 ###
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'deep_copy.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu PartDN Copy" ,
                      'ToolTip' : "PartDN Copy object\nwith relative placement\n[flattened model]"}
- 
+
     def IsActive(self):
         if int(FreeCAD.Version()[0])==0 and int(FreeCAD.Version()[1])<=16: #active only for FC>0.16
             return False
         else:
             return True
- 
+
     def Activated(self):
         # do something here...
 
         if FreeCADGui.Selection.getSelection():
-            sel=FreeCADGui.Selection.getSelection()        
+            sel=FreeCADGui.Selection.getSelection()
             if len(sel)!=1 and (sel[0].TypeId == 'App::Part' or sel[0].TypeId == 'PartDesign::Body'):
                 msg="Select ONE Part Design Next object\nor one or more objects to be copied!\n"
                 reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                FreeCAD.Console.PrintWarning(msg)             
+                FreeCAD.Console.PrintWarning(msg)
             else:
                 doc = FreeCAD.activeDocument()
                 if sel[0].TypeId != 'App::Part' and sel[0].TypeId != 'PartDesign::Body':
@@ -1475,8 +1547,8 @@ class ksuToolsDeepCopy:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select ONE Part Design Next object\nor one or more objects to be copied!")
-            FreeCAD.Console.PrintWarning("Select ONE Part Design Next object\nor one or more objects to be copied!\n")             
-        
+            FreeCAD.Console.PrintWarning("Select ONE Part Design Next object\nor one or more objects to be copied!\n")
+
 FreeCADGui.addCommand('ksuToolsDeepCopy',ksuToolsDeepCopy())
 #####
 def mk_str_u(input):
@@ -1511,7 +1583,7 @@ def deep_copy_part(doc, part, compound='flat',suffix='(copy)'):
     if part.TypeId != 'App::Part' and part.TypeId != 'PartDesign::Body':
         # Part is not a part, return.
         return
-    
+
     #FreeCAD.Console.PrintWarning(compound)
     make_compound=compound
     copied_subobjects = []
@@ -1532,7 +1604,7 @@ def deep_copy_part(doc, part, compound='flat',suffix='(copy)'):
         pName = doc.ActiveObject.Name
     else:
         pName= 'None'
-    
+
     if make_compound=='compound':
         compound = doc.addObject('Part::Compound', mk_str_u(part.Label)+suffix)
         compound.Links = copied_subobjects
@@ -1556,7 +1628,7 @@ def deep_copy_part(doc, part, compound='flat',suffix='(copy)'):
 
 def get_all_subobjects(o):
     """Recursively get all subobjects
-    
+
     Subobjects of objects having a Shape attribute are not included otherwise each
     single feature of the object would be copied. The result is that bodies,
     compounds, and the result of boolean operations will be converted into a
@@ -1575,10 +1647,10 @@ def get_all_subobjects(o):
     return discovered
 
 
-    
+
 def get_all_subobjects_old(o):
     """Recursively get all subobjects
-    
+
     Subobjects of objects having a Shape attribute are not included otherwise each
     single feature of the object would be copied. The result is that bodies,
     compounds, and the result of boolean operations will be converted into a
@@ -1700,15 +1772,15 @@ def toggle_visibility_subtree(objs):
 #####
 class ksuToolsRemoveFromTree:
     "ksu tools Remove from Tree"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'TreeItemOutMinus.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Remove from Tree" ,
                      'ToolTip' : "Remove Object(s) from Container Tree\nkeeping Placement\nFirst Selection is the Container"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         if FreeCADGui.Selection.getSelection():
             sel=FreeCADGui.Selection.getSelection()
@@ -1732,7 +1804,7 @@ class ksuToolsRemoveFromTree:
                         for item in base.InListRecursive:
                             #fcc_prn(item.Label)
                             if item.TypeId == 'App::Part' or item.TypeId == 'PartDesign::Body':
-                                doc.getObject(item.Name).addObject(doc.getObject(o.Name))                
+                                doc.getObject(item.Name).addObject(doc.getObject(o.Name))
             else:
                 #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
                 reply = QtGui.QMessageBox.information(None,"Warning", "Select one Container and some object(s) to be Removed from the Tree.")
@@ -1741,21 +1813,21 @@ class ksuToolsRemoveFromTree:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one Container and some object(s) to be Removed from the Tree.")
             FreeCAD.Console.PrintWarning("Select one Container and some object(s) to be Removed from the Tree.\n")
-                
+
 FreeCADGui.addCommand('ksuToolsRemoveFromTree',ksuToolsRemoveFromTree())
 
 #####
 class ksuToolsAddToTree:
     "ksu tools Add to Tree"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'TreeItemInPlus.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Add to Tree" ,
                      'ToolTip' : "Add Object(s) to Container Tree\nkeeping Placement\nFirst Selection is the Container"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         if FreeCADGui.Selection.getSelection():
             sel=FreeCADGui.Selection.getSelection()
@@ -1782,7 +1854,7 @@ class ksuToolsAddToTree:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one Container and some object(s) to be Added to the Tree.")
             FreeCAD.Console.PrintWarning("Select one Container and some object(s) to be Added to the Tree.\n")
-        
+
 FreeCADGui.addCommand('ksuToolsAddToTree',ksuToolsAddToTree())
 
 #####
@@ -1820,15 +1892,15 @@ def toggle_transparency_subtree(objs):
 ##
 class ksuToolsTransparencyToggle:
     "ksu tools Transparency Toggle"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'transparency_toggle.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Transparency Toggle" ,
                      'ToolTip' : "Selection Transparency Toggle"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1845,7 +1917,7 @@ class ksuToolsTransparencyToggle:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one or more object(s) to change its transparency!")
-            FreeCAD.Console.PrintWarning("Select one or more object(s) to change its transparency!\n")             
+            FreeCAD.Console.PrintWarning("Select one or more object(s) to change its transparency!\n")
 
 FreeCADGui.addCommand('ksuToolsTransparencyToggle',ksuToolsTransparencyToggle())
 
@@ -1854,15 +1926,15 @@ FreeCADGui.addCommand('ksuToolsTransparencyToggle',ksuToolsTransparencyToggle())
 ##
 class ksuToolsHighlightToggle:
     "ksu tools Highlight Toggle"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'select_toggle.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Highlight Toggle" ,
                      'ToolTip' : "Selection Highlight Toggle"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1870,22 +1942,22 @@ class ksuToolsHighlightToggle:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one or more object(s) to be highlighted!")
-            FreeCAD.Console.PrintWarning("Select one or more object(s) to be highlighted!\n")             
+            FreeCAD.Console.PrintWarning("Select one or more object(s) to be highlighted!\n")
 
 FreeCADGui.addCommand('ksuToolsHighlightToggle',ksuToolsHighlightToggle())
 
 #####
 class ksuToolsVisibilityToggle:
     "ksu tools Visibility Toggle"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'visibility_toggle.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Visibility Toggle" ,
                      'ToolTip' : "Selection Visibility Toggle"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1893,22 +1965,22 @@ class ksuToolsVisibilityToggle:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one or more object(s) to toggle visibility!")
-            FreeCAD.Console.PrintWarning("Select one or more object(s) to toggle visibility!\n")             
+            FreeCAD.Console.PrintWarning("Select one or more object(s) to toggle visibility!\n")
 
 FreeCADGui.addCommand('ksuToolsVisibilityToggle',ksuToolsVisibilityToggle())
 
 #####
 class ksuToolsCheckSolid:
     "ksu tools Check Solid property"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'ShapeInfo_check.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu Check Solid property" ,
                      'ToolTip' : "Check Solid property\nToggle suffix"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -1929,11 +2001,11 @@ class ksuToolsCheckSolid:
             def i_say(msg):
                 FreeCAD.Console.PrintMessage(msg)
                 FreeCAD.Console.PrintMessage('\n')
-            
+
             def i_sayw(msg):
                 FreeCAD.Console.PrintWarning(msg)
                 FreeCAD.Console.PrintWarning('\n')
-                
+
             def i_sayerr(msg):
                 FreeCAD.Console.PrintError(msg)
                 FreeCAD.Console.PrintWarning('\n')
@@ -1941,7 +2013,7 @@ class ksuToolsCheckSolid:
             if len(sel)<1:
                     msg="Select one or more object(s) to be checked!\n"
                     reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                    FreeCAD.Console.PrintWarning(msg)             
+                    FreeCAD.Console.PrintWarning(msg)
             else:
                 non_solids=''
                 solids=''
@@ -1981,7 +2053,7 @@ class ksuToolsCheckSolid:
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one or more object(s) to be checked!")
-            FreeCAD.Console.PrintWarning("Select one or more object(s) to be checked!\n")             
+            FreeCAD.Console.PrintWarning("Select one or more object(s) to be checked!\n")
 
 FreeCADGui.addCommand('ksuToolsCheckSolid',ksuToolsCheckSolid())
 
@@ -1989,7 +2061,7 @@ FreeCADGui.addCommand('ksuToolsCheckSolid',ksuToolsCheckSolid())
 def toggleAlly(tree, item, collapse):
     if collapse == False:
         tree.expandItem(item)
-    elif collapse == True:  
+    elif collapse == True:
         tree.collapseItem(item)
     for i in range(item.childCount()):
         print(item.child(i).text(0))
@@ -2000,15 +2072,15 @@ def toggleAlly(tree, item, collapse):
 
 class ksuToolsToggleTreeView:
     "ksu tools Toggle Tree View"
- 
+
     def GetResources(self):
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'expand_all.svg') , # the name of a svg file available in the resources
                      'MenuText': "ksu tools Expand/Collapse Tree View" ,
                      'ToolTip' : "ksu tools Expand/Collapse Tree View"}
- 
+
     def IsActive(self):
         return True
- 
+
     def Activated(self):
         # do something here...
         if FreeCADGui.Selection.getSelection():
@@ -2018,27 +2090,27 @@ class ksuToolsToggleTreeView:
             if len(sel)!=1:
                     msg="Select one expandable tree object to be expanded/compressed!\n"
                     reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                    FreeCAD.Console.PrintWarning(msg)             
+                    FreeCAD.Console.PrintWarning(msg)
             else:
                 import expTree;reload_lib(expTree)
                 expTree.toggle_Tree()
         else:
             #FreeCAD.Console.PrintError("Select elements from dxf imported file\n")
             reply = QtGui.QMessageBox.information(None,"Warning", "Select one expandable tree object to be expanded/compressed!")
-            FreeCAD.Console.PrintWarning("Select one expandable tree object to be expanded/compressed!\n")             
+            FreeCAD.Console.PrintWarning("Select one expandable tree object to be expanded/compressed!\n")
 
 FreeCADGui.addCommand('ksuToolsToggleTreeView',ksuToolsToggleTreeView())
 
 #####
 class ksuToolsAligner:
     "ksu tools Aligner"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Manipulator tools \'Aligner\'"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Align.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         combined_path = '\t'.join(sys.path)
         if 'Manipulator' in combined_path:
@@ -2048,7 +2120,7 @@ class ksuToolsAligner:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         combined_path = '\t'.join(sys.path)
@@ -2060,13 +2132,13 @@ FreeCADGui.addCommand('ksuToolsAligner',ksuToolsAligner())
 #####
 class ksuToolsMover:
     "ksu tools Mover"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Manipulator tools \'Mover\'"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Mover.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         combined_path = '\t'.join(sys.path)
         if 'Manipulator' in combined_path:
@@ -2076,7 +2148,7 @@ class ksuToolsMover:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         combined_path = '\t'.join(sys.path)
@@ -2087,13 +2159,13 @@ FreeCADGui.addCommand('ksuToolsMover',ksuToolsMover())
 #####
 class ksuToolsCaliper:
     "ksu tools Caliper"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Manipulator tools \'Caliper\'"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Caliper.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         combined_path = '\t'.join(sys.path)
         if 'Manipulator' in combined_path:
@@ -2103,7 +2175,7 @@ class ksuToolsCaliper:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         combined_path = '\t'.join(sys.path)
@@ -2114,13 +2186,13 @@ FreeCADGui.addCommand('ksuToolsCaliper',ksuToolsCaliper())
 #####
 class ksuToolsMergeSketches:
     "ksu tools Merge Sketches"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Merge Sketches"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Sketcher_MergeSketch.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         combined_path = '\t'.join(sys.path)
         if FreeCADGui.Selection.getSelection():
@@ -2130,24 +2202,24 @@ class ksuToolsMergeSketches:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         FreeCADGui.runCommand('Sketcher_MergeSketches')
         for s in FreeCADGui.Selection.getSelection():
             FreeCADGui.ActiveDocument.getObject(s.Name).Visibility=False
-        
+
 FreeCADGui.addCommand('ksuToolsMergeSketches',ksuToolsMergeSketches())
 ###
 class ksuToolsEditPrefs:
     "ksu tools Edit Preferences"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Edit Preferences"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Preferences-Edit.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         return True
         #else:
@@ -2155,37 +2227,37 @@ class ksuToolsEditPrefs:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         #import kicadStepUptools
         FreeCADGui.runCommand("Std_DlgPreferences")
-        
+
 FreeCADGui.addCommand('ksuToolsEditPrefs',ksuToolsEditPrefs())
 
 #####
 class ksuRemoveTimeStamp:
     "ksu  Remove TimeStamp"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Remove TimeStamp from Labels"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'remove_TimeStamp.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         doc = FreeCAD.ActiveDocument
         if doc is not None:
             if FreeCADGui.Selection.getSelection():
                 sel=FreeCADGui.Selection.getSelection()
-                if len(sel)==1:        
+                if len(sel)==1:
                     return True
         #else:
         #    self.setToolTip("Grayed Tooltip!")
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # removing TimeStamp ...
         doc = FreeCAD.ActiveDocument
@@ -2194,7 +2266,7 @@ class ksuRemoveTimeStamp:
             if len(sel)!=1:
                 msg="Select one tree object to remove its Label TimeStamps!\n"
                 reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                FreeCAD.Console.PrintWarning(msg)             
+                FreeCAD.Console.PrintWarning(msg)
             else:
                 #msgBox = QtGui.QMessageBox()
                 #msgBox.setText("This will remove ALL TimeStamps from selection objects.\nIt cannot be ondone.")
@@ -2209,7 +2281,7 @@ class ksuRemoveTimeStamp:
                 if ret == QtGui.QMessageBox.Ok:
                     for ob in sel:
                     #for o in doc.Objects:
-                        #print (ob.Name,ob.Label,ob.TypeId)    
+                        #print (ob.Name,ob.Label,ob.TypeId)
                         if ob.TypeId == 'App::Part' or ob.TypeId == 'App::LinkGroup':
                             o_list = ob.OutListRecursive
                             for o in o_list:
@@ -2232,29 +2304,29 @@ class ksuRemoveTimeStamp:
                                     o.Label = o.LinkedObject.Label
                     FreeCAD.Console.PrintWarning('removed Time Stamps\n')
                 elif ret == QtGui.QMessageBox.Cancel:
-                    FreeCAD.Console.PrintMessage('Operation Aborted\n')                
+                    FreeCAD.Console.PrintMessage('Operation Aborted\n')
         else:
             msg="Select one tree object to remove its Label TimeStamps!\n"
             reply = QtGui.QMessageBox.information(None,"Warning", msg)
-            FreeCAD.Console.PrintWarning(msg)             
+            FreeCAD.Console.PrintWarning(msg)
 
 FreeCADGui.addCommand('ksuRemoveTimeStamp',ksuRemoveTimeStamp())
 ###
 class ksuRemoveSuffix:
     "ksu  Remove Suffix"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Remove \'custom\' Suffix from Labels"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'RemoveSuffix.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         doc = FreeCAD.ActiveDocument
         if doc is not None:
             if FreeCADGui.Selection.getSelection():
                 sel=FreeCADGui.Selection.getSelection()
-                if len(sel)==1:        
+                if len(sel)==1:
                     return True
 
     def Activated(self):
@@ -2265,7 +2337,7 @@ class ksuRemoveSuffix:
             if len(sel)!=1:
                 msg="Select one tree object to remove its Label Suffix!\n"
                 reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                FreeCAD.Console.PrintWarning(msg)             
+                FreeCAD.Console.PrintWarning(msg)
             else:
                 import exchangePositions;reload_lib(exchangePositions)
                 #msgBox = QtGui.QMessageBox()
@@ -2284,7 +2356,7 @@ class ksuRemoveSuffix:
                 ##layout.addWidget(msg_box.txtInp)
                 #gl = QtGui.QVBoxLayout()
                 #gl.addWidget(msg_box.txtInp)
-                #msg_box.setLayout(gl) 
+                #msg_box.setLayout(gl)
                 #msg_box.setInformativeText('Informative text.')
                 #msg_box.setDetailedText("Detailed text.")
                 ##msg_box.DetailedText.setTextInteractionFlags (QtCore.Qt.TextEditorInteraction)  #(QtCore.Qt.NoTextInteraction) # (QtCore.Qt.TextSelectableByMouse)
@@ -2293,9 +2365,9 @@ class ksuRemoveSuffix:
                 #msg_box.setDefaultButton(QtGui.QMessageBox.Cancel)
                 #
                 #ret = msg_box.exec_()
-                
+
                 ret = rdlg.exec_()
-                
+
                 # ret = QtGui.QMessageBox.warning(None, ("Warning"),
                 #                ("This will remove ALL Suffix \'.stp\', \'.step\' from selection objects.\nDo you want to continue?"),
                 #                QtGui.QMessageBox.Ok | QtGui.QMessageBox.Cancel,
@@ -2307,7 +2379,7 @@ class ksuRemoveSuffix:
                 if ret: # == QtGui.QMessageBox.Ok:
                     for ob in sel:
                     #for o in doc.Objects:
-                        #print (ob.Name,ob.Label,ob.TypeId)    
+                        #print (ob.Name,ob.Label,ob.TypeId)
                         if ob.TypeId == 'App::Part' or ob.TypeId == 'App::LinkGroup':
                             #suffix1 = '.stp';suffix2 = '.step';suffix3 = '_stp';suffix2 = '_step'
                             #if ob.Label.lower().endswith(suffix1) or ob.Label.lower().endswith(suffix2)\
@@ -2336,7 +2408,7 @@ class ksuRemoveSuffix:
                                     #o.Label = re.sub('_stp', '', o.Label, flags=re.IGNORECASE)
                                     #o.Label = re.sub('_step', '', o.Label, flags=re.IGNORECASE)
                                     #o.Label = re.sub('.stp', '', o.Label, flags=re.IGNORECASE)
-                                    #o.Label = re.sub('.step', '', o.Label, flags=re.IGNORECASE)                              
+                                    #o.Label = re.sub('.step', '', o.Label, flags=re.IGNORECASE)
                             for o in o_list:
                                 if (o.TypeId == 'App::Link'):
                                     o.Label = o.LinkedObject.Label
@@ -2345,30 +2417,30 @@ class ksuRemoveSuffix:
                     msg='Operation Aborted\n'
                     FreeCAD.Console.PrintMessage(msg)
                     reply = QtGui.QMessageBox.information(None,"Warning", msg)
-                    FreeCAD.Console.PrintWarning(msg)                    
+                    FreeCAD.Console.PrintWarning(msg)
         else:
             msg="Select one tree object to remove its Label Suffix!\n"
             reply = QtGui.QMessageBox.information(None,"Warning", msg)
-            FreeCAD.Console.PrintWarning(msg)             
+            FreeCAD.Console.PrintWarning(msg)
 
 FreeCADGui.addCommand('ksuRemoveSuffix',ksuRemoveSuffix())
 
 #####
 class ksuToolsExplode:
     "ksu tools Explode"
-    
+
     def GetResources(self):
         mybtn_tooltip ="ksu Tools PCB Explode\nSelect the top container of a kicad PCB to exlode it"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Explode_Pcb.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         if FreeCAD.ActiveDocument is None:
             return False
         else:
             return True
- 
+
     def Activated(self):
         # do something here...
         import explode
@@ -2379,13 +2451,13 @@ FreeCADGui.addCommand('ksuToolsExplode',ksuToolsExplode())
 #####
 class ksuToolsDefeaturingTools:
     "ksu tools DefeaturingTools"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Defeaturing Tools from Defeaturing WorkBench"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'DefeaturingTools.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         combined_path = '\t'.join(sys.path)
         if 'Defeaturing' in combined_path:
@@ -2395,7 +2467,7 @@ class ksuToolsDefeaturingTools:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         combined_path = '\t'.join(sys.path)
@@ -2406,13 +2478,13 @@ FreeCADGui.addCommand('ksuToolsDefeaturingTools',ksuToolsDefeaturingTools())
 #####
 class ksuToolsRemoveSubTree:
     "ksu tools Remove Sub Tree"
-    
+
     def GetResources(self):
         mybtn_tooltip ="Remove Sub Tree"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'RemoveSubtree.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         if FreeCADGui.Selection.getSelection():
             return True
@@ -2421,7 +2493,7 @@ class ksuToolsRemoveSubTree:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         from PySide import QtGui, QtCore
@@ -2436,13 +2508,13 @@ FreeCADGui.addCommand('ksuToolsRemoveSubTree',ksuToolsRemoveSubTree())
 ####
 class ksuToolsAddTracks:
     "ksu tools Add Tracks"
-    
+
     def GetResources(self):
         mybtn_tooltip ="ksu tools Add Tracks\nNB: it could be a very intensive loading!"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'tracks.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         return True
         #else:
@@ -2450,7 +2522,7 @@ class ksuToolsAddTracks:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         import tracks
@@ -2460,13 +2532,13 @@ FreeCADGui.addCommand('ksuToolsAddTracks',ksuToolsAddTracks())
 #####
 class ksuToolsAddSilks:
     "ksu tools Add Silks"
-    
+
     def GetResources(self):
         mybtn_tooltip ="ksu tools Add Silks from kicad exported DXF\nNB: it could be a very intensive loading!"
         return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Silks.svg') , # the name of a svg file available in the resources
                      'MenuText': mybtn_tooltip ,
                      'ToolTip' : mybtn_tooltip}
- 
+
     def IsActive(self):
         return True
         #else:
@@ -2474,7 +2546,7 @@ class ksuToolsAddSilks:
         #    print(self.ObjectName)
         #    grayed_tooltip="Grayed Tooltip!"
         #    mybtn_tooltip=grayed_tooltip
- 
+
     def Activated(self):
         # do something here...
         import makefacedxf
@@ -2489,7 +2561,7 @@ class ksuExcDemo:
         self.exFile = str(exFile)
         self.ext    = self.exFile[self.exFile.rfind('.'):].lower()
         #print self.ext
-    
+
     # 'hierarchy_nav.svg' for Demo
     #'Pixmap'  : os.path.join( ksuWB_icons_path , 'hierarchy_nav.svg') ,
 
@@ -2509,15 +2581,15 @@ class ksuExcDemo:
         elif 'fcstd' in self.ext:
             return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'Freecad.svg') ,
                     'MenuText': str(self.exFile),
-                    'ToolTip' : "Demo files"}        
+                    'ToolTip' : "Demo files"}
         elif 'dxf' in self.ext:
             return {'Pixmap'  : os.path.join( ksuWB_icons_path , '2D-frame.svg') ,
                     'MenuText': str(self.exFile),
-                    'ToolTip' : "Demo files"}        
+                    'ToolTip' : "Demo files"}
         elif 'step' in self.ext:
             return {'Pixmap'  : os.path.join( ksuWB_icons_path , 'importStep.svg') ,
                     'MenuText': str(self.exFile),
-                    'ToolTip' : "Demo files"}                    
+                    'ToolTip' : "Demo files"}
         else:
             return {'MenuText': str(self.exFile),
                     'ToolTip' : "Demo files"}
@@ -2608,7 +2680,7 @@ class ksuExcDemo:
             FreeCADGui.SendMsgToActiveView("ViewFit")
         #if ext==".pdf":
         #    subprocess.Popen([file],shell=True)
-        
+
         #import ImportGui
         #ImportGui.open(os.path.join(exs_dir_path, self.exFile))
         #ImportCQ.open(os.path.join(exs_dir_path, self.exFile))

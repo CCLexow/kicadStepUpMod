@@ -69,8 +69,8 @@ class kSU_MainPrefPage:
         import os, hlp
         global ksuWBpath
         print ("Created kSU Auxiliar Pref page")
-        help_t = hlp.help_txt        
-        
+        help_t = hlp.help_txt
+
         self.form = QtGui.QWidget()
         self.form.setWindowTitle("kSU \'Help Tips\'")
         self.form.verticalLayoutWidget = QtGui.QWidget(self.form)
@@ -87,22 +87,22 @@ class kSU_MainPrefPage:
         self.form.textEdit.setGeometry(QtCore.QRect(00, 10, 530, 640)) #top corner, width, height
         self.form.textEdit.setOpenExternalLinks(True)
         self.form.textEdit.setObjectName("textEdit")
-        self.form.textEdit.setText(help_t)        
+        self.form.textEdit.setText(help_t)
 # Button UI
         add_button=False
         if add_button:
             self.form.btn = QtGui.QPushButton('Create Folder', self.form.verticalLayoutWidget)
             self.form.btn.setToolTip('This creates the folders.')
             self.form.btn.resize(self.form.btn.sizeHint())
-            self.form.btn.move(5, 60)       
-            self.form.btn.clicked.connect(self.selectDirectory)   
-            self.form.verticalLayout.addWidget(self.form.btn)        
-        
+            self.form.btn.move(5, 60)
+            self.form.btn.clicked.connect(self.selectDirectory)
+            self.form.verticalLayout.addWidget(self.form.btn)
+
     def saveSettings(self):
         print ("saveSettings Helper")
         import SaveSettings
         SaveSettings.update_ksuGui()
-        
+
     def loadSettings(self):
         print ("loadSettings Helper")
         prefs = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUpGui").GetString('prefix3d_1')+'/'
@@ -116,16 +116,16 @@ class kSU_MainPrefPage:
 class ksuWB ( Workbench ):
     global main_ksu_Icon, ksu_wb_version, myurlKWB, mycommitsKWB
     global ksuWB_ui_path, kSU_MainPrefPage, ksuWB_icons_path
-    
+
     "KiCad StepUp Wb object"
     Icon = main_ksu_Icon
     #Icon = ":Resources/icons/kicad-StepUp-tools-WB.svg"
     MenuText = "KiCad StepUp Wb"
     ToolTip = "kicad StepUp workbench"
- 
+
     def GetClassName(self):
         return "Gui::PythonWorkbench"
-    
+
     def Initialize(self):
         import kicadStepUpCMD, sys
         global pref_page
@@ -141,12 +141,12 @@ class ksuWB ( Workbench ):
 
         #self.appendToolbar("ksu Tools", ["ksuTools"])
         self.appendToolbar("ksu Tools", ["ksuToolsEditPrefs","ksuTools","ksuToolsOpenBoard","ksuToolsLoadFootprint",\
-                           "ksuToolsExportModel","ksuToolsPushPCB","ksuToolsFootprintGen","Separator","ksuToolsAddTracks","ksuToolsAddSilks","Separator",\
+                           "ksuToolsExportModel","ksuToolsPushPCB","ksuToolsPushPCBKeepOutTop","ksuToolsPushPCBKeepOutBot","ksuToolsFootprintGen","Separator","ksuToolsAddTracks","ksuToolsAddSilks","Separator",\
                            "ksuToolsCollisions","ksuToolsImport3DStep","ksuToolsExport3DStep","ksuToolsMakeUnion",\
                            "ksuToolsMakeCompound", "ksuToolsSimpleCopy", "ksuToolsDeepCopy", "ksuToolsCheckSolid", "ksuTools3D2D", "ksuTools2D2Sketch", "ksuTools2DtoFace",\
                            "ksuToolsMergeSketches","ksuToolsSimplifySketck", "ksuToolsConstrainator", "ksuToolsDiscretize"])
                            #, "ksuToolsPushMoved","ksuToolsSync3DModels"])
-        ksuTB = ["ksuToolsOpenBoard","ksuToolsPushPCB","ksuToolsPushMoved","ksuToolsSync3DModels","ksuAsm2Part",\
+        ksuTB = ["ksuToolsOpenBoard","ksuToolsPushPCB","ksuToolsPushPCBKeepOutTop","ksuToolsPushPCBKeepOutBot","ksuToolsPushMoved","ksuToolsSync3DModels","ksuAsm2Part",\
                  "Separator","ksuToolsGeneratePositions","ksuToolsComparePositions",\
                  "Separator","ksuToolsToggleTreeView","Separator","ksuRemoveTimeStamp","ksuRemoveSuffix","Separator","ksuToolsLoadFootprint","ksuToolsFootprintGen"]
         #ksuTB.extend(["Separator","ksuToolsAligner","ksuToolsMover","ksuToolsCaliper"])
@@ -161,12 +161,12 @@ class ksuWB ( Workbench ):
         self.appendToolbar("ksu Show", ["ksuToolsTurnTable", "ksuToolsExplode"])
         #self.appendMenu("ksu Tools", ["ksuTools","ksuToolsEdit"])
         self.appendMenu("ksu Tools", ["ksuTools","ksuToolsEditPrefs"])
-        self.appendMenu("ksu PushPull", ["ksuToolsOpenBoard","ksuToolsPushPCB","ksuToolsPushMoved","ksuToolsSync3DModels",\
+        self.appendMenu("ksu PushPull", ["ksuToolsOpenBoard","ksuToolsPushPCB","ksuToolsPushPCBKeepOutTop","ksuToolsPushPCBKeepOutBot","ksuToolsPushMoved","ksuToolsSync3DModels",\
                         "Separator","ksuToolsGeneratePositions","ksuToolsComparePositions",\
                         "Separator","ksuRemoveTimeStamp","ksuRemoveSuffix",\
                         "Separator","ksuToolsLoadFootprint","ksuToolsFootprintGen"])
         self.appendMenu(["ksu Tools", "Demo"], submenu)
-        
+
         #FreeCADGui.addPreferencePage( a2plib.pathOfModule() + '/GuiA2p/ui/a2p_prefs.ui','A2plus' )
         if pref_page:
             FreeCADGui.addPreferencePage(
@@ -177,7 +177,7 @@ class ksuWB ( Workbench ):
 
         FreeCADGui.addIconPath(ksuWB_icons_path)
         Log ("Loading ksuModule... done\n")
- 
+
     def Activated(self):
                 # do something here if needed...
         Msg ("ksuWB.Activated("+ksu_wb_version+")\n")
@@ -186,7 +186,7 @@ class ksuWB ( Workbench ):
         from os.path import expanduser
         import codecs #utf-8 config parser
         import FreeCAD, FreeCADGui
-        
+
         pg = FreeCAD.ParamGet("User parameter:BaseApp/Preferences/Mod/kicadStepUp")
         tnow = int(time.time())
         oneday = 86400
@@ -360,14 +360,14 @@ class ksuWB ( Workbench ):
                 try:
                     response = request.urlopen(req)
                     resp_ok = True
-                    the_page = response.read().decode("utf-8") 
+                    the_page = response.read().decode("utf-8")
                 except error.HTTPError as e:
                     FreeCAD.Console.PrintWarning('The server couldn\'t fulfill the request.')
                     FreeCAD.Console.PrintWarning('Error code: ' + str(e.code)+'\n')
                 except error.URLError as e:
                     FreeCAD.Console.PrintWarning('We failed to reach a server.\n')
                     FreeCAD.Console.PrintWarning('Reason: '+ str(e.reason)+'\n')
-                
+
             else:  #py2
                 import urllib2
                 from urllib2 import Request, urlopen, URLError, HTTPError
@@ -381,9 +381,9 @@ class ksuWB ( Workbench ):
                     FreeCAD.Console.PrintWarning('Error code: ' + str(e.code)+'\n')
                 except URLError as e:
                     FreeCAD.Console.PrintWarning('We failed to reach a server.\n')
-                    FreeCAD.Console.PrintWarning('Reason: '+ str(e.reason)+'\n')          
-                
-            if resp_ok:            
+                    FreeCAD.Console.PrintWarning('Reason: '+ str(e.reason)+'\n')
+
+            if resp_ok:
                 # everything is fine
                 #the_page = response.read()
                 # print the_page
@@ -404,7 +404,7 @@ class ksuWB ( Workbench ):
                 nbr_commits=my_commits[:pos]
                 nbr_commits=nbr_commits.replace(',','')
                 nbr_commits=nbr_commits.replace('.','')
-                
+
                 FreeCAD.Console.PrintMessage(url+'-> commits:'+str(nbr_commits)+'\n')
                 delta = int(nbr_commits) - commit_nbr
                 if delta > 0:
@@ -429,7 +429,7 @@ class ksuWB ( Workbench ):
         ##
         if upd and interval:
             check_updates(myurlKWB, mycommitsKWB)
- 
+
     def Deactivated(self):
                 # do something here if needed...
         Msg ("ksuWB.Deactivated()\n")
@@ -459,5 +459,5 @@ for curFile in dirs:
 
 #FreeCADGui.addPreferencePage(kSU_MainPrefPage,"kicadStepUpGui")
 #FreeCADGui.addPreferencePage(CalendarPage, "kicadStepUpGui")
-        
+
 FreeCADGui.addWorkbench(ksuWB)
